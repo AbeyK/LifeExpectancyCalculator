@@ -17,6 +17,10 @@ export class PersonalInfo {
         };
 
         this.showCounties = false;
+        this.showBMI = false;
+
+        this.weightInput = "";
+        this.heightInput = "";
     }
 
     printStuff()
@@ -79,6 +83,46 @@ export class PersonalInfo {
     }
     lol(){
         console.log(this.data.selectedCounty);
+    }
+
+    enteredHeight() {
+        if ( /^\d'(\d|1[0-2])$/.test(this.heightInput) )
+        {
+            if (this.heightInput != "" && this.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
+            {
+                this.user.calculateBMI(this.heightInput, this.weightInput);
+                this.showBMI = true;
+            }
+        }
+        else
+        {
+            this.heightInput = "";
+            this.showBMI = false;
+            alert("Please enter a properly formatted height, e.g.:  5'10");
+        }
+    }
+
+    enteredWeight() {
+        if ( /^\d+$/.test(this.weightInput) )
+        {
+            if (this.heightInput != "" && this.weightInput != "")   // if user entered both weight and height, calculate BMI and show
+            {
+                this.user.calculateBMI(this.heightInput, this.weightInput);
+                this.showBMI = true;
+            }
+        }
+        else
+        {
+            this.weightInput = "";
+            this.showBMI = false;
+            alert("Please enter a valid weight in lbs.");
+        }
+    }
+
+    calculateBMI(heightInput, weightInput) {
+        var weightLbs = parseInt(weightInput);
+        var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
+        this.bmi = weightLbs * 0.45 / ( (heightIn * 0.025) * (heightIn * 0.025) );
     }
 
 }

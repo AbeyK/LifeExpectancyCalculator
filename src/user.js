@@ -10,10 +10,15 @@ export class User {
        
         this.weight = 0; //in lbs
         
-        this.feet = 0;
-        this.inches = 0;
-        this.height = 0; //in inches
+        this.bmi = 0;
 
 
+    }
+
+    calculateBMI(heightInput, weightInput) {
+        var weightLbs = parseInt(weightInput);
+        var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
+        this.bmi = weightLbs * 0.45 / ( (heightIn * 0.025) * (heightIn * 0.025) );
+        this.bmi = this.bmi.toFixed(1);
     }
 }
