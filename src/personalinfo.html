@@ -21,24 +21,17 @@
             </script>
             <button type="submit" click.delegate="beatUpNerds()">Add Todo</button>
 
-            <div class="form-group">
-                <label show.bind="(userData.client.isMarried && !userData.client.isRecieving)" for="spouseMilitaryService">Do you recieve a government pension that is based on income?</label>
-                <label show.bind="userData.client.divorceCheck" for="spouseMilitaryService">Does your ex-spouse recieve a government pension that is based on income?</label>
-                <br>
-                <div click.delegate="gpoSpouse()" class="btn-group" data-toggle="buttons">
-                    <label class="btn ${userData.spouse.recievePension ? 'active btn-primary' : 'btn-secondary'}">
-                        <input type="radio">Yes
-                    </label>
-                    <label class="btn ${!userData.spouse.recievePension ? 'active btn-primary' : 'btn-secondary'}">
-                        <input type="radio">No
-                    </label>
-                </div>
-            </div>
-
+            
         </form>
 
+        <select value.bind="state">
+            <option value="">-Choose State-</option>
+            <option value="${state}" repeat.for="state of states">${state}</option>
+        </select>
+
+        <h1>${this.selected}</h1>
+        <button click.delegate="printStuff()">aaaaa</button>
 
     </main>
-
 
 </template>
