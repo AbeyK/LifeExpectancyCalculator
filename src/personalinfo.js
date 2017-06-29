@@ -6448,11 +6448,16 @@ export class PersonalInfo {
         ['Weston County, Wyoming', '78.76 (77.86, 79.65)', '0.96 (0.83, 1.13)', '3.00 (2.64, 3.38)', '11.27 (10.28, 12.39)', '48.68 (45.84, 51.60)']
 
         ];
+
+        var states = []
+        var countyInState = []
+        var count=1;
         for (var i = 0; i < countyLifeExp.length; i++) {
-            if (countyLifeExp[i][0] === "Autauga County, Alabama") {
-                console.log(countyLifeExp[i]);
-                break;
+            if (countyLifeExp[i][0].split(",").length===1) {
+                states.push(countyLifeExp[i]);
+                count++;
             }
         }
+        console.log(states);
     }
 }
