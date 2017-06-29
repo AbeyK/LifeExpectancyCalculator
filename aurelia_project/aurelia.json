@@ -136,6 +136,26 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
+          },
+          "jquery",
+          {
+            "name": "bootstrap",
+            "path": "../node_modules/bootstrap/dist",
+            "main": "js/bootstrap.min",
+            "deps": ["jquery"],
+            "exports": "$",
+            "resources": [
+              "css/bootstrap.css"
+            ]
+          },
+          {
+            "name": "jquery-ui-dist",
+            "path": "../node_modules/jquery-ui-dist",
+            "main": "jquery-ui",
+            "deps": ["jquery"],
+            "resources": [
+              "jquery-ui.css"
+            ]
           }
         ]
       }

@@ -1,4 +1,6 @@
 <template>
+    <require from="jquery-ui-dist/jquery-ui.css"></require>
+
     <h1>This is Personal Infooooooo</h1>
     <input type="text" value.bind="this.blah">
     <h2>${this.blah}</h2>
@@ -6,12 +8,12 @@
     <form submit.trigger="stuff()">
         <input type="text" value.bind="this.blah" id="fname">
         <script>
-document.getElementById("fname").onblur = function() {myFunction()};
+            document.getElementById("fname").onblur = function() {myFunction()};
 
-function myFunction() {
-    alert("Input field lost focus.");
-}
-</script>
+            function myFunction() {
+                alert("Input field lost focus.");
+            }
+        </script>
         <button type="submit"> Add Todo</button>
   </form>
 </template>

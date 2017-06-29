@@ -149,6 +149,6 @@ define('resources/index',["exports"], function (exports) {
   function configure(config) {}
 });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><h1>Weeeeee</h1><router-view></router-view></template>"; });
-define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><h1>This is Personal Infooooooo</h1><input type=\"text\" value.bind=\"this.blah\"><h2>${this.blah}</h2><form submit.trigger=\"stuff()\"><input type=\"text\" value.bind=\"this.blah\" id=\"fname\"><script>function myFunction(){alert(\"Input field lost focus.\")}document.getElementById(\"fname\").onblur=function(){myFunction()}</script><button type=\"submit\">Add Todo</button></form></template>"; });
+define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><h1>This is Personal Infooooooo</h1><input type=\"text\" value.bind=\"this.blah\"><h2>${this.blah}</h2><form submit.trigger=\"stuff()\"><input type=\"text\" value.bind=\"this.blah\" id=\"fname\"><script>function myFunction(){alert(\"Input field lost focus.\")}document.getElementById(\"fname\").onblur=function(){myFunction()}</script><button type=\"submit\">Add Todo</button></form></template>"; });
 define('text!results.html', ['module'], function(module) { module.exports = "<template><h1>This is resultssssssssssss</h1></template>"; });
 //# sourceMappingURL=app-bundle.js.map
