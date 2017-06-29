@@ -9,24 +9,15 @@
     <main>
         <input type="text" value.bind="this.blah">
         <h2>${this.blah}</h2>
-    
-        <form submit.trigger="stuff()">
-            <input type="text" value.bind="this.blah" id="fname">
-            <script>
-                document.getElementById("fname").onblur = function() {myFunction()};
 
-                function myFunction() {
-                    alert("Input field lost focus.");
-                }
-            </script>
-            <button type="submit" click.delegate="setUpCountyArray()">Add Todo</button>
-
-            
-        </form>
-
-        <select value.bind="state">
+        <select value.bind="data.selectedState" click.delegate="showCounty()">
             <option value="">-Choose State-</option>
-            <option value="${state}" repeat.for="state of states">${state}</option>
+            <option value="${tempState}" repeat.for="tempState of data.states">${tempState}</option>
+        </select>
+
+        <select show.bind="showCounties" value.bind="data.selectedState" click.delegate="showCounty()">
+            <option value="">-Choose State-</option>
+            <option value="${tempState}" repeat.for="tempState of data.states">${tempState}</option>
         </select>
 
         <h1>${this.selected}</h1>

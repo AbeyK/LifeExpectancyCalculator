@@ -2,7 +2,7 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 import $ from 'jquery';
 import {User} from 'user';
-import { Data } from './data';
+import {Data} from './data';
 
 
 @inject(User, HttpClient, Data)
@@ -15,6 +15,8 @@ export class PersonalInfo {
         this.handleBodyClick = e => {
             console.log("ahh" + e.target);
         };
+
+        this.showCounties = false;
     }
 
     printStuff()
@@ -53,21 +55,21 @@ export class PersonalInfo {
 
 
     attached() {
-        document.getElementById("fname").onblur = function () { console.log("hello world") };
     }
 
     detached() {
-        document.removeEventListener('click', this.handleBodyClick);
     }
 
-    setUpCountyArray(f) {
-        var count=1;
-        for (var i = 0; i < this.data.countyLifeExp.length; i++) {
-            if (this.data.countyLifeExp[i][0].split(",").length===1) {
-                this.data.states.push(this.data.countyLifeExp[i]);
-                count++;
-            }
+    showCounty(state) {
+        if (this.data.selectedState != "")
+        {
+            
+
+            this.showCounties = true;
         }
-        console.log(this.data.states)
+        else
+            this.showCounties = false;
+
+        console.log(this.data.selectedState);
     }
 }
