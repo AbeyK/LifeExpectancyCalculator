@@ -2,32 +2,16 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 import $ from 'jquery';
 import {User} from 'user';
+import { Data } from './data';
 
 
-@inject(User, HttpClient)
+@inject(User, HttpClient, Data)
 export class PersonalInfo {
     constructor(user, http, data) {
         this.user = user;
         this.data = data;
         this.blah = "";
         this.httpClient = http;
-
-        var countyLifeExp = [];
-
-        var states = []
-        var countyInState = []
-        var count=1;
-        for (var i = 0; i < countyLifeExp.length; i++) {
-            if (countyLifeExp[i][0].split(",").length===1) {
-                states.push(countyLifeExp[i]);
-                count++;
-            }
-        }
-        console.log(states);
-
-        this.states = ["hello", "hi"];
-        this.state = "testing";
-
         this.handleBodyClick = e => {
             console.log("ahh" + e.target);
         };
@@ -76,7 +60,14 @@ export class PersonalInfo {
         document.removeEventListener('click', this.handleBodyClick);
     }
 
-    beatUpNerds(f) {
-        
+    setUpCountyArray(f) {
+        var count=1;
+        for (var i = 0; i < this.data.countyLifeExp.length; i++) {
+            if (this.data.countyLifeExp[i][0].split(",").length===1) {
+                this.data.states.push(this.data.countyLifeExp[i]);
+                count++;
+            }
+        }
+        console.log(this.data.states)
     }
 }
