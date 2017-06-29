@@ -15,9 +15,9 @@
             <option value="${tempState}" repeat.for="tempState of data.states">${tempState}</option>
         </select>
 
-        <select show.bind="showCounties" value.bind="data.selectedState" click.delegate="showCounty()">
-            <option value="">-Choose State-</option>
-            <option value="${tempState}" repeat.for="tempState of data.states">${tempState}</option>
+        <select show.bind="showCounties" value.bind="data.selectedCounty" click.delegate="lol()">
+            <option value="">-Choose County-</option>
+            <option value="${tempCounty}" repeat.for="tempCounty of data.counties">${tempCounty[0]}</option>
         </select>
 
         <h1>${this.selected}</h1>

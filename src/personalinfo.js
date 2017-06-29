@@ -60,16 +60,25 @@ export class PersonalInfo {
     detached() {
     }
 
-    showCounty(state) {
+    showCounty() {
         if (this.data.selectedState != "")
         {
-            
+            // this.data.counties.length = 0; //clear array NO memory leaks
+            this.data.counties = [];
 
+            this.data.countyLifeExp
+            for(var i =0; i<this.data.countyLifeExp.length; i++){
+                if(this.data.countyLifeExp[i][0].split(",").length === 2 && this.data.countyLifeExp[i][0].split(",")[1].trim()===this.data.selectedState){
+                    this.data.counties.push(this.data.countyLifeExp[i]);
+                }
+            }
             this.showCounties = true;
         }
         else
             this.showCounties = false;
-
-        console.log(this.data.selectedState);
     }
+    lol(){
+        console.log(this.data.selectedCounty);
+    }
+
 }

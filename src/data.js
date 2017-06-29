@@ -1,9 +1,9 @@
 export class Data {
     constructor() {
-
+        this.selectedCounty;
         this.selectedState;
+        this.counties = [];
         this.states = [];
-        this.countyInState = [];
 
         this.countyLifeExp = [
 
