@@ -104,72 +104,6 @@ define('main',['exports', './environment'], function (exports, _environment) {
     });
   }
 });
-define('results',["exports"], function (exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    var Results = exports.Results = function Results() {
-        _classCallCheck(this, Results);
-    };
-});
-define('user',["exports", "aurelia-framework"], function (exports, _aureliaFramework) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    exports.User = undefined;
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    var _dec, _class;
-
-    var User = exports.User = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function () {
-        function User() {
-            _classCallCheck(this, User);
-
-            this.state = "";
-            this.county = "";
-
-            this.smokes = false;
-
-            this.weight = 0;
-
-            this.bmi = 0;
-        }
-
-        User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
-            var weightLbs = parseInt(weightInput);
-            var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
-            this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
-            this.bmi = this.bmi.toFixed(1);
-        };
-
-        return User;
-    }()) || _class);
-});
-define('resources/index',["exports"], function (exports) {
-  "use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.configure = configure;
-  function configure(config) {}
-});
 define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', 'jquery', 'user', './data'], function (exports, _aureliaFetchClient, _aureliaFramework, _jquery, _user, _data) {
     'use strict';
 
@@ -276,8 +210,74 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         return PersonalInfo;
     }()) || _class);
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. All rights reserved.</footer></template>"; });
+define('results',["exports"], function (exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var Results = exports.Results = function Results() {
+        _classCallCheck(this, Results);
+    };
+});
+define('user',["exports", "aurelia-framework"], function (exports, _aureliaFramework) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.User = undefined;
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _dec, _class;
+
+    var User = exports.User = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function () {
+        function User() {
+            _classCallCheck(this, User);
+
+            this.state = "";
+            this.county = "";
+
+            this.smokes = false;
+
+            this.weight = 0;
+
+            this.bmi = 0;
+        }
+
+        User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
+            var weightLbs = parseInt(weightInput);
+            var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
+            this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
+            this.bmi = this.bmi.toFixed(1);
+        };
+
+        return User;
+    }()) || _class);
+});
+define('resources/index',["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.configure = configure;
+  function configure(config) {}
+});
 define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. No rights reserved.</footer></template>"; });
 define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><input type=\"text\" value.bind=\"this.blah\"><h2>${this.blah}</h2><select value.bind=\"data.selectedState\" click.delegate=\"showCounty()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"data.selectedCounty\" click.delegate=\"lol()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${user.bmi}</div><h1>${this.selected}</h1><button click.delegate=\"printStuff()\">aaaaa</button></main></template>"; });
-define('text!results.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Results</h1><p>“The following results are projections for educational and planning purposes only. We recommend that you consult with your financial advisor.”</p></header><main></main></template>"; });
+define('text!results.html', ['module'], function(module) { module.exports = "<template><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Countdown JS Example</title><meta name=\"author\" content=\"Leonard Teo\"><script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script><script src=\"countdown.js\"></script><script>$(document).ready(function(){var n=new Date(2012,12,25,0,0,0),t=new Date(2012,12,23,0,0,0);new Countdown(n,t).countdown(function(n){$(\"#days\").html(n.days),$(\"#hours\").html(n.hours),$(\"#minutes\").html(n.minutes),$(\"#seconds\").html(n.seconds)})})</script><style>body{font-family:arial,sans-serif}.container{width:400px;margin:0 auto;padding:100px}.countdown .digits td{font-size:40px;text-align:center;padding:5px}.countdown tbody td{text-align:center;padding:5px}</style></head><body><div class=\"container\"><table class=\"countdown\"><thead class=\"digits\"><tr><td id=\"days\"></td><td id=\"hours\"></td><td id=\"minutes\"></td><td id=\"seconds\"></td></tr></thead><tbody><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table></div></body></html></template>"; });
 //# sourceMappingURL=app-bundle.js.map
