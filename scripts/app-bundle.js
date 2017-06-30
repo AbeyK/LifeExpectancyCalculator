@@ -247,6 +247,8 @@ define('user',["exports", "aurelia-framework"], function (exports, _aureliaFrame
         function User() {
             _classCallCheck(this, User);
 
+            this.gender = "";
+
             this.state = "";
             this.county = "";
 
@@ -255,13 +257,18 @@ define('user',["exports", "aurelia-framework"], function (exports, _aureliaFrame
             this.weight = 0;
 
             this.bmi = 0;
+            this.bmiCatagory = "";
+            this.hale = 0;
         }
 
         User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
             var weightLbs = parseInt(weightInput);
             var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
+
             this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
             this.bmi = this.bmi.toFixed(1);
+
+            if (this.bmi < 18.5) this.gender === "male" ? this.hale = -9 : this.hale = -5.9;else if (this.bmi <= 18.5 && this.bmi < 25) this.hale = 0;else if (this.bmi <= 25 && this.bmi < 30) this.gender === "male" ? this.hale = 2.9 : this.hale = 1.5;else if (this.bmi <= 30 && this.bmi < 35) this.gender === "male" ? this.hale = 0.4 : this.hale = -2.7;else this.gender === "male" ? this.hale = -6.2 : this.hale = -10;
         };
 
         return User;
@@ -276,8 +283,8 @@ define('resources/index',["exports"], function (exports) {
   exports.configure = configure;
   function configure(config) {}
 });
-define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. No rights reserved.</footer></template>"; });
+define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
 define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><input type=\"text\" value.bind=\"this.blah\"><h2>${this.blah}</h2><select value.bind=\"data.selectedState\" click.delegate=\"showCounty()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"data.selectedCounty\" click.delegate=\"lol()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${user.bmi}</div><h1>${this.selected}</h1><button click.delegate=\"printStuff()\">aaaaa</button></main></template>"; });
 define('text!results.html', ['module'], function(module) { module.exports = "<template><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Countdown JS Example</title><meta name=\"author\" content=\"Leonard Teo\"><script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script><script src=\"countdown.js\"></script><script>$(document).ready(function(){var n=new Date(2012,12,25,0,0,0),t=new Date(2012,12,23,0,0,0);new Countdown(n,t).countdown(function(n){$(\"#days\").html(n.days),$(\"#hours\").html(n.hours),$(\"#minutes\").html(n.minutes),$(\"#seconds\").html(n.seconds)})})</script><style>body{font-family:arial,sans-serif}.container{width:400px;margin:0 auto;padding:100px}.countdown .digits td{font-size:40px;text-align:center;padding:5px}.countdown tbody td{text-align:center;padding:5px}</style></head><body><div class=\"container\"><table class=\"countdown\"><thead class=\"digits\"><tr><td id=\"days\"></td><td id=\"hours\"></td><td id=\"minutes\"></td><td id=\"seconds\"></td></tr></thead><tbody><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table></div></body></html></template>"; });
 //# sourceMappingURL=app-bundle.js.map
