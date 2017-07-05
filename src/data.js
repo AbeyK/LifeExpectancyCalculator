@@ -6398,7 +6398,7 @@ export class Data {
             ['Weston County, Wyoming', '78.76 (77.86, 79.65)', '0.96 (0.83, 1.13)', '3.00 (2.64, 3.38)', '11.27 (10.28, 12.39)', '48.68 (45.84, 51.60)']
 
         ];
-        race_offset_list=[
+        this.race_offset_list=[
             //aged, white men, wite women, blakc men, vlack women, hispanic men, hispacic women
             ['0', '0.32', '0.25', '-4.08', '-2.85', '2.72', '2.75'],
             ['1', '0.22', '0.11', '-3.68', '-2.49', '2.72', '2.71'],
