@@ -32,6 +32,7 @@ export class User {
 
         this.diabetic="";
         this.diabeticOffset;
+        this.smokingOffset;
 
         this.education = "";
 

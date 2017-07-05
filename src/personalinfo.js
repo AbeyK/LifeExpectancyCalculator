@@ -206,7 +206,11 @@ export class PersonalInfo {
         }
         console.log(this.userData.client.diabeticOffset);
     }
-
+    setSmoking(num){
+            var smokingOffsetArray = [4.3,2.1,5.8,8.8]
+            this.userData.client.smokingOffset=smokingOffsetArray[num];
+            console.log(this.userData.client.smokingOffset);
+    }
     enteredEducation() {
         if (this.userData.client.education == "")
             alert("Please select a valid education");
