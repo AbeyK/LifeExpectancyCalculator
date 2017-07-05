@@ -141,10 +141,10 @@ export class PersonalInfo {
         }
     }
 
-    setDiabetic(diabetic){
+    setDiabetic(diabetic) {
         this.userData.client.diabetic = diabetic;
-        console.log(this.userData.client.diabetic);
     }
+
     // SPOUSE --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //        --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -154,67 +154,71 @@ export class PersonalInfo {
     }
 
     enteredGenderSpouse() {
-        if (this.userData.client.gender == "")
+        if (this.userData.spouse.gender == "")
             alert("Please select a valid sex");
     }
 
     enteredRaceSpouse() {
-        if (this.userData.client.race == "")
+        if (this.userData.spouse.race == "")
             alert("Please select a valid race");
     }
 
     enteredStateSpouse() {
-        if (this.userData.client.state != "")
+        if (this.userData.spouse.state != "")
         {
             // this.data.counties.length = 0; //clear array NO memory leaks
-            this.userData.client.data.counties = [];
+            this.userData.spouse.data.counties = [];
 
-            for(var i =0; i<this.userData.client.data.countyLifeExp.length; i++){
-                if(this.userData.client.data.countyLifeExp[i][0].split(",").length === 2 && this.userData.client.data.countyLifeExp[i][0].split(",")[1].trim()===this.userData.client.state){
-                    this.userData.client.data.counties.push(this.userData.client.data.countyLifeExp[i]);
+            for(var i =0; i<this.userData.spouse.data.countyLifeExp.length; i++){
+                if(this.userData.spouse.data.countyLifeExp[i][0].split(",").length === 2 && this.userData.spouse.data.countyLifeExp[i][0].split(",")[1].trim()===this.userData.spouse.state){
+                    this.userData.spouse.data.counties.push(this.userData.spouse.data.countyLifeExp[i]);
                 }
             }
-            this.showCounties = true;
+            this.showCountiesSpouse = true;
         }
         else
-            this.showCounties = false;
+            this.showCountiesSpouse = false;
     }
     enteredCountySpouse(){
-        console.log(this.userData.client.data.counties);
+        console.log(this.userData.spouse.data.counties);
     }
 
     enteredHeightSpouse() {
-        console.log("here it is: " + this.userData.client.heightInput)
-        if ( /^\d'(\d|1[0-2])$/.test(this.userData.client.heightInput) )
+        console.log("here it is: " + this.userData.spouse.heightInput)
+        if ( /^\d'(\d|1[0-2])$/.test(this.userData.spouse.heightInput) )
         {
-            if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
+            if (this.userData.spouse.heightInput != "" && this.userData.spouse.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
             {
-                this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
-                this.showBMI = true;
+                this.userData.spouse.calculateBMI(this.userData.spouse.heightInput, this.userData.spouse.weightInput);
+                this.showBMISpouse = true;
             }
         }
         else
         {
-            this.userData.client.heightInput = "";
-            this.showBMI = false;
+            this.userData.spouse.heightInput = "";
+            this.showBMISpouse = false;
             alert("Please enter a properly formatted height, e.g.:  5'10");
         }
     }
 
     enteredWeightSpouse() {
-        if ( /^\d+$/.test(this.userData.client.weightInput) )
+        if ( /^\d+$/.test(this.userData.spouse.weightInput) )
         {
-            if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "")   // if user entered both weight and height, calculate BMI and show
+            if (this.userData.spouse.heightInput != "" && this.userData.spouse.weightInput != "")   // if user entered both weight and height, calculate BMI and show
             {
-                this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
-                this.showBMI = true;
+                this.userData.spouse.calculateBMI(this.userData.spouse.heightInput, this.userData.spouse.weightInput);
+                this.showBMISpouse = true;
             }
         }
         else
         {
-            this.userData.client.weightInput = "";
-            this.showBMI = false;
+            this.userData.spouse.weightInput = "";
+            this.showBMISpouse = false;
             alert("Please enter a valid weight in lbs.");
         }
+    }
+
+    setDiabeticSpouse(diabetic) {
+        this.userData.spouse.diabetic = diabetic;
     }
 }

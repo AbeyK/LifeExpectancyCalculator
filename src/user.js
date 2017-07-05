@@ -40,15 +40,15 @@ export class User {
         this.bmi = this.bmi.toFixed(1);
 
         if (this.bmi < 18.5)
-            this.gender === "male" ? this.hale = -9 : this.hale = -5.9; //this.bmiCatagory = "underweight";
+            this.gender === "Male" ? this.hale = -9 : this.hale = -5.9; //this.bmiCatagory = "underweight";
         else if (this.bmi <=18.5 && this.bmi < 25)
             this.hale = 0; //this.bmiCatagory = "normal weight";
         else if (this.bmi <= 25 && this.bmi < 30)
-            this.gender === "male" ? this.hale = 2.9 : this.hale = 1.5; //this.bmiCatagory = "overweight";
+            this.gender === "Male" ? this.hale = 2.9 : this.hale = 1.5; //this.bmiCatagory = "overweight";
         else if (this.bmi <= 30 && this.bmi < 35)
-            this.gender === "male" ? this.hale = 0.4 : this.hale = -2.7; //this.bmiCatagory = "obese 1";
+            this.gender === "Male" ? this.hale = 0.4 : this.hale = -2.7; //this.bmiCatagory = "obese 1";
         else // this.bmi >= 35
-            this.gender === "male" ? this.hale = -6.2 : this.hale = -10; //this.bmiCatagory = "obese 2";
+            this.gender === "Male" ? this.hale = -6.2 : this.hale = -10; //this.bmiCatagory = "obese 2";
 
     }
 }
