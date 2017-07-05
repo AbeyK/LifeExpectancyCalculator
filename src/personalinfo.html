@@ -47,12 +47,28 @@
                 <input id="enterWeight" type="text" value.bind="userData.client.weightInput" change.delegate="enteredWeight()" class="form-control" placeholder="150">
             </div>
 
+
+            <div class="form-group">
+                <label>Diabetic?</label>
+                <label>
+                    <input type="radio"  name="diabetic" value="0" change.delegate="setDiabetic(0)"> Not Diabetic
+                </label>
+                <label>
+                    <input type="radio"  name="diabetic" value="1" change.delegate="setDiabetic(1)"> Type 1
+                </label>
+                <label>
+                    <input type="radio"  name="diabetic" value="2" change.delegate="setDiabetic(2)"> Type 2
+                </label>
+            </div>
+
+
+
             <div show.bind="showBMI">
                 Your BMI is: ${userData.client.bmi}
             </div>
 
         </div>
-
+        <hr>
         <div id="spouse">
             <h2>Spouse</h2>
 

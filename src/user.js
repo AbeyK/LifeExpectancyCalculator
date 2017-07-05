@@ -28,6 +28,8 @@ export class User {
 
         this.married = false;
 
+        this.diabetic=0;
+
     }
 
     calculateBMI(heightInput, weightInput) {
