@@ -32,6 +32,8 @@ export class User {
 
         this.diabetic="";
 
+        this.education = "";
+
     }
 
     calculateBMI(heightInput, weightInput) {

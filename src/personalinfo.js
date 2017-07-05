@@ -23,6 +23,8 @@ export class PersonalInfo {
 
         this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander"];
 
+        this.educations = ["Some High School", "High School", "Some College", "College"];
+
 
     }
 
@@ -154,6 +156,11 @@ export class PersonalInfo {
 
     setDiabetic(diabetic) {
         this.userData.client.diabetic = diabetic;
+    }
+
+    enteredEducation() {
+        if (this.userData.client.education == "")
+            alert("Please select a valid education");
     }
 
     submit() {
@@ -288,7 +295,7 @@ export class PersonalInfo {
     enteredWeightSpouse() {
         if ( /^\d+$/.test(this.userData.spouse.weightInput) )
         {
-            if (this.userData.spouse.heightInput != "" && this.userData.spouse.weightInput != "")   // if user entered both weight and height, calculate BMI and show
+            if (this.userData.spouse.heightInput != "" && this.userData.spouse.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
             {
                 this.userData.spouse.calculateBMI(this.userData.spouse.heightInput, this.userData.spouse.weightInput);
                 this.showBMISpouse = true;
@@ -304,5 +311,10 @@ export class PersonalInfo {
 
     setDiabeticSpouse(diabetic) {
         this.userData.spouse.diabetic = diabetic;
+    }
+
+    enteredEducationSpouse() {
+        if (this.userData.spouse.education == "")
+            alert("Please select a valid education");
     }
 }

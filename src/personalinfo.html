@@ -77,6 +77,14 @@
                     </label>
                 </div>
 
+                <div class="form-group">
+                    <label for="education">Select your level of education</label>
+                    <select class="form-control" value.bind="userData.client.education" id="education" change.delegate="enteredEducation()">
+                        <option data-hidden="true" value="" >-Select Education-</option>
+                        <option value="${tempEducation}" repeat.for="tempEducation of educations">${tempEducation}</option>
+                    </select>
+                </div>
+
             </div>
 
             <hr>
@@ -136,6 +144,14 @@
                     <label>
                         <input type="radio"  name="diabetic" value="2" change.delegate="setDiabeticSpouse(2)"> Type 2
                     </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="educationSpouse">Select your level of education</label>
+                    <select class="form-control" value.bind="userData.spouse.education" id="educationSpouse" change.delegate="enteredEducationSpouse()">
+                        <option data-hidden="true" value="" >-Select Education-</option>
+                        <option value="${tempEducation}" repeat.for="tempEducation of educations">${tempEducation}</option>
+                    </select>
                 </div>
 
             </div>
