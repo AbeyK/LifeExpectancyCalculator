@@ -82,8 +82,11 @@ export class PersonalInfo {
             alert("Please select a valid race");
     }
 
-    enteredMarried() {
-        console.log("ahhh");
+    enteredMarried(married) {
+        if (married == 1)
+            this.userData.client.married = true;
+        else
+            this.userData.client.married = false;
     }
 
     enteredState() {
@@ -151,6 +154,79 @@ export class PersonalInfo {
 
     setDiabetic(diabetic) {
         this.userData.client.diabetic = diabetic;
+    }
+
+    submit() {
+        if (this.userData.client.age == "") {
+            alert("Please enter a valid age");
+            return;
+        }
+        else if (this.userData.client.gender == "") {
+            alert("Please enter your sex");
+            return;
+        }
+        else if (this.userData.client.race == "") {
+            alert("Please enter your race");
+            return;
+        }
+        else if (this.userData.client.state == "") {
+            alert("Please enter your State");
+            return;
+        }
+        else if (this.userData.client.county == "") {
+            alert("Please enter your County");
+            return;
+        }
+        else if (this.userData.client.heightInput == "") {
+            alert("Please enter your height");
+            return;
+        }
+        else if (this.userData.client.weightInput == "") {
+            alert("Please enter your weight");
+            return;
+        }
+        else if (this.userData.client.diabetic == "") {
+            alert("Please enter your diabetic status")
+            return;
+        }
+
+        if (this.userData.client.married) {
+            if (this.userData.spouse.age == "") {
+                alert("Please enter your spouse's age");
+                return;
+            }
+            else if (this.userData.spouse.gender == "") {
+                alert("Please enter your spouse's sex");
+                return;
+            }
+            else if (this.userData.spouse.race == "") {
+                alert("Please enter your spouse's race");
+                return;
+            }
+            else if (this.userData.spouse.state == "") {
+                alert("Please enter your spouse's State");
+                return;
+            }
+            else if (this.userData.spouse.county == "") {
+                alert("Please enter your spouse's County");
+                return;
+            }
+            else if (this.userData.spouse.heightInput == "") {
+                alert("Please enter your spouse's height");
+                return;
+            }
+            else if (this.userData.spouse.weightInput == "") {
+                alert("Please enter your spouse's weight");
+                return;
+            }
+            else if (this.userData.spouse.diabetic == "") {
+                alert("Please enter your spouse's diabetic status")
+                return;
+            }
+        }
+
+
+
     }
 
     // SPOUSE --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

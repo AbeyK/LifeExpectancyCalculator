@@ -6,7 +6,7 @@ export class User {
         
         this.gender = "";
 
-        this.age = 0;
+        this.age = "";
 
         this.race = "";
 
@@ -30,7 +30,7 @@ export class User {
 
         this.married = false;
 
-        this.diabetic=0;
+        this.diabetic="";
 
     }
 
