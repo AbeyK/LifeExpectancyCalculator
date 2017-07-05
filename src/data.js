@@ -6406,7 +6406,5 @@ export class Data {
                 count++;
             }
         }
-
-        this.races = ['white', 'black', 'other'];
     } // end constructor()
 } //end User()

@@ -59,8 +59,6 @@ define('data',['exports'], function (exports) {
                 count++;
             }
         }
-
-        this.races = ['white', 'black', 'other'];
     };
 });
 define('environment',["exports"], function (exports) {
@@ -138,9 +136,6 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
             this.httpClient = http;
 
-            this.weightInput = "";
-            this.heightInput = "";
-
             this.showCounties = false;
             this.showBMI = false;
 
@@ -148,6 +143,10 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.showBMISpouse = false;
 
             this.marriedOptions = ['Yes', 'No'];
+
+            this.genders = ['Male', 'Female'];
+
+            this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander"];
         }
 
         PersonalInfo.prototype.printStuff = function printStuff() {
@@ -159,6 +158,18 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         PersonalInfo.prototype.attached = function attached() {};
 
         PersonalInfo.prototype.detached = function detached() {};
+
+        PersonalInfo.prototype.enteredAge = function enteredAge() {
+            if (this.userData.client.age < 0 || this.userData.client.age > 123) alert("Enter a valid age");
+        };
+
+        PersonalInfo.prototype.enteredGender = function enteredGender() {
+            if (this.userData.client.gender == "") alert("Please select a valid sex");
+        };
+
+        PersonalInfo.prototype.enteredRace = function enteredRace() {
+            if (this.userData.client.race == "") alert("Please select a valid race");
+        };
 
         PersonalInfo.prototype.enteredMarried = function enteredMarried() {
             console.log("ahhh");
@@ -206,6 +217,18 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
                 this.showBMI = false;
                 alert("Please enter a valid weight in lbs.");
             }
+        };
+
+        PersonalInfo.prototype.enteredAgeSpouse = function enteredAgeSpouse() {
+            if (this.userData.spouse.age < 0 || this.userData.spouse.age > 123) alert("Enter a valid age");
+        };
+
+        PersonalInfo.prototype.enteredGenderSpouse = function enteredGenderSpouse() {
+            if (this.userData.client.gender == "") alert("Please select a valid sex");
+        };
+
+        PersonalInfo.prototype.enteredRaceSpouse = function enteredRaceSpouse() {
+            if (this.userData.client.race == "") alert("Please select a valid race");
         };
 
         PersonalInfo.prototype.enteredStateSpouse = function enteredStateSpouse() {
@@ -290,7 +313,7 @@ define('user',["exports", "data"], function (exports, _data) {
         function User() {
             _classCallCheck(this, User);
 
-            this.sex = "";
+            this.gender = "";
 
             this.age = 0;
 
@@ -364,6 +387,6 @@ define('resources/index',["exports"], function (exports) {
 });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. All rights reserved.</footer></template>"; });
 define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
-define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><div id=\"client\"><div class=\"form-group\"><label for=\"enterAge\">Date of Birth</label><input type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><select value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><form role=\"form\" submit.delegate=\"submit()\"><label repeat.for=\"option of marriedOptions\"><input type=\"radio\" name=\"myOptions\" value.bind=\"option ? true : false\" checked.bind=\"this.userData.married\" change.delegate=\"enteredMarried\"> ${option}</label><br><button type=\"submit\">SUBMIT</button></form></div><div id=\"spouse\"><select value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select><select show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div></div></main></template>"; });
+define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><div id=\"client\"><h2>Client</h2><div class=\"form-group\"><label for=\"enterAge\">Age</label><input type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><select value.bind=\"userData.client.gender\" change.delegate=\"enteredGender()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.client.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div></div><div id=\"spouse\"><h2>Spouse</h2><div class=\"form-group\"><label for=\"enterAgeSpouse\">Age</label><input id=\"enterAgeSpouse\" type=\"number\" value.bind=\"userData.spouse.age\" change.delegate=\"enteredAgeSpouse()\" class=\"form-control\"></div><select value.bind=\"userData.spouse.gender\" change.delegate=\"enteredGender()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.spouse.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select><select show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div></div></main></template>"; });
 define('text!results.html', ['module'], function(module) { module.exports = "<template><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Countdown JS Example</title><meta name=\"author\" content=\"Leonard Teo\"><script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script><script src=\"countdown.js\"></script><script>$(document).ready(function(){var n=new Date(2012,12,25,0,0,0),t=new Date(2012,12,23,0,0,0);new Countdown(n,t).countdown(function(n){$(\"#days\").html(n.days),$(\"#hours\").html(n.hours),$(\"#minutes\").html(n.minutes),$(\"#seconds\").html(n.seconds)})})</script><style>body{font-family:arial,sans-serif}.container{width:400px;margin:0 auto;padding:100px}.countdown .digits td{font-size:40px;text-align:center;padding:5px}.countdown tbody td{text-align:center;padding:5px}</style></head><body><div class=\"container\"><table class=\"countdown\"><thead class=\"digits\"><tr><td id=\"days\"></td><td id=\"hours\"></td><td id=\"minutes\"></td><td id=\"seconds\"></td></tr></thead><tbody><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table></div></body></html></template>"; });
 //# sourceMappingURL=app-bundle.js.map

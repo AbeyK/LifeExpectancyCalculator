@@ -2,7 +2,7 @@ import {Data} from 'data';
 
 export class User {
     constructor() {
-        this.sex = "";
+        this.gender = "";
 
         this.age = 0;
 

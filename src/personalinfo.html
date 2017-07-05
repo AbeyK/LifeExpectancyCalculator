@@ -8,11 +8,24 @@
 
     <main>
         <div id="client">
+            <h2>Client</h2>
 
             <div class="form-group">
-                <label for="enterAge">Date of Birth </label> 
+                <label for="enterAge">Age</label> 
                 <input type="number" value.bind="userData.client.age" change.delegate="enteredAge()" class="form-control">
             </div>
+
+            <select value.bind="userData.client.gender" change.delegate="enteredGender()">
+                <option value="">-Select Sex-</option>
+                <option value="${tempGender}" repeat.for="tempGender of genders">${tempGender}</option>
+            </select>
+            <br>
+
+            <select value.bind="userData.client.race" change.delegate="enteredRace()">
+                <option value="">-Select Race-</option>
+                <option value="${tempRace}" repeat.for="tempRace of races">${tempRace}</option>
+            </select>
+            <br>
 
             <select value.bind="userData.client.state" click.delegate="enteredState()">
                 <option value="">-Choose State-</option>
@@ -38,17 +51,28 @@
                 Your BMI is: ${userData.client.bmi}
             </div>
 
-            <form role = "form" submit.delegate = "submit()">
-                <label repeat.for = "option of marriedOptions">
-                    <input type="radio" name="myOptions" value.bind="option ? true : false" checked.bind="this.userData.married" change.delegate="enteredMarried"/>
-                        ${option}
-                </label>
-                <br/>
-                <button type="submit">SUBMIT</button>
-            </form>
         </div>
 
         <div id="spouse">
+            <h2>Spouse</h2>
+
+            <div class="form-group">
+                <label for="enterAgeSpouse">Age</label> 
+                <input id="enterAgeSpouse" type="number" value.bind="userData.spouse.age" change.delegate="enteredAgeSpouse()" class="form-control">
+            </div>
+
+            <select value.bind="userData.spouse.gender" change.delegate="enteredGender()">
+                <option value="">-Select Sex-</option>
+                <option value="${tempGender}" repeat.for="tempGender of genders">${tempGender}</option>
+            </select>
+            <br>
+
+            <select value.bind="userData.spouse.race" change.delegate="enteredRace()">
+                <option value="">-Select Race-</option>
+                <option value="${tempRace}" repeat.for="tempRace of races">${tempRace}</option>
+            </select>
+            <br>
+
             <select value.bind="userData.spouse.state" click.delegate="enteredStateSpouse()">
                 <option value="">-Choose State-</option>
                 <option value="${tempState}" repeat.for="tempState of userData.spouse.data.states">${tempState}</option>

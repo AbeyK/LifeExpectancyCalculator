@@ -10,9 +10,6 @@ export class PersonalInfo {
 
         this.httpClient = http;
 
-        this.weightInput = "";
-        this.heightInput = "";
-
         this.showCounties = false;
         this.showBMI = false;
 
@@ -21,6 +18,10 @@ export class PersonalInfo {
         this.showBMISpouse = false;
 
         this.marriedOptions = ['Yes', 'No'];
+
+        this.genders = ['Male', 'Female'];
+
+        this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander"];
 
 
     }
@@ -68,6 +69,17 @@ export class PersonalInfo {
 
     enteredAge() {
         if (this.userData.client.age < 0 || this.userData.client.age > 123)
+            alert("Enter a valid age");
+    }
+
+    enteredGender() {
+        if (this.userData.client.gender == "")
+            alert("Please select a valid sex");
+    }
+
+    enteredRace() {
+        if (this.userData.client.race == "")
+            alert("Please select a valid race");
     }
 
     enteredMarried() {
@@ -132,6 +144,21 @@ export class PersonalInfo {
 
     // SPOUSE --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     //        --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    enteredAgeSpouse() {
+        if (this.userData.spouse.age < 0 || this.userData.spouse.age > 123)
+            alert("Enter a valid age");
+    }
+
+    enteredGenderSpouse() {
+        if (this.userData.client.gender == "")
+            alert("Please select a valid sex");
+    }
+
+    enteredRaceSpouse() {
+        if (this.userData.client.race == "")
+            alert("Please select a valid race");
+    }
 
     enteredStateSpouse() {
         if (this.userData.client.state != "")
