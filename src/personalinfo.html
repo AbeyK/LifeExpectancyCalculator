@@ -67,13 +67,13 @@
                 <div class="form-group">
                     <label>Diabetic?</label>
                     <label>
-                        <input type="radio"  name="diabetic" value="0" change.delegate="setDiabetic(0)"> Not Diabetic
+                        <input type="radio"  name="diabetic" value="0" change.delegate="enteredDiabetic(0)"> Not Diabetic
                     </label>
                     <label>
-                        <input type="radio"  name="diabetic" value="1" change.delegate="setDiabetic(1)"> Type 1
+                        <input type="radio"  name="diabetic" value="1" change.delegate="enteredDiabetic(1)"> Type 1
                     </label>
                     <label>
-                        <input type="radio"  name="diabetic" value="2" change.delegate="setDiabetic(2)"> Type 2
+                        <input type="radio"  name="diabetic" value="2" change.delegate="enteredDiabetic(2)"> Type 2
                     </label>
                 </div>
 
@@ -88,18 +88,38 @@
                 <div class="form-group">
                     <label>Average Cigarettes Per Day?</label>
                     <label>
-                        <input type="radio"  name="smoking" value="0" change.delegate="setSmoking(0)"> 0
+                        <input type="radio"  name="smoking" value="0" change.delegate="setSmoking(0, 'never')"> Never
                     </label>
                     <label>
-                        <input type="radio"  name="smoking" value="1" change.delegate="setSmoking(1)"> 1-10
+                        <input type="radio"  name="smoking" value="0" change.delegate="setSmoking(0, 'former')"> Quit
                     </label>
                     <label>
-                        <input type="radio"  name="smoking" value="2" change.delegate="setSmoking(2)"> 21-30
+                        <input type="radio"  name="smoking" value="1" change.delegate="setSmoking(1, 'current')"> 1-10 a day
                     </label>
                     <label>
-                        <input type="radio"  name="smoking" value="3" change.delegate="setSmoking(3)"> 30+
+                        <input type="radio"  name="smoking" value="2" change.delegate="setSmoking(2, 'current')"> 21-30 a day
+                    </label>
+                    <label>
+                        <input type="radio"  name="smoking" value="3" change.delegate="setSmoking(3, 'current')"> 30+ a day
                     </label>                
-                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How would you rate your weekly exercise level?</label>
+                    <label>
+                        <input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('None')"> None
+                    </label>
+                    <label>
+                        <input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('Some')"> Some
+                    </label>
+                    <label>
+                        <input type="radio"  name="exercise" value="1" change.delegate="enteredExercise('Moderate')"> Moderate
+                    </label>
+                    <label>
+                        <input type="radio"  name="exercise" value="2" change.delegate="enteredExercise('Heavy')"> Heavy
+                    </label>               
+                </div>
+
             </div>
 
             <hr>
@@ -151,13 +171,13 @@
                 <div class="form-group">
                     <label>Diabetic?</label>
                     <label>
-                        <input type="radio"  name="diabetic" value="0" change.delegate="setDiabeticSpouse(0)"> Not Diabetic
+                        <input type="radio"  name="diabeticSpouse" value="0" change.delegate="enteredDiabeticSpouse(0)"> Not Diabetic
                     </label>
                     <label>
-                        <input type="radio"  name="diabetic" value="1" change.delegate="setDiabeticSpouse(1)"> Type 1
+                        <input type="radio"  name="diabeticSpouse" value="1" change.delegate="enteredDiabeticSpouse(1)"> Type 1
                     </label>
                     <label>
-                        <input type="radio"  name="diabetic" value="2" change.delegate="setDiabeticSpouse(2)"> Type 2
+                        <input type="radio"  name="diabeticSpouse" value="2" change.delegate="enteredDiabeticSpouse(2)"> Type 2
                     </label>
                 </div>
 

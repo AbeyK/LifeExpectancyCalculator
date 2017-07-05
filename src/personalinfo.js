@@ -154,7 +154,7 @@ export class PersonalInfo {
         }
     }
 
-    setDiabetic(diabetic) {
+    enteredDiabetic(diabetic) {
         this.userData.client.diabetic = diabetic;
         if(diabetic===1){
             if(this.userData.client.gender==="Male"){
@@ -206,14 +206,23 @@ export class PersonalInfo {
         }
         console.log(this.userData.client.diabeticOffset);
     }
-    setSmoking(num){
+
+    setSmoking(num, smokingStatus) {
+            this.userData.client.smokingStatus = smokingStatus;
+
             var smokingOffsetArray = [4.3,2.1,5.8,8.8]
             this.userData.client.smokingOffset=smokingOffsetArray[num];
             console.log(this.userData.client.smokingOffset);
     }
+    
     enteredEducation() {
         if (this.userData.client.education == "")
             alert("Please select a valid education");
+    }
+
+    enteredExercise(exerciseLevel) {
+        this.userData.client.exerciseLevel = exerciseLevel;
+        console.log(this.userData.client.exerciseLevel);
     }
 
     submit() {
@@ -362,8 +371,57 @@ export class PersonalInfo {
         }
     }
 
-    setDiabeticSpouse(diabetic) {
+    enteredDiabeticSpouse (diabetic) {
         this.userData.spouse.diabetic = diabetic;
+        if(diabetic===1){
+            if(this.userData.spouse.gender==="Male"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.8791*this.userData.spouse.age+13.087,0);
+            }
+            else if(this.userData.spouse.gender==="Female"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.8121*this.userData.spouse.age+14.385,0);
+            }
+        }
+        else if(diabetic==2){
+            if(this.userData.spouse.gender==="Male"){
+               if(this.userData.spouse.race=="White American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.4333*this.userData.spouse.age+5.6667,0);
+
+               }
+               else if(this.userData.spouse.race=="Asian American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.2*this.userData.spouse.age+1.2111,0);
+
+               }
+               else if(this.userData.spouse.race=="Black or African American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.385*this.userData.spouse.age+2.8361,0);
+
+               }
+               else{
+                this.userData.spouse.diabeticOffset=Math.max(-0.3217*this.userData.spouse.age+5.4306,0);
+
+               }
+            }else if(this.userData.spouse.gender==="Female"){
+               if(this.userData.spouse.race=="White American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.4867*this.userData.spouse.age+7.3778,0);
+
+               }
+               else if(this.userData.spouse.race=="Asian American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.195*this.userData.spouse.age+0.875,0);
+
+               }
+               else if(this.userData.spouse.race=="Black or African American"){
+                this.userData.spouse.diabeticOffset=Math.max(-0.1567*this.userData.spouse.age+1.85,0);
+
+               }
+               else{
+                this.userData.spouse.diabeticOffset=Math.max(-0.4517*this.userData.spouse.age+6.7472,0);
+
+               }
+            }
+        }
+        else{
+            this.userData.spouse.diabeticOffset=0;
+        }
+        console.log(this.userData.spouse.diabeticOffset);
     }
 
     enteredEducationSpouse() {

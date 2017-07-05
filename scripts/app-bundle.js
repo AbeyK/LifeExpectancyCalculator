@@ -124,122 +124,6 @@ define('main',['exports', './environment'], function (exports, _environment) {
     });
   }
 });
-define('results',["exports"], function (exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    var Results = exports.Results = function Results() {
-        _classCallCheck(this, Results);
-    };
-});
-define('user',["exports", "data"], function (exports, _data) {
-        "use strict";
-
-        Object.defineProperty(exports, "__esModule", {
-                value: true
-        });
-        exports.User = undefined;
-
-        function _classCallCheck(instance, Constructor) {
-                if (!(instance instanceof Constructor)) {
-                        throw new TypeError("Cannot call a class as a function");
-                }
-        }
-
-        var User = exports.User = function () {
-                function User() {
-                        _classCallCheck(this, User);
-
-                        this.projectedAge = 1000;
-
-                        this.gender = "";
-
-                        this.age = "";
-
-                        this.race = "";
-
-                        this.state = "";
-                        this.county = "";
-
-                        this.smokes = false;
-
-                        this.weight = 0;
-
-                        this.weightInput = "";
-                        this.heightInput = "";
-                        this.bmi = 0;
-                        this.bmiCatagory = "";
-                        this.hale = 0;
-
-                        this.data = new _data.Data();
-
-                        this.showCounties = false;
-                        this.showBMI = false;
-
-                        this.married = false;
-
-                        this.diabetic = "";
-                        this.diabeticOffset;
-                        this.smokingOffset;
-
-                        this.education = "";
-                }
-
-                User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
-                        var weightLbs = parseInt(weightInput);
-                        var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
-
-                        this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
-                        this.bmi = this.bmi.toFixed(1);
-
-                        if (this.bmi < 18.5) this.gender === "Male" ? this.hale = -9 : this.hale = -5.9;else if (this.bmi <= 18.5 && this.bmi < 25) this.hale = 0;else if (this.bmi <= 25 && this.bmi < 30) this.gender === "Male" ? this.hale = 2.9 : this.hale = 1.5;else if (this.bmi <= 30 && this.bmi < 35) this.gender === "Male" ? this.hale = 0.4 : this.hale = -2.7;else this.gender === "Male" ? this.hale = -6.2 : this.hale = -10;
-                };
-
-                return User;
-        }();
-});
-define('userdata',['exports', 'aurelia-framework', 'user', 'calculations'], function (exports, _aureliaFramework, _user, _calculations) {
-    'use strict';
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    exports.UserData = undefined;
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    var _dec, _class;
-
-    var UserData = exports.UserData = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function UserData() {
-        _classCallCheck(this, UserData);
-
-        this.client = new _user.User();
-        this.spouse = new _user.User();
-        this.calculations = new _calculations.Calculations();
-    }) || _class);
-});
-define('resources/index',["exports"], function (exports) {
-  "use strict";
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.configure = configure;
-  function configure(config) {}
-});
 define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', 'jquery', 'userdata'], function (exports, _aureliaFetchClient, _aureliaFramework, _jquery, _userdata) {
     'use strict';
 
@@ -363,7 +247,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             }
         };
 
-        PersonalInfo.prototype.setDiabetic = function setDiabetic(diabetic) {
+        PersonalInfo.prototype.enteredDiabetic = function enteredDiabetic(diabetic) {
             this.userData.client.diabetic = diabetic;
             if (diabetic === 1) {
                 if (this.userData.client.gender === "Male") {
@@ -399,7 +283,9 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             console.log(this.userData.client.diabeticOffset);
         };
 
-        PersonalInfo.prototype.setSmoking = function setSmoking(num) {
+        PersonalInfo.prototype.setSmoking = function setSmoking(num, smokingStatus) {
+            this.userData.client.smokingStatus = smokingStatus;
+
             var smokingOffsetArray = [4.3, 2.1, 5.8, 8.8];
             this.userData.client.smokingOffset = smokingOffsetArray[num];
             console.log(this.userData.client.smokingOffset);
@@ -407,6 +293,11 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
         PersonalInfo.prototype.enteredEducation = function enteredEducation() {
             if (this.userData.client.education == "") alert("Please select a valid education");
+        };
+
+        PersonalInfo.prototype.enteredExercise = function enteredExercise(exerciseLevel) {
+            this.userData.client.exerciseLevel = exerciseLevel;
+            console.log(this.userData.client.exerciseLevel);
         };
 
         PersonalInfo.prototype.submit = function submit() {
@@ -521,8 +412,40 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             }
         };
 
-        PersonalInfo.prototype.setDiabeticSpouse = function setDiabeticSpouse(diabetic) {
+        PersonalInfo.prototype.enteredDiabeticSpouse = function enteredDiabeticSpouse(diabetic) {
             this.userData.spouse.diabetic = diabetic;
+            if (diabetic === 1) {
+                if (this.userData.spouse.gender === "Male") {
+                    this.userData.spouse.diabeticOffset = Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
+                } else if (this.userData.spouse.gender === "Female") {
+                    this.userData.spouse.diabeticOffset = Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
+                }
+            } else if (diabetic == 2) {
+                if (this.userData.spouse.gender === "Male") {
+                    if (this.userData.spouse.race == "White American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
+                    } else if (this.userData.spouse.race == "Asian American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
+                    } else if (this.userData.spouse.race == "Black or African American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
+                    } else {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
+                    }
+                } else if (this.userData.spouse.gender === "Female") {
+                    if (this.userData.spouse.race == "White American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
+                    } else if (this.userData.spouse.race == "Asian American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
+                    } else if (this.userData.spouse.race == "Black or African American") {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
+                    } else {
+                        this.userData.spouse.diabeticOffset = Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
+                    }
+                }
+            } else {
+                this.userData.spouse.diabeticOffset = 0;
+            }
+            console.log(this.userData.spouse.diabeticOffset);
         };
 
         PersonalInfo.prototype.enteredEducationSpouse = function enteredEducationSpouse() {
@@ -532,8 +455,126 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         return PersonalInfo;
     }()) || _class);
 });
+define('results',["exports"], function (exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var Results = exports.Results = function Results() {
+        _classCallCheck(this, Results);
+    };
+});
+define('user',["exports", "data"], function (exports, _data) {
+        "use strict";
+
+        Object.defineProperty(exports, "__esModule", {
+                value: true
+        });
+        exports.User = undefined;
+
+        function _classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor)) {
+                        throw new TypeError("Cannot call a class as a function");
+                }
+        }
+
+        var User = exports.User = function () {
+                function User() {
+                        _classCallCheck(this, User);
+
+                        this.projectedAge = 1000;
+
+                        this.gender = "";
+
+                        this.age = "";
+
+                        this.race = "";
+
+                        this.state = "";
+                        this.county = "";
+
+                        this.smokes = false;
+
+                        this.weight = 0;
+
+                        this.weightInput = "";
+                        this.heightInput = "";
+                        this.bmi = 0;
+                        this.bmiCatagory = "";
+                        this.hale = 0;
+
+                        this.data = new _data.Data();
+
+                        this.showCounties = false;
+                        this.showBMI = false;
+
+                        this.married = false;
+
+                        this.diabetic = "";
+                        this.diabeticOffset;
+                        this.smokingOffset;
+
+                        this.smokingStatus = "";
+
+                        this.education = "";
+                }
+
+                User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
+                        var weightLbs = parseInt(weightInput);
+                        var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
+
+                        this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
+                        this.bmi = this.bmi.toFixed(1);
+
+                        if (this.bmi < 18.5) this.gender === "Male" ? this.hale = -9 : this.hale = -5.9;else if (this.bmi <= 18.5 && this.bmi < 25) this.hale = 0;else if (this.bmi <= 25 && this.bmi < 30) this.gender === "Male" ? this.hale = 2.9 : this.hale = 1.5;else if (this.bmi <= 30 && this.bmi < 35) this.gender === "Male" ? this.hale = 0.4 : this.hale = -2.7;else this.gender === "Male" ? this.hale = -6.2 : this.hale = -10;
+                };
+
+                return User;
+        }();
+});
+define('userdata',['exports', 'aurelia-framework', 'user', 'calculations'], function (exports, _aureliaFramework, _user, _calculations) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.UserData = undefined;
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _dec, _class;
+
+    var UserData = exports.UserData = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function UserData() {
+        _classCallCheck(this, UserData);
+
+        this.client = new _user.User();
+        this.spouse = new _user.User();
+        this.calculations = new _calculations.Calculations();
+    }) || _class);
+});
+define('resources/index',["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.configure = configure;
+  function configure(config) {}
+});
 define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. All rights reserved.</footer></template>"; });
 define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
-define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><form id=\"persinfo\" submit.delegate=\"submit()\"><div id=\"client\"><h2>Client</h2><div class=\"form-group\"><label>Are you married?</label><label><input type=\"radio\" name=\"married\" value=\"0\" change.delegate=\"enteredMarried(1)\"> Yes</label><label><input type=\"radio\" name=\"married\" value=\"1\" change.delegate=\"enteredMarried(0)\"> No</label></div><div class=\"form-group\"><label for=\"enterAge\">Age</label><input type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><select value.bind=\"userData.client.gender\" change.delegate=\"enteredGender()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.client.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><div class=\"form-group\"><label>Diabetic?</label><label><input type=\"radio\" name=\"diabetic\" value=\"0\" change.delegate=\"setDiabetic(0)\"> Not Diabetic</label><label><input type=\"radio\" name=\"diabetic\" value=\"1\" change.delegate=\"setDiabetic(1)\"> Type 1</label><label><input type=\"radio\" name=\"diabetic\" value=\"2\" change.delegate=\"setDiabetic(2)\"> Type 2</label></div><div class=\"form-group\"><label for=\"education\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.client.education\" id=\"education\" change.delegate=\"enteredEducation()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><div class=\"form-group\"><label>Average Cigarettes Per Day?</label><label><input type=\"radio\" name=\"smoking\" value=\"0\" change.delegate=\"setSmoking(0)\"> 0</label><label><input type=\"radio\" name=\"smoking\" value=\"1\" change.delegate=\"setSmoking(1)\"> 1-10</label><label><input type=\"radio\" name=\"smoking\" value=\"2\" change.delegate=\"setSmoking(2)\"> 21-30</label><label><input type=\"radio\" name=\"smoking\" value=\"3\" change.delegate=\"setSmoking(3)\"> 30+</label></div></div><hr><div id=\"spouse\" show.bind=\"userData.client.married\"><h2>Spouse</h2><div class=\"form-group\"><label for=\"enterAgeSpouse\">Age</label><input id=\"enterAgeSpouse\" type=\"number\" value.bind=\"userData.spouse.age\" change.delegate=\"enteredAgeSpouse()\" class=\"form-control\"></div><select value.bind=\"userData.spouse.gender\" change.delegate=\"enteredGenderSpouse()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.spouse.race\" change.delegate=\"enteredRaceSpouse()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select><select show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMISpouse\">Your BMI is: ${userData.spouse.bmi}</div><div class=\"form-group\"><label>Diabetic?</label><label><input type=\"radio\" name=\"diabetic\" value=\"0\" change.delegate=\"setDiabeticSpouse(0)\"> Not Diabetic</label><label><input type=\"radio\" name=\"diabetic\" value=\"1\" change.delegate=\"setDiabeticSpouse(1)\"> Type 1</label><label><input type=\"radio\" name=\"diabetic\" value=\"2\" change.delegate=\"setDiabeticSpouse(2)\"> Type 2</label></div><div class=\"form-group\"><label for=\"educationSpouse\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.spouse.education\" id=\"educationSpouse\" change.delegate=\"enteredEducationSpouse()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div></div><br><button class=\"btn btn-primary\" type=\"submit\" id=\"next\">Submit</button></form></main></template>"; });
+define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><form id=\"persinfo\" submit.delegate=\"submit()\"><div id=\"client\"><h2>Client</h2><div class=\"form-group\"><label>Are you married?</label><label><input type=\"radio\" name=\"married\" value=\"0\" change.delegate=\"enteredMarried(1)\"> Yes</label><label><input type=\"radio\" name=\"married\" value=\"1\" change.delegate=\"enteredMarried(0)\"> No</label></div><div class=\"form-group\"><label for=\"enterAge\">Age</label><input type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><select value.bind=\"userData.client.gender\" change.delegate=\"enteredGender()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.client.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><div class=\"form-group\"><label>Diabetic?</label><label><input type=\"radio\" name=\"diabetic\" value=\"0\" change.delegate=\"enteredDiabetic(0)\"> Not Diabetic</label><label><input type=\"radio\" name=\"diabetic\" value=\"1\" change.delegate=\"enteredDiabetic(1)\"> Type 1</label><label><input type=\"radio\" name=\"diabetic\" value=\"2\" change.delegate=\"enteredDiabetic(2)\"> Type 2</label></div><div class=\"form-group\"><label for=\"education\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.client.education\" id=\"education\" change.delegate=\"enteredEducation()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><div class=\"form-group\"><label>Average Cigarettes Per Day?</label><label><input type=\"radio\" name=\"smoking\" value=\"0\" change.delegate=\"setSmoking(0, 'never')\"> Never</label><label><input type=\"radio\" name=\"smoking\" value=\"0\" change.delegate=\"setSmoking(0, 'former')\"> Quit</label><label><input type=\"radio\" name=\"smoking\" value=\"1\" change.delegate=\"setSmoking(1, 'current')\"> 1-10 a day</label><label><input type=\"radio\" name=\"smoking\" value=\"2\" change.delegate=\"setSmoking(2, 'current')\"> 21-30 a day</label><label><input type=\"radio\" name=\"smoking\" value=\"3\" change.delegate=\"setSmoking(3, 'current')\"> 30+ a day</label></div><div class=\"form-group\"><label>How would you rate your weekly exercise level?</label><label><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('None')\"> None</label><label><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('Some')\"> Some</label><label><input type=\"radio\" name=\"exercise\" value=\"1\" change.delegate=\"enteredExercise('Moderate')\"> Moderate</label><label><input type=\"radio\" name=\"exercise\" value=\"2\" change.delegate=\"enteredExercise('Heavy')\"> Heavy</label></div></div><hr><div id=\"spouse\" show.bind=\"userData.client.married\"><h2>Spouse</h2><div class=\"form-group\"><label for=\"enterAgeSpouse\">Age</label><input id=\"enterAgeSpouse\" type=\"number\" value.bind=\"userData.spouse.age\" change.delegate=\"enteredAgeSpouse()\" class=\"form-control\"></div><select value.bind=\"userData.spouse.gender\" change.delegate=\"enteredGenderSpouse()\"><option value=\"\">-Select Sex-</option><option value=\"${tempGender}\" repeat.for=\"tempGender of genders\">${tempGender}</option></select><br><select value.bind=\"userData.spouse.race\" change.delegate=\"enteredRaceSpouse()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select><br><select value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select><select show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMISpouse\">Your BMI is: ${userData.spouse.bmi}</div><div class=\"form-group\"><label>Diabetic?</label><label><input type=\"radio\" name=\"diabeticSpouse\" value=\"0\" change.delegate=\"enteredDiabeticSpouse(0)\"> Not Diabetic</label><label><input type=\"radio\" name=\"diabeticSpouse\" value=\"1\" change.delegate=\"enteredDiabeticSpouse(1)\"> Type 1</label><label><input type=\"radio\" name=\"diabeticSpouse\" value=\"2\" change.delegate=\"enteredDiabeticSpouse(2)\"> Type 2</label></div><div class=\"form-group\"><label for=\"educationSpouse\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.spouse.education\" id=\"educationSpouse\" change.delegate=\"enteredEducationSpouse()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div></div><br><button class=\"btn btn-primary\" type=\"submit\" id=\"next\">Submit</button></form></main></template>"; });
 define('text!results.html', ['module'], function(module) { module.exports = "<template><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Countdown JS Example</title><meta name=\"author\" content=\"Leonard Teo\"><script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script><script src=\"countdown.js\"></script><script>$(document).ready(function(){var n=new Date(2012,12,25,0,0,0),t=new Date(2012,12,23,0,0,0);new Countdown(n,t).countdown(function(n){$(\"#days\").html(n.days),$(\"#hours\").html(n.hours),$(\"#minutes\").html(n.minutes),$(\"#seconds\").html(n.seconds)})})</script><style>body{font-family:arial,sans-serif}.container{width:400px;margin:0 auto;padding:100px}.countdown .digits td{font-size:40px;text-align:center;padding:5px}.countdown tbody td{text-align:center;padding:5px}</style></head><body><div class=\"container\"><table class=\"countdown\"><thead class=\"digits\"><tr><td id=\"days\"></td><td id=\"hours\"></td><td id=\"minutes\"></td><td id=\"seconds\"></td></tr></thead><tbody><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table></div></body></html></template>"; });
 //# sourceMappingURL=app-bundle.js.map
