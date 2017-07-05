@@ -31,12 +31,14 @@ export class User {
         this.married = false;
 
         this.diabetic="";
-        this.diabeticOffset;
-        this.smokingOffset;
+        this.diabeticOffset = "";
+        this.smokingOffset = "";
 
         this.smokingStatus = "";
 
         this.education = "";
+
+        this.exerciseLevel = "";
 
     }
 
@@ -58,5 +60,38 @@ export class User {
         else // this.bmi >= 35
             this.gender === "Male" ? this.hale = -6.2 : this.hale = -10; //this.bmiCatagory = "obese 2";
 
+    }
+
+    calculateExerciseOffset(smokingStatus, exerciseLevel) {
+        if (smokingStatus == "Never") {
+            if (exerciseLevel == "None")
+                this.exerciseOffset = 0;
+            else if (exerciseLevel == "Some")
+                this.exerciseOffset = 1.6;
+            else if (exerciseLevel == "Moderate")
+                this.exerciseOffset = 2.6;
+            else
+                exerciseOffset = 3.25;
+        }
+        else if (smokingStatus == "Former") {
+            if (exerciseLevel == "None")
+                this.exerciseOffset = 0;
+            else if (exerciseLevel == "Some")
+                this.exerciseOffset = 2.2;
+            else if (exerciseLevel == "Moderate")
+                this.exerciseOffset = 3.45;
+            else
+                exerciseOffset = 5.25;
+        }
+        else {
+            if (exerciseLevel == "None")
+                this.exerciseOffset = 0;
+            else if (exerciseLevel == "Some")
+                this.exerciseOffset = 1.6;
+            else if (exerciseLevel == "Moderate")
+                this.exerciseOffset = 2.6;
+            else
+                exerciseOffset = 3.25;
+        }
     }
 }

@@ -207,7 +207,7 @@ export class PersonalInfo {
         console.log(this.userData.client.diabeticOffset);
     }
 
-    setSmoking(num, smokingStatus) {
+    enteredSmoking(num, smokingStatus) {
             this.userData.client.smokingStatus = smokingStatus;
 
             var smokingOffsetArray = [4.3,2.1,5.8,8.8]
