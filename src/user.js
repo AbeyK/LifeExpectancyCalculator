@@ -31,6 +31,7 @@ export class User {
         this.married = false;
 
         this.diabetic="";
+        this.diabeticOffset;
 
     }
 

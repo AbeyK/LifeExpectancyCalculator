@@ -23,7 +23,6 @@ export class PersonalInfo {
 
         this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander"];
 
-
     }
 
     printStuff()
@@ -154,6 +153,55 @@ export class PersonalInfo {
 
     setDiabetic(diabetic) {
         this.userData.client.diabetic = diabetic;
+        if(diabetic===1){
+            if(this.userData.client.gender==="Male"){
+                this.userData.client.diabeticOffset=Math.max(-0.8791*this.userData.client.age+13.087,0);
+            }
+            else if(this.userData.client.gender==="Female"){
+                this.userData.client.diabeticOffset=Math.max(-0.8121*this.userData.client.age+14.385,0);
+            }
+        }
+        else if(diabetic==2){
+            if(this.userData.client.gender==="Male"){
+               if(this.userData.client.race=="White American"){
+                this.userData.client.diabeticOffset=Math.max(-0.4333*this.userData.client.age+5.6667,0);
+
+               }
+               else if(this.userData.client.race=="Asian American"){
+                this.userData.client.diabeticOffset=Math.max(-0.2*this.userData.client.age+1.2111,0);
+
+               }
+               else if(this.userData.client.race=="Black or African American"){
+                this.userData.client.diabeticOffset=Math.max(-0.385*this.userData.client.age+2.8361,0);
+
+               }
+               else{
+                this.userData.client.diabeticOffset=Math.max(-0.3217*this.userData.client.age+5.4306,0);
+
+               }
+            }else if(this.userData.client.gender==="Female"){
+               if(this.userData.client.race=="White American"){
+                this.userData.client.diabeticOffset=Math.max(-0.4867*this.userData.client.age+7.3778,0);
+
+               }
+               else if(this.userData.client.race=="Asian American"){
+                this.userData.client.diabeticOffset=Math.max(-0.195*this.userData.client.age+0.875,0);
+
+               }
+               else if(this.userData.client.race=="Black or African American"){
+                this.userData.client.diabeticOffset=Math.max(-0.1567*this.userData.client.age+1.85,0);
+
+               }
+               else{
+                this.userData.client.diabeticOffset=Math.max(-0.4517*this.userData.client.age+6.7472,0);
+
+               }
+            }
+        }
+        else{
+            this.userData.client.diabeticOffset=0;
+        }
+        console.log(this.userData.client.diabeticOffset);
     }
 
     submit() {
