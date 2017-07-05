@@ -20,7 +20,7 @@ body {
 .layer-1 {
   -webkit-animation: parallax_fg linear 20s infinite both;
           animation: parallax_fg linear 20s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/1.png) 0 100% repeat-x;
+  /*background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/1.png) 0 100% repeat-x;*/
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -33,7 +33,7 @@ body {
 .layer-2 {
   -webkit-animation: parallax_fg linear 30s infinite both;
           animation: parallax_fg linear 30s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/2.png) 0 100% repeat-x;
+  background: url('./src/images/2.png') 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -46,7 +46,7 @@ body {
 .layer-3 {
   -webkit-animation: parallax_fg linear 55s infinite both;
           animation: parallax_fg linear 55s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/3.png) 0 100% repeat-x;
+  background: url('./src/images/3.png') 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -59,7 +59,7 @@ body {
 .layer-4 {
   -webkit-animation: parallax_fg linear 75s infinite both;
           animation: parallax_fg linear 75s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/4.png) 0 100% repeat-x;
+  background: url('./src/images/4.png') 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -72,7 +72,7 @@ body {
 .layer-5 {
   -webkit-animation: parallax_fg linear 95s infinite both;
           animation: parallax_fg linear 95s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/5.png) 0 100% repeat-x;
+  background: url('./src/images/5.png') 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -85,7 +85,7 @@ body {
 .layer-6 {
   -webkit-animation: parallax_fg linear 120s infinite both;
           animation: parallax_fg linear 120s infinite both;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/6.png) 0 100% repeat-x;
+  background: url('./src/images/6.png') 0 100% repeat-x;
   z-index: 1;
   position: absolute;
   bottom: 0;
@@ -97,7 +97,7 @@ body {
 
 .bike-1,
 .bike-2 {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/bike.png) 0 100% no-repeat;
+  background: url('./src/images/bike.png') 0 100% no-repeat;
   z-index: 1;
   position: absolute;
   bottom: 100px;
