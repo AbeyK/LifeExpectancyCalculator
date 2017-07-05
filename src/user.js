@@ -1,9 +1,12 @@
-import {singleton} from 'aurelia-framework';
+import {Data} from 'data';
 
-@singleton()
 export class User {
     constructor() {
-        this.gender = "";
+        this.sex = "";
+
+        this.age = 0;
+
+        this.race = "";
 
         this.state = "";
         this.county = "";
@@ -12,10 +15,18 @@ export class User {
        
         this.weight = 0; //in lbs
         
+        this.weightInput = "";
+        this.heightInput = "";
         this.bmi = 0;
         this.bmiCatagory = "";
         this.hale = 0;
 
+        this.data = new Data();
+
+        this.showCounties = false;
+        this.showBMI = false;
+
+        this.married = false;
 
     }
 

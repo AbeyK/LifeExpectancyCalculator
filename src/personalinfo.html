@@ -7,35 +7,74 @@
     </header>
 
     <main>
-        <input type="text" value.bind="this.blah">
-        <h2>${this.blah}</h2>
+        <div id="client">
 
-        <select value.bind="data.selectedState" click.delegate="showCounty()">
-            <option value="">-Choose State-</option>
-            <option value="${tempState}" repeat.for="tempState of data.states">${tempState}</option>
-        </select>
+            <div class="form-group">
+                <label for="enterAge">Date of Birth </label> 
+                <input type="number" value.bind="userData.client.age" change.delegate="enteredAge()" class="form-control">
+            </div>
 
-        <select show.bind="showCounties" value.bind="data.selectedCounty" click.delegate="lol()">
-            <option value="">-Choose County-</option>
-            <option value="${tempCounty}" repeat.for="tempCounty of data.counties">${tempCounty[0]}</option>
-        </select>
+            <select value.bind="userData.client.state" click.delegate="enteredState()">
+                <option value="">-Choose State-</option>
+                <option value="${tempState}" repeat.for="tempState of userData.client.data.states">${tempState}</option>
+            </select>
 
-        <div class="form-group">
-            <label for="enterHeight">Height</label> 
-            <input id="enterHeight" type="text" value.bind="heightInput" change.delegate="enteredHeight()" class="form-control" placeholder="5'10">
+            <select show.bind="showCounties" value.bind="userData.client.county" click.delegate="enteredCounty()">
+                <option value="">-Choose County-</option>
+                <option value="${tempCounty}" repeat.for="tempCounty of userData.client.data.counties">${tempCounty[0]}</option>
+            </select>
+
+            <div class="form-group">
+                <label for="enterHeight">Height</label> 
+                <input id="enterHeight" type="text" value.bind="userData.client.heightInput" change.delegate="enteredHeight()" class="form-control" placeholder="5'10">
+            </div>
+
+            <div class="form-group">
+                <label for="enterWeight">Weight (lbs)</label> 
+                <input id="enterWeight" type="text" value.bind="userData.client.weightInput" change.delegate="enteredWeight()" class="form-control" placeholder="150">
+            </div>
+
+            <div show.bind="showBMI">
+                Your BMI is: ${userData.client.bmi}
+            </div>
+
+            <form role = "form" submit.delegate = "submit()">
+                <label repeat.for = "option of marriedOptions">
+                    <input type="radio" name="myOptions" value.bind="option ? true : false" checked.bind="this.userData.married" change.delegate="enteredMarried"/>
+                        ${option}
+                </label>
+                <br/>
+                <button type="submit">SUBMIT</button>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="enterWeight">Weight (lbs)</label> 
-            <input id="enterWeight" type="text" value.bind="weightInput" change.delegate="enteredWeight()" class="form-control" placeholder="150">
+        <div id="spouse">
+            <select value.bind="userData.spouse.state" click.delegate="enteredStateSpouse()">
+                <option value="">-Choose State-</option>
+                <option value="${tempState}" repeat.for="tempState of userData.spouse.data.states">${tempState}</option>
+            </select>
+
+            <select show.bind="showCountiesSpouse" value.bind="userData.spouse.county" click.delegate="enteredCountySpouse()">
+                <option value="">-Choose County-</option>
+                <option value="${tempCounty}" repeat.for="tempCounty of userData.spouse.data.counties">${tempCounty[0]}</option>
+            </select>
+
+            <div class="form-group">
+                <label for="enterHeightSpouse">Height</label> 
+                <input id="enterHeightSpouse" type="text" value.bind="userData.spouse.heightInput" change.delegate="enteredHeightSpouse()" class="form-control" placeholder="5'10">
+            </div>
+
+            <div class="form-group">
+                <label for="enterWeightSpouse">Weight (lbs)</label> 
+                <input id="enterWeightSpouse" type="text" value.bind="userData.spouse.weightInput" change.delegate="enteredWeightSpouse()" class="form-control" placeholder="150">
+            </div>
+
+            <div show.bind="showBMI">
+                Your BMI is: ${userData.client.bmi}
+            </div>
         </div>
 
-        <div show.bind="showBMI">
-            Your BMI is: ${user.bmi}
-        </div>
 
-        <h1>${this.selected}</h1>
-        <button click.delegate="printStuff()">aaaaa</button>
 
     </main>
 

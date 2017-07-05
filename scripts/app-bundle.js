@@ -59,6 +59,8 @@ define('data',['exports'], function (exports) {
                 count++;
             }
         }
+
+        this.races = ['white', 'black', 'other'];
     };
 });
 define('environment',["exports"], function (exports) {
@@ -104,7 +106,7 @@ define('main',['exports', './environment'], function (exports, _environment) {
     });
   }
 });
-define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', 'jquery', 'user', './data'], function (exports, _aureliaFetchClient, _aureliaFramework, _jquery, _user, _data) {
+define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', 'jquery', 'userdata'], function (exports, _aureliaFetchClient, _aureliaFramework, _jquery, _userdata) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -128,23 +130,24 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
     var _dec, _class;
 
-    var PersonalInfo = exports.PersonalInfo = (_dec = (0, _aureliaFramework.inject)(_user.User, _aureliaFetchClient.HttpClient, _data.Data), _dec(_class = function () {
-        function PersonalInfo(user, http, data) {
+    var PersonalInfo = exports.PersonalInfo = (_dec = (0, _aureliaFramework.inject)(_userdata.UserData, _aureliaFetchClient.HttpClient), _dec(_class = function () {
+        function PersonalInfo(userData, http) {
             _classCallCheck(this, PersonalInfo);
 
-            this.user = user;
-            this.data = data;
-            this.blah = "";
+            this.userData = userData;
+
             this.httpClient = http;
-            this.handleBodyClick = function (e) {
-                console.log("ahh" + e.target);
-            };
+
+            this.weightInput = "";
+            this.heightInput = "";
 
             this.showCounties = false;
             this.showBMI = false;
 
-            this.weightInput = "";
-            this.heightInput = "";
+            this.showCountiesSpouse = false;
+            this.showBMISpouse = false;
+
+            this.marriedOptions = ['Yes', 'No'];
         }
 
         PersonalInfo.prototype.printStuff = function printStuff() {
@@ -157,54 +160,96 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
         PersonalInfo.prototype.detached = function detached() {};
 
-        PersonalInfo.prototype.showCounty = function showCounty() {
-            if (this.data.selectedState != "") {
-                this.data.counties = [];
+        PersonalInfo.prototype.enteredMarried = function enteredMarried() {
+            console.log("ahhh");
+        };
 
-                this.data.countyLifeExp;
-                for (var i = 0; i < this.data.countyLifeExp.length; i++) {
-                    if (this.data.countyLifeExp[i][0].split(",").length === 2 && this.data.countyLifeExp[i][0].split(",")[1].trim() === this.data.selectedState) {
-                        this.data.counties.push(this.data.countyLifeExp[i]);
+        PersonalInfo.prototype.enteredState = function enteredState() {
+            if (this.userData.client.state != "") {
+                this.userData.client.data.counties = [];
+
+                for (var i = 0; i < this.userData.client.data.countyLifeExp.length; i++) {
+                    if (this.userData.client.data.countyLifeExp[i][0].split(",").length === 2 && this.userData.client.data.countyLifeExp[i][0].split(",")[1].trim() === this.userData.client.state) {
+                        this.userData.client.data.counties.push(this.userData.client.data.countyLifeExp[i]);
                     }
                 }
                 this.showCounties = true;
             } else this.showCounties = false;
         };
 
-        PersonalInfo.prototype.lol = function lol() {
-            console.log(this.data.selectedCounty);
+        PersonalInfo.prototype.enteredCounty = function enteredCounty() {
+            console.log(this.userData.client.data.counties);
         };
 
         PersonalInfo.prototype.enteredHeight = function enteredHeight() {
-            if (/^\d'(\d|1[0-2])$/.test(this.heightInput)) {
-                if (this.heightInput != "" && this.weightInput != "") {
-                        this.user.calculateBMI(this.heightInput, this.weightInput);
+            console.log("here it is: " + this.userData.client.heightInput);
+            if (/^\d'(\d|1[0-2])$/.test(this.userData.client.heightInput)) {
+                if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "") {
+                        this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
                         this.showBMI = true;
                     }
             } else {
-                this.heightInput = "";
+                this.userData.client.heightInput = "";
                 this.showBMI = false;
                 alert("Please enter a properly formatted height, e.g.:  5'10");
             }
         };
 
         PersonalInfo.prototype.enteredWeight = function enteredWeight() {
-            if (/^\d+$/.test(this.weightInput)) {
-                if (this.heightInput != "" && this.weightInput != "") {
-                        this.user.calculateBMI(this.heightInput, this.weightInput);
+            if (/^\d+$/.test(this.userData.client.weightInput)) {
+                if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "") {
+                        this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
                         this.showBMI = true;
                     }
             } else {
-                this.weightInput = "";
+                this.userData.client.weightInput = "";
                 this.showBMI = false;
                 alert("Please enter a valid weight in lbs.");
             }
         };
 
-        PersonalInfo.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
-            var weightLbs = parseInt(weightInput);
-            var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
-            this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
+        PersonalInfo.prototype.enteredStateSpouse = function enteredStateSpouse() {
+            if (this.userData.client.state != "") {
+                this.userData.client.data.counties = [];
+
+                for (var i = 0; i < this.userData.client.data.countyLifeExp.length; i++) {
+                    if (this.userData.client.data.countyLifeExp[i][0].split(",").length === 2 && this.userData.client.data.countyLifeExp[i][0].split(",")[1].trim() === this.userData.client.state) {
+                        this.userData.client.data.counties.push(this.userData.client.data.countyLifeExp[i]);
+                    }
+                }
+                this.showCounties = true;
+            } else this.showCounties = false;
+        };
+
+        PersonalInfo.prototype.enteredCountySpouse = function enteredCountySpouse() {
+            console.log(this.userData.client.data.counties);
+        };
+
+        PersonalInfo.prototype.enteredHeightSpouse = function enteredHeightSpouse() {
+            console.log("here it is: " + this.userData.client.heightInput);
+            if (/^\d'(\d|1[0-2])$/.test(this.userData.client.heightInput)) {
+                if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "") {
+                        this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
+                        this.showBMI = true;
+                    }
+            } else {
+                this.userData.client.heightInput = "";
+                this.showBMI = false;
+                alert("Please enter a properly formatted height, e.g.:  5'10");
+            }
+        };
+
+        PersonalInfo.prototype.enteredWeightSpouse = function enteredWeightSpouse() {
+            if (/^\d+$/.test(this.userData.client.weightInput)) {
+                if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "") {
+                        this.userData.client.calculateBMI(this.userData.client.heightInput, this.userData.client.weightInput);
+                        this.showBMI = true;
+                    }
+            } else {
+                this.userData.client.weightInput = "";
+                this.showBMI = false;
+                alert("Please enter a valid weight in lbs.");
+            }
         };
 
         return PersonalInfo;
@@ -227,7 +272,7 @@ define('results',["exports"], function (exports) {
         _classCallCheck(this, Results);
     };
 });
-define('user',["exports", "aurelia-framework"], function (exports, _aureliaFramework) {
+define('user',["exports", "data"], function (exports, _data) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
@@ -241,13 +286,15 @@ define('user',["exports", "aurelia-framework"], function (exports, _aureliaFrame
         }
     }
 
-    var _dec, _class;
-
-    var User = exports.User = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function () {
+    var User = exports.User = function () {
         function User() {
             _classCallCheck(this, User);
 
-            this.gender = "";
+            this.sex = "";
+
+            this.age = 0;
+
+            this.race = "";
 
             this.state = "";
             this.county = "";
@@ -256,9 +303,18 @@ define('user',["exports", "aurelia-framework"], function (exports, _aureliaFrame
 
             this.weight = 0;
 
+            this.weightInput = "";
+            this.heightInput = "";
             this.bmi = 0;
             this.bmiCatagory = "";
             this.hale = 0;
+
+            this.data = new _data.Data();
+
+            this.showCounties = false;
+            this.showBMI = false;
+
+            this.married = false;
         }
 
         User.prototype.calculateBMI = function calculateBMI(heightInput, weightInput) {
@@ -272,7 +328,30 @@ define('user',["exports", "aurelia-framework"], function (exports, _aureliaFrame
         };
 
         return User;
-    }()) || _class);
+    }();
+});
+define('userdata',['exports', 'aurelia-framework', 'user'], function (exports, _aureliaFramework, _user) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.UserData = undefined;
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _dec, _class;
+
+    var UserData = exports.UserData = (_dec = (0, _aureliaFramework.singleton)(), _dec(_class = function UserData() {
+        _classCallCheck(this, UserData);
+
+        this.client = new _user.User();
+        this.spouse = new _user.User();
+    }) || _class);
 });
 define('resources/index',["exports"], function (exports) {
   "use strict";
@@ -283,8 +362,8 @@ define('resources/index',["exports"], function (exports) {
   exports.configure = configure;
   function configure(config) {}
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. No rights reserved.</footer></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"styles.css\"></require><header class=\"main-header\">Life Expectancy Calculator</header><router-view></router-view><footer>©2017, PIEtech, Inc. All rights reserved.</footer></template>"; });
 define('text!styles.css', ['module'], function(module) { module.exports = ".main-header {\r\n    color: blue;\r\n    font-size: 250%;\r\n}\r\n\r\n.sub-header {\r\n\r\n}\r\n\r\nmain {\r\n    \r\n}\r\n\r\n/*body {\r\n    background-image: url(\"19578943_1779641872046271_573587225_o.jpg\");\r\n}*/"; });
-define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><input type=\"text\" value.bind=\"this.blah\"><h2>${this.blah}</h2><select value.bind=\"data.selectedState\" click.delegate=\"showCounty()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"data.selectedCounty\" click.delegate=\"lol()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${user.bmi}</div><h1>${this.selected}</h1><button click.delegate=\"printStuff()\">aaaaa</button></main></template>"; });
+define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><header class=\"sub-header\"><h1>Personal Info</h1><p>Please answer these questions so we may better assess your planning age.</p></header><main><div id=\"client\"><div class=\"form-group\"><label for=\"enterAge\">Date of Birth</label><input type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><select value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select><select show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><form role=\"form\" submit.delegate=\"submit()\"><label repeat.for=\"option of marriedOptions\"><input type=\"radio\" name=\"myOptions\" value.bind=\"option ? true : false\" checked.bind=\"this.userData.married\" change.delegate=\"enteredMarried\"> ${option}</label><br><button type=\"submit\">SUBMIT</button></form></div><div id=\"spouse\"><select value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select><select show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div></div></main></template>"; });
 define('text!results.html', ['module'], function(module) { module.exports = "<template><html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Countdown JS Example</title><meta name=\"author\" content=\"Leonard Teo\"><script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script><script src=\"countdown.js\"></script><script>$(document).ready(function(){var n=new Date(2012,12,25,0,0,0),t=new Date(2012,12,23,0,0,0);new Countdown(n,t).countdown(function(n){$(\"#days\").html(n.days),$(\"#hours\").html(n.hours),$(\"#minutes\").html(n.minutes),$(\"#seconds\").html(n.seconds)})})</script><style>body{font-family:arial,sans-serif}.container{width:400px;margin:0 auto;padding:100px}.countdown .digits td{font-size:40px;text-align:center;padding:5px}.countdown tbody td{text-align:center;padding:5px}</style></head><body><div class=\"container\"><table class=\"countdown\"><thead class=\"digits\"><tr><td id=\"days\"></td><td id=\"hours\"></td><td id=\"minutes\"></td><td id=\"seconds\"></td></tr></thead><tbody><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table></div></body></html></template>"; });
 //# sourceMappingURL=app-bundle.js.map
