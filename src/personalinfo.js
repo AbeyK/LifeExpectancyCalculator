@@ -103,7 +103,15 @@ export class PersonalInfo {
             this.showCounties = false;
     }
     enteredCounty(){
-        console.log(this.userData.client.data.counties);
+        if(this.userData.client.sex!="" && this.userData.client.county!=undefined && this.userData.client.county!=""){
+            if(this.userData.client.gender==="Male"){
+                this.userData.client.projectedAge = this.userData.client.county.split(",")[2].split("(")[1];
+            }
+            else if (this.userData.client.gender==="Female"){
+                this.userData.client.projectedAge = this.userData.client.county.split(",")[3].split(")")[0];
+            }
+        }
+        
     }
 
     enteredHeight() {

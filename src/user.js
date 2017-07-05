@@ -2,6 +2,8 @@ import {Data} from 'data';
 
 export class User {
     constructor() {
+        this.projectedAge=1000;
+        
         this.gender = "";
 
         this.age = 0;

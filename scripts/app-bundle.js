@@ -189,7 +189,13 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         };
 
         PersonalInfo.prototype.enteredCounty = function enteredCounty() {
-            console.log(this.userData.client.data.counties);
+            if (this.userData.client.sex != "" && this.userData.client.county != undefined && this.userData.client.county != "") {
+                if (this.userData.client.gender === "Male") {
+                    this.userData.client.projectedAge = this.userData.client.county.split(",")[2].split("(")[1];
+                } else if (this.userData.client.gender === "Female") {
+                    this.userData.client.projectedAge = this.userData.client.county.split(",")[3].split(")")[0];
+                }
+            }
         };
 
         PersonalInfo.prototype.enteredHeight = function enteredHeight() {
@@ -320,6 +326,8 @@ define('user',["exports", "data"], function (exports, _data) {
         var User = exports.User = function () {
                 function User() {
                         _classCallCheck(this, User);
+
+                        this.projectedAge = 1000;
 
                         this.gender = "";
 
