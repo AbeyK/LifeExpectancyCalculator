@@ -21,7 +21,7 @@ export class PersonalInfo {
 
         this.genders = ['Male', 'Female'];
 
-        this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander"];
+        this.races = ["White American", "Black or African American", "Native American and Alaska Native", "Asian American", "Native Hawaiian and Other Pacific Islander", "Hispanic"];
 
         this.educations = ["Some High School", "High School", "Some College", "College"];
 
@@ -76,12 +76,12 @@ export class PersonalInfo {
 
     enteredGender() {
         if (this.userData.client.gender == "")
-            alert("Please select a valid sex");
+            alert("Please select a sex");
     }
 
     enteredRace() {
         if (this.userData.client.race == "")
-            alert("Please select a valid race");
+            alert("Please select a race");
     }
 
     enteredMarried(married) {
@@ -212,7 +212,6 @@ export class PersonalInfo {
 
             var smokingOffsetArray = [4.3,2.1,5.8,8.8]
             this.userData.client.smokingOffset=smokingOffsetArray[num];
-            console.log(this.userData.client.smokingOffset);
     }
     
     enteredEducation() {
@@ -222,80 +221,6 @@ export class PersonalInfo {
 
     enteredExercise(exerciseLevel) {
         this.userData.client.exerciseLevel = exerciseLevel;
-        console.log(this.userData.client.exerciseLevel);
-    }
-
-    submit() {
-        if (this.userData.client.age == "") {
-            alert("Please enter a valid age");
-            return;
-        }
-        else if (this.userData.client.gender == "") {
-            alert("Please enter your sex");
-            return;
-        }
-        else if (this.userData.client.race == "") {
-            alert("Please enter your race");
-            return;
-        }
-        else if (this.userData.client.state == "") {
-            alert("Please enter your State");
-            return;
-        }
-        else if (this.userData.client.county == "") {
-            alert("Please enter your County");
-            return;
-        }
-        else if (this.userData.client.heightInput == "") {
-            alert("Please enter your height");
-            return;
-        }
-        else if (this.userData.client.weightInput == "") {
-            alert("Please enter your weight");
-            return;
-        }
-        else if (this.userData.client.diabetic == "") {
-            alert("Please enter your diabetic status")
-            return;
-        }
-
-        if (this.userData.client.married) {
-            if (this.userData.spouse.age == "") {
-                alert("Please enter your spouse's age");
-                return;
-            }
-            else if (this.userData.spouse.gender == "") {
-                alert("Please enter your spouse's sex");
-                return;
-            }
-            else if (this.userData.spouse.race == "") {
-                alert("Please enter your spouse's race");
-                return;
-            }
-            else if (this.userData.spouse.state == "") {
-                alert("Please enter your spouse's State");
-                return;
-            }
-            else if (this.userData.spouse.county == "") {
-                alert("Please enter your spouse's County");
-                return;
-            }
-            else if (this.userData.spouse.heightInput == "") {
-                alert("Please enter your spouse's height");
-                return;
-            }
-            else if (this.userData.spouse.weightInput == "") {
-                alert("Please enter your spouse's weight");
-                return;
-            }
-            else if (this.userData.spouse.diabetic == "") {
-                alert("Please enter your spouse's diabetic status")
-                return;
-            }
-        }
-
-
-
     }
 
     // SPOUSE --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -308,12 +233,12 @@ export class PersonalInfo {
 
     enteredGenderSpouse() {
         if (this.userData.spouse.gender == "")
-            alert("Please select a valid sex");
+            alert("Please select a sex");
     }
 
     enteredRaceSpouse() {
         if (this.userData.spouse.race == "")
-            alert("Please select a valid race");
+            alert("Please select a race");
     }
 
     enteredStateSpouse() {
@@ -427,5 +352,88 @@ export class PersonalInfo {
     enteredEducationSpouse() {
         if (this.userData.spouse.education == "")
             alert("Please select a valid education");
+    }
+
+    submit() {
+        if (this.userData.client.age == "") {
+            alert("Please enter a valid age");
+            return;
+        }
+        else if (this.userData.client.gender == "") {
+            alert("Please enter your sex");
+            return;
+        }
+        else if (this.userData.client.race == "") {
+            alert("Please enter your race");
+            return;
+        }
+        else if (this.userData.client.state == "") {
+            alert("Please enter your State");
+            return;
+        }
+        else if (this.userData.client.county == "") {
+            alert("Please enter your County");
+            return;
+        }
+        else if (this.userData.client.heightInput == "") {
+            alert("Please enter your height");
+            return;
+        }
+        else if (this.userData.client.weightInput == "") {
+            alert("Please enter your weight");
+            return;
+        }
+        else if (this.userData.client.diabetic == "") {
+            alert("Please enter your diabetic status")
+            return;
+        }
+
+        if (this.userData.client.married) {
+            if (this.userData.spouse.age == "") {
+                alert("Please enter your spouse's age");
+                return;
+            }
+            else if (this.userData.spouse.gender == "") {
+                alert("Please enter your spouse's sex");
+                return;
+            }
+            else if (this.userData.spouse.race == "") {
+                alert("Please enter your spouse's race");
+                return;
+            }
+            else if (this.userData.spouse.state == "") {
+                alert("Please enter your spouse's State");
+                return;
+            }
+            else if (this.userData.spouse.county == "") {
+                alert("Please enter your spouse's County");
+                return;
+            }
+            else if (this.userData.spouse.heightInput == "") {
+                alert("Please enter your spouse's height");
+                return;
+            }
+            else if (this.userData.spouse.weightInput == "") {
+                alert("Please enter your spouse's weight");
+                return;
+            }
+            else if (this.userData.spouse.diabetic == "") {
+                alert("Please enter your spouse's diabetic status")
+                return;
+            }
+        }
+
+        this.userData.client.calculateRaceOffset();
+        this.userData.client.calculateEducationOffset();
+        this.userData.client.calculateExerciseOffset();
+
+        if (this.userData.client.married) {
+            this.userData.spouse.calculateRaceOffset();
+            this.userData.spouse.calculateEducationOffset();
+            this.userData.spouse.calculateExerciseOffset();
+        }
+
+
+
     }
 }

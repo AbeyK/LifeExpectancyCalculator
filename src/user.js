@@ -42,6 +42,14 @@ export class User {
 
     }
 
+    calculateBaseFromCounty() {
+        // do nothing, placeholder. calculation already done in personalinfo.js
+    }
+
+    calculateRaceOffset() {
+        // TODO
+    }
+
     calculateBMI(heightInput, weightInput) {
         var weightLbs = parseInt(weightInput);
         var heightIn = parseInt(heightInput.split("'")[0]) * 12 + parseInt(heightInput.split("'")[1]);
@@ -60,6 +68,18 @@ export class User {
         else // this.bmi >= 35
             this.gender === "Male" ? this.hale = -6.2 : this.hale = -10; //this.bmiCatagory = "obese 2";
 
+    }
+
+    calculateDiabeticOffset() {
+        //do nothing, placeholder, calc done in personalinfo.js
+    }
+
+    calculateEducationOffset() {
+        //TODO
+    }
+
+    calculateSmokingOffset() {
+        //do nothing, placeholder, calc done in personalinfo.js
     }
 
     calculateExerciseOffset(smokingStatus, exerciseLevel) {
@@ -93,5 +113,5 @@ export class User {
             else
                 exerciseOffset = 3.25;
         }
-    }
+    }    
 }
