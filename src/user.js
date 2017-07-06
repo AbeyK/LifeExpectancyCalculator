@@ -3,6 +3,7 @@ import {Data} from 'data';
 export class User {
     constructor() {
         this.projectedAge=1000;
+        this.adjustedAge = this.age;
         
         this.gender = "Male";
 
