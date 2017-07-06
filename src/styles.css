@@ -151,9 +151,14 @@ body {
   }
 }
 .logo {
-  margin: 70px auto;
+  font-family: 'Great Vibes', cursive;
+  color:#012D52;
+  font-size: 50px;
+  /*-webkit-text-stroke-width: .01em;*/
+  -webkit-text-stroke-color: #012D52;
+  margin: 90px auto;
   position: absolute;
-  z-index: 2;
+  z-index: 0;
   width: 100%;
 }
 .logo img {
@@ -236,3 +241,4 @@ h1{
       font-weight: 9000;
 
 }
+
