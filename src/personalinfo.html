@@ -1,142 +1,164 @@
 <template>
     <require from="jquery-ui-dist/jquery-ui.css"></require>
     <require from="bootstrap/css/bootstrap.css"></require>
+    <require from="personalinfo.css"></require>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+    </style>
+    <main style="float:center">
+        <div style="display: inline-block;">
 
-
-    <header class="sub-header">
-        <h1>Personal Info</h1>
-        <p>Please answer these questions so we may better assess your planning age.</p>
-    </header>
-
-    <main>
-
-        <form id="persinfo" submit.delegate="submit()">
-
-            <div id="client">
-                <h2>Client</h2>
-
-                <div class="form-group">
-                    <label for="married">Are you married?</label>
+            <form id="persinfo" submit.delegate="submit()">
+                <div id="client">
                     <br>
-                    <div click.delegate="enteredMarried()" class="btn-group" data-toggle="buttons" id="married">
-                        <label class="btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
+                    <h2>About You
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="married">Would you like a secondary calculation?</label>
+                        <br>
+                        <div click.delegate="enteredMarried()" class="btn-group" data-toggle="buttons" id="married">
+                            <label class="btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">Yes
                         </label>
-                        <label class="btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
+                            <label class="btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">No
                         </label>
+                        </div>
                     </div>
-                </div>   
-
-                <div class="form-group">
-                    <label for="enterAge">Age</label> 
-                    <input id="enterAge" type="number" value.bind="userData.client.age" change.delegate="enteredAge()" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="gender">What is your sex?</label>
                     <br>
-                    <div click.delegate="enteredGender()" class="btn-group" data-toggle="buttons" id="gender">
-                        <label class="btn ${userData.client.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}">
+                    <div class="form-group">
+                        <label for="gender">What is your sex?</label>
+                        <br>
+                        <div click.delegate="enteredGender()" class="btn-group" data-toggle="buttons" id="gender">
+                            <label class="btn ${userData.client.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">Male
                         </label>
-                        <label class="btn ${userData.client.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}">
+                            <label class="btn ${userData.client.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">Female
                         </label>
+                        </div>
                     </div>
-                </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="enterAge">Age</label>
+                        <input id="enterAge" type="number" value.bind="userData.client.age" change.delegate="enteredAge()" class="form-control">
+                    </div>
+                    <br>
 
-                <br>
-
-                <div class="form-group">
-                    <label for="race">Select your race:</label>
-                    <select id="race" class="form-control" value.bind="userData.client.race" change.delegate="enteredRace()">
+                    <div class="form-group">
+                        <label for="race">Select your race:</label>
+                        <select id="race" class="form-control" value.bind="userData.client.race" change.delegate="enteredRace()">
                         <option value="">-Select Race-</option>
                         <option value="${tempRace}" repeat.for="tempRace of races">${tempRace}</option>
                     </select>
-                </div>
-                <br>
+                    </div>
+                    <br>
 
-                <div class="form-group">
-                    <label for="state">Select your State:</label>
-                    <select id="state" class="form-control" value.bind="userData.client.state" click.delegate="enteredState()">
+                    <div class="form-group">
+                        <label for="state">Select your State:</label>
+                        <select id="state" class="form-control" value.bind="userData.client.state" click.delegate="enteredState()">
                         <option value="">-Choose State-</option>
                         <option value="${tempState}" repeat.for="tempState of userData.client.data.states">${tempState}</option>
                     </select>
-                </div>
+                    </div>
+                    <br show.bind="showCounties">
+                    <div class="form-group" show.bind="showCounties">
 
-                <div class="form-group" show.bind="showCounties">
-                    <label for="county">Select your County:</label>
-                    <select id="county" class="form-control" show.bind="showCounties" value.bind="userData.client.county" click.delegate="enteredCounty()">
+                        <label for="county">Select your County:</label>
+                        <select id="county" class="form-control" show.bind="showCounties" value.bind="userData.client.county" click.delegate="enteredCounty()">
                         <option value="">-Choose County-</option>
                         <option value="${tempCounty}" repeat.for="tempCounty of userData.client.data.counties">${tempCounty[0]}</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="enterHeight">Height</label> 
-                    <input id="enterHeight" type="text" value.bind="userData.client.heightInput" change.delegate="enteredHeight()" class="form-control" placeholder="5'10">
-                </div>
-
-                <div class="form-group">
-                    <label for="enterWeight">Weight (lbs)</label> 
-                    <input id="enterWeight" type="text" value.bind="userData.client.weightInput" change.delegate="enteredWeight()" class="form-control" placeholder="150">
-                </div>
-
-                <div show.bind="showBMI">
-                    Your BMI is: ${userData.client.bmi}
-                </div>
-
-                <div class="form-group">
-                    <label for="diabetic">Diabetic?</label>
-                    <div id="diabetic">
-                        <label class="radio-inline"><input type="radio"  name="diabetic" value="0" change.delegate="enteredDiabetic(0)">Not Diabetic</label>
-                        <label class="radio-inline"><input type="radio"  name="diabetic" value="1" change.delegate="enteredDiabetic(1)">Type 1</label>
-                        <label class="radio-inline"><input type="radio"  name="diabetic" value="2" change.delegate="enteredDiabetic(2)">Type 2</label>
                     </div>
-                </div>
+                    <br>
 
-                <div class="form-group">
-                    <label for="education">Select your level of education</label>
-                    <select class="form-control" value.bind="userData.client.education" id="education" change.delegate="enteredEducation()">
+                    <div class="form-group">
+                        <label for="enterHeight">Height</label>
+                        <input id="enterHeight" type="text" value.bind="userData.client.heightInput" change.delegate="enteredHeight()" class="form-control"
+                            placeholder="5'10">
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="enterWeight">Weight (lbs)</label>
+                        <input id="enterWeight" type="text" value.bind="userData.client.weightInput" change.delegate="enteredWeight()" class="form-control"
+                            placeholder="150">
+                    </div>
+
+                    <div show.bind="showBMI">
+                        Your BMI is: ${userData.client.bmi}
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="diabetic">Diabetic?</label>
+                        <div id="diabetic">
+                            <label class="radio-inline"><input type="radio"  name="diabetic" value="0" change.delegate="enteredDiabetic(0)">Not Diabetic</label>
+                            <label class="radio-inline"><input type="radio"  name="diabetic" value="1" change.delegate="enteredDiabetic(1)">Type 1</label>
+                            <label class="radio-inline"><input type="radio"  name="diabetic" value="2" change.delegate="enteredDiabetic(2)">Type 2</label>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="education">Select your level of education</label>
+                        <select class="form-control" value.bind="userData.client.education" id="education" change.delegate="enteredEducation()">
                         <option data-hidden="true" value="" >-Select Education-</option>
                         <option value="${tempEducation}" repeat.for="tempEducation of educations">${tempEducation}</option>
                     </select>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="cigarettes">Average Cigarettes Per Day?</label>
+                        <div id="cigarettes">
+                            <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Never')">Never</label>
+                            <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Former')">Quit</label>
+                            <label class="radio-inline"><input type="radio"  name="smoking" value="1" change.delegate="enteredSmoking(1, 'Current')">1-10 a day</label>
+                            <label class="radio-inline"><input type="radio"  name="smoking" value="2" change.delegate="enteredSmoking(2, 'Current')">21-30 a day</label>
+                            <label class="radio-inline"><input type="radio"  name="smoking" value="3" change.delegate="enteredSmoking(3, 'Current')">30+ a day</label>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exercises">How would you rate your weekly exercise level?</label>
+                        <div id="exercises">
+                            <label class="radio-inline"><input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('None')">None</label>
+                            <label class="radio-inline"><input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('Some')">Some</label>
+                            <label class="radio-inline"><input type="radio"  name="exercise" value="1" change.delegate="enteredExercise('Moderate')">Moderate</label>
+                            <label class="radio-inline"><input type="radio"  name="exercise" value="2" change.delegate="enteredExercise('Heavy')">Heavy</label>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="cigarettes">Average Cigarettes Per Day?</label>
-                    <div id="cigarettes">
-                        <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Never')">Never</label>
-                        <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Former')">Quit</label>
-                        <label class="radio-inline"><input type="radio"  name="smoking" value="1" change.delegate="enteredSmoking(1, 'Current')">1-10 a day</label>
-                        <label class="radio-inline"><input type="radio"  name="smoking" value="2" change.delegate="enteredSmoking(2, 'Current')">21-30 a day</label>
-                        <label class="radio-inline"><input type="radio"  name="smoking" value="3" change.delegate="enteredSmoking(3, 'Current')">30+ a day</label>
-                    </div>              
-                </div>
 
-                <div class="form-group">
-                    <label for="exercises" >How would you rate your weekly exercise level?</label>
-                    <div id="exercises">
-                        <label class="radio-inline"><input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('None')">None</label>
-                        <label class="radio-inline"><input type="radio"  name="exercise" value="0" change.delegate="enteredExercise('Some')">Some</label>
-                        <label class="radio-inline"><input type="radio"  name="exercise" value="1" change.delegate="enteredExercise('Moderate')">Moderate</label>
-                        <label class="radio-inline"><input type="radio"  name="exercise" value="2" change.delegate="enteredExercise('Heavy')">Heavy</label>
-                    </div>            
-                </div>     
 
-            </div>
 
-            <hr>
+
+
+
+
+
+        </div>
+
+
+
+        <div style="display: inline-block;">
+
+
+
 
             <div id="spouse" show.bind="userData.client.married">
-                <h2>Spouse</h2>
+                <h2>Secondary</h2>
 
                 <div class="form-group">
-                    <label for="enterAgeSpouse">Age</label> 
+                    <label for="enterAgeSpouse">Age</label>
                     <input id="enterAgeSpouse" type="number" value.bind="userData.spouse.age" change.delegate="enteredAgeSpouse()" class="form-control">
                 </div>
-
+                <br>
                 <div class="form-group">
                     <label for="genderSpouse">What is your sex?</label>
                     <br>
@@ -168,6 +190,7 @@
                         <option value="${tempState}" repeat.for="tempState of userData.spouse.data.states">${tempState}</option>
                     </select>
                 </div>
+                <br>
 
                 <div class="form-group" show.bind="showCountiesSpouse">
                     <label for="countySpouse">Select your County:</label>
@@ -176,16 +199,21 @@
                         <option value="${tempCounty}" repeat.for="tempCounty of userData.spouse.data.counties">${tempCounty[0]}</option>
                     </select>
                 </div>
+                <br>
 
                 <div class="form-group">
-                    <label for="enterHeightSpouse">Height</label> 
-                    <input id="enterHeightSpouse" type="text" value.bind="userData.spouse.heightInput" change.delegate="enteredHeightSpouse()" class="form-control" placeholder="5'10">
+                    <label for="enterHeightSpouse">Height</label>
+                    <input id="enterHeightSpouse" type="text" value.bind="userData.spouse.heightInput" change.delegate="enteredHeightSpouse()"
+                        class="form-control" placeholder="5'10">
                 </div>
+                <br>
 
                 <div class="form-group">
-                    <label for="enterWeightSpouse">Weight (lbs)</label> 
-                    <input id="enterWeightSpouse" type="text" value.bind="userData.spouse.weightInput" change.delegate="enteredWeightSpouse()" class="form-control" placeholder="150">
+                    <label for="enterWeightSpouse">Weight (lbs)</label>
+                    <input id="enterWeightSpouse" type="text" value.bind="userData.spouse.weightInput" change.delegate="enteredWeightSpouse()"
+                        class="form-control" placeholder="150">
                 </div>
+                <br>
 
                 <div show.bind="showBMISpouse">
                     Your BMI is: ${userData.spouse.bmi}
@@ -199,6 +227,7 @@
                         <label class="radio-inline"><input type="radio"  name="diabeticSpouse" value="2" change.delegate="enteredDiabeticSpouse(2)">Type 2</label>
                     </div>
                 </div>
+                <br>
 
                 <div class="form-group">
                     <label for="educationSpouse">Select your level of education</label>
@@ -207,6 +236,7 @@
                         <option value="${tempEducation}" repeat.for="tempEducation of educations">${tempEducation}</option>
                     </select>
                 </div>
+                <br>
 
                 <div class="form-group">
                     <label for="cigarettesSpouse">Average Cigarettes Per Day?</label>
@@ -216,8 +246,9 @@
                         <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="1" change.delegate="enteredSmokingSpouse(1, 'Current')">1-10 a day</label>
                         <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="2" change.delegate="enteredSmokingSpouse(2, 'Current')">21-30 a day</label>
                         <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="3" change.delegate="enteredSmokingSpouse(3, 'Current')">30+ a day</label>
-                    </div>              
+                    </div>
                 </div>
+                <br>
 
                 <div class="form-group">
                     <label for="exercisesSpouse">How would you rate your weekly exercise level?</label>
@@ -226,15 +257,15 @@
                         <label class="radio-inline"><input type="radio"  name="exerciseSpouse" value="0" change.delegate="enteredExerciseSpouse('Some')">Some</label>
                         <label class="radio-inline"><input type="radio"  name="exerciseSpouse" value="1" change.delegate="enteredExerciseSpouse('Moderate')">Moderate</label>
                         <label class="radio-inline"><input type="radio"  name="exerciseSpouse" value="2" change.delegate="enteredExerciseSpouse('Heavy')">Heavy</label>
-                    </div>            
+                    </div>
                 </div>
 
             </div>
-
+        </div>
             <br>
             <button class="btn btn-primary" type="submit" id="next">Submit</button>
 
-        </form>
+            </form>
 
 
 

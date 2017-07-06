@@ -1,0 +1,24 @@
+
+body {
+  font-family: 'Lato', sans-serif;
+  color:white;
+  text-align: center;
+}
+.form-group{
+    width: 300px;
+    display: inline-block;
+    text-align: center;
+}
+hr{
+    width: 30%;
+    margin-top: 0;
+    padding: 0;
+    }
+h2{
+    font-weight: bold;
+    font-size: 55px;
+      font-family: 'Great Vibes', cursive;
+
+    margin: 0;
+    padding: 0;
+}
