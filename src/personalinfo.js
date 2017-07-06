@@ -2,13 +2,14 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { inject } from 'aurelia-framework';
 import $ from 'jquery';
 import {UserData} from 'userdata';
+import {Router} from 'aurelia-router';
 
-@inject(UserData, HttpClient)
+@inject(UserData, Router)
 export class PersonalInfo {
-    constructor(userData, http) {
+    constructor(userData, router) {
         this.userData = userData;
 
-        this.httpClient = http;
+        this.router = router;
 
         this.showCounties = false;
         this.showBMI = false;
@@ -75,8 +76,7 @@ export class PersonalInfo {
     }
 
     enteredGender() {
-        if (this.userData.client.gender == "")
-            alert("Please select a sex");
+        this.userData.client.gender = this.userData.client.gender == "Male" ? "Female" : "Male";
     }
 
     enteredRace() {
@@ -84,11 +84,8 @@ export class PersonalInfo {
             alert("Please select a race");
     }
 
-    enteredMarried(married) {
-        if (married == 1)
-            this.userData.client.married = true;
-        else
-            this.userData.client.married = false;
+    enteredMarried() {
+        this.userData.client.married = !this.userData.client.married;
     }
 
     enteredState() {
@@ -232,8 +229,7 @@ export class PersonalInfo {
     }
 
     enteredGenderSpouse() {
-        if (this.userData.spouse.gender == "")
-            alert("Please select a sex");
+        this.userData.spouse.gender = this.userData.spouse.gender == "Male" ? "Female" : "Male";
     }
 
     enteredRaceSpouse() {
@@ -258,7 +254,14 @@ export class PersonalInfo {
             this.showCountiesSpouse = false;
     }
     enteredCountySpouse(){
-        console.log(this.userData.spouse.data.counties);
+        if(this.userData.spouse.sex!="" && this.userData.spouse.county!=undefined && this.userData.spouse.county!=""){
+            if(this.userData.spouse.gender==="Male"){
+                this.userData.spouse.projectedAge = this.userData.spouse.county.split(",")[2].split("(")[1];
+            }
+            else if (this.userData.spouse.gender==="Female"){
+                this.userData.spouse.projectedAge = this.userData.spouse.county.split(",")[3].split(")")[0];
+            }
+        }
     }
 
     enteredHeightSpouse() {
@@ -349,10 +352,25 @@ export class PersonalInfo {
         console.log(this.userData.spouse.diabeticOffset);
     }
 
+    enteredSmokingSpouse(num, smokingStatus) {
+            this.userData.spouse.smokingStatus = smokingStatus;
+
+            var smokingOffsetArray = [4.3,2.1,5.8,8.8]
+            this.userData.spouse.smokingOffset=smokingOffsetArray[num];
+    }
+    
+
     enteredEducationSpouse() {
         if (this.userData.spouse.education == "")
             alert("Please select a valid education");
     }
+
+    enteredExerciseSpouse(exerciseLevel) {
+        this.userData.spouse.exerciseLevel = exerciseLevel;
+    }
+
+    // SUBMIT --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //        --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     submit() {
         if (this.userData.client.age == "") {
@@ -433,7 +451,7 @@ export class PersonalInfo {
             this.userData.spouse.calculateExerciseOffset();
         }
 
-
+        this.router.navigate('#/results');
 
     }
 }

@@ -4,7 +4,7 @@ export class User {
     constructor() {
         this.projectedAge=1000;
         
-        this.gender = "";
+        this.gender = "Male";
 
         this.age = "";
 
@@ -91,7 +91,7 @@ export class User {
             else if (exerciseLevel == "Moderate")
                 this.exerciseOffset = 2.6;
             else
-                exerciseOffset = 3.25;
+                this.exerciseOffset = 3.25;
         }
         else if (smokingStatus == "Former") {
             if (exerciseLevel == "None")
@@ -101,7 +101,7 @@ export class User {
             else if (exerciseLevel == "Moderate")
                 this.exerciseOffset = 3.45;
             else
-                exerciseOffset = 5.25;
+                this.exerciseOffset = 5.25;
         }
         else {
             if (exerciseLevel == "None")
@@ -111,7 +111,7 @@ export class User {
             else if (exerciseLevel == "Moderate")
                 this.exerciseOffset = 2.6;
             else
-                exerciseOffset = 3.25;
+                this.exerciseOffset = 3.25;
         }
     }    
 }

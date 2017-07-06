@@ -75,7 +75,14 @@
           ],
           "stub": true
         }
-      ]
+      ],
+      "config": {
+        "shim": {
+          "highcharts": {
+            "exports": "Highcharts"
+          }
+        }
+      }
     },
     "options": {
       "minify": "stage & prod",
@@ -155,6 +162,14 @@
             "deps": ["jquery"],
             "resources": [
               "jquery-ui.css"
+            ]
+          },
+          {
+            "name": "highcharts",
+            "path": "../node_modules/highcharts",
+            "main": "js/highcharts",
+            "resources": [
+              "css/highcharts.css"
             ]
           }
         ]
