@@ -5,14 +5,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
     </style>
-    <main style="float:center">
-        <div style="display: inline-block;">
-
-            <form id="persinfo" submit.delegate="submit()">
-                <div id="client">
-                    <br>
-                    <h2>About You
-                    </h2>
+    <main>
+                        <br>
+                <br>
 
                     <div class="form-group">
                         <label for="married">Would you like a secondary calculation?</label>
@@ -26,7 +21,17 @@
                         </label>
                         </div>
                     </div>
+                    <br>                <br>
+        <div style="display: inline-block; vertical-align:top;">
+
+            <form id="persinfo" submit.delegate="submit()">
+                <div id="client">
                     <br>
+                    <h2>About You<hr>
+                    </h2>
+
+                <br>
+
                     <div class="form-group">
                         <label for="gender">What is your sex?</label>
                         <br>
@@ -146,18 +151,10 @@
 
 
 
-        <div style="display: inline-block;">
-
-
-
+        <div style="display: inline-block; padding-left:250px; padding-top:18px; vertical-align:top;" show.bind="userData.client.married">
 
             <div id="spouse" show.bind="userData.client.married">
-                <h2>Secondary</h2>
-
-                <div class="form-group">
-                    <label for="enterAgeSpouse">Age</label>
-                    <input id="enterAgeSpouse" type="number" value.bind="userData.spouse.age" change.delegate="enteredAgeSpouse()" class="form-control">
-                </div>
+                <h2>Secondary<hr></h2>
                 <br>
                 <div class="form-group">
                     <label for="genderSpouse">What is your sex?</label>
@@ -173,6 +170,12 @@
                 </div>
 
                 <br>
+                <div class="form-group">
+                    <label for="enterAgeSpouse">Age</label>
+                    <input id="enterAgeSpouse" type="number" value.bind="userData.spouse.age" change.delegate="enteredAgeSpouse()" class="form-control">
+                </div>
+                <br>
+
 
                 <div class="form-group">
                     <label for="raceSpouse">Select your race:</label>
@@ -263,7 +266,14 @@
             </div>
         </div>
             <br>
+                        <br>
+            <br>
+            <br>
+
             <button class="btn btn-primary" type="submit" id="next">Submit</button>
+            <br>
+            <br>
+            <br>
 
             </form>
 
