@@ -75,8 +75,15 @@ export class User {
         //do nothing, placeholder, calc done in personalinfo.js
     }
 
-    calculateEducationOffset() {
-        //TODO
+    calculateEducationOffset(gender, education) {
+        var arrOffset = gender == "Male" ? 0 : 4;
+
+        switch (education) {
+            case "Some High School": this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 1]; return;
+            case "Some High School": this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 2]; return;
+            case "Some High School": this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 3]; return;
+            default:                 this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 4]; return;
+        }
     }
 
     calculateSmokingOffset() {
@@ -114,5 +121,9 @@ export class User {
             else
                 this.exerciseOffset = 3.25;
         }
-    }    
+    }
+
+    calculateProfessionOffset (profession) {
+        
+    }
 }
