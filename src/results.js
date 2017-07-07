@@ -10,7 +10,7 @@ export class Results {
         this.router = router;
     }
 
-    results() {
+    attached() {
         function generateTuples(person) {
             var baseExpecArray = person.gender == "Male" ? person.data.maleLifeExpectancies : person.data.femaleLifeExpectancies;
 
