@@ -23,7 +23,7 @@
         <br>
         <div style="display: inline-block; vertical-align:top;">
 
-            <form id="persinfo" submit.delegate="submit()">
+            <form id="persinfo">
                 <div id="client">
                     <br>
                     <h2>About You
@@ -136,6 +136,28 @@
                             <label class="radio-inline"><input type="radio"  name="exercise" value="2" change.delegate="enteredExercise('Heavy')">Heavy</label>
                         </div>
                     </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="profession">Select your type of profession:</label>
+                        <select class="form-control" value.bind="userData.client.profession" id="profession">
+                        <option data-hidden="true" value="" >-Select Profession-</option>
+                        <option value="${tempProfession}" repeat.for="tempProfession of professions">${tempProfession}</option>
+                    </select>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="cholesterols">What is your cholesterol (mg/dl)?</label>
+                        <div id="cholesterols">
+                            <label class="radio-inline"><input type="radio"  name="cholesterol" value="0" change.delegate="enteredCholesterol(1)">0-180</label>
+                            <label class="radio-inline"><input type="radio"  name="cholesterol" value="0" change.delegate="enteredCholesterol(2)">181-205</label>
+                            <label class="radio-inline"><input type="radio"  name="cholesterol" value="1" change.delegate="enteredCholesterol(3)">206-235</label>
+                            <label class="radio-inline"><input type="radio"  name="cholesterol" value="2" change.delegate="enteredCholesterol(4)">236-260</label>
+                            <label class="radio-inline"><input type="radio"  name="cholesterol" value="2" change.delegate="enteredCholesterol(5)">261-300</label>
+                        </div>
+                    </div>
+                    <br>
 
                 </div>
 
@@ -147,7 +169,7 @@
 
 
 
-        </div>
+            </div>
 
 
 
@@ -264,6 +286,28 @@
                         <label class="radio-inline"><input type="radio"  name="exerciseSpouse" value="2" change.delegate="enteredExerciseSpouse('Heavy')">Heavy</label>
                     </div>
                 </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="professionSpouse">Select your type of profession:</label>
+                    <select class="form-control" value.bind="userData.spouse.profession" id="professionSpouse">
+                    <option data-hidden="true" value="" >-Select Profession-</option>
+                    <option value="${tempProfession}" repeat.for="tempProfession of professions">${tempProfession}</option>
+                </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="cholesterolsSpouse">What is your cholesterol (mg/dl)?</label>
+                    <div id="cholesterolsSpouse">
+                        <label class="radio-inline"><input type="radio"  name="cholesterolSpouse" value="0" change.delegate="enteredCholesterolSpouse(1)">0-180</label>
+                        <label class="radio-inline"><input type="radio"  name="cholesterolSpouse" value="0" change.delegate="enteredCholesterolSpouse(2)">181-205</label>
+                        <label class="radio-inline"><input type="radio"  name="cholesterolSpouse" value="1" change.delegate="enteredCholesterolSpouse(3)">206-235</label>
+                        <label class="radio-inline"><input type="radio"  name="cholesterolSpouse" value="2" change.delegate="enteredCholesterolSpouse(4)">236-260</label>
+                        <label class="radio-inline"><input type="radio"  name="cholesterolSpouse" value="2" change.delegate="enteredCholesterolSpouse(5)">261-300</label>
+                    </div>
+                </div>
+                <br>
 
             </div>
         </div>
@@ -271,7 +315,8 @@
         <br>
         <br>
 
-        <button style="font-size:15px; width:8%" class="btn btn-primary" type="submit" id="next">Submit</button>
+        <!--<button style="font-size:15px; width:8%" class="btn btn-primary" type="submit" id="next" click.delegate="router.navigate('#/results')">Submit</button>-->
+        <button style="font-size:15px; width:8%" class="btn btn-primary" click.delegate="submit()">Submit</button>
         <br>
         <br>
         <br>

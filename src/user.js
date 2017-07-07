@@ -41,6 +41,11 @@ export class User {
 
         this.exerciseLevel = "";
 
+        this.profession = "";
+        this.professionOffset = "";
+
+        this.cholesterol = "";
+        this.cholesterolOffset = "";
     }
 
     calculateBaseFromCounty() {
@@ -123,7 +128,22 @@ export class User {
         }
     }
 
-    calculateProfessionOffset (profession) {
-        
+    calculateProfessionOffset (age, profession) {
+        switch (profession) {
+            case "Professional":           this.professionOffset = this.data.professionExpecs[age - 1][1]; return;
+            case "Clerical":               this.professionOffset = this.data.professionExpecs[age - 1][2]; return;
+            case "Other & Manual Labor":     this.professionOffset = this.data.professionExpecs[age - 1][3]; return;
+            default:                       this.professionOffset = this.data.professionExpecs[age - 1][4]; return;
+        }
+    }
+
+    calculateCholesterolOffset (age, cholesterol) {
+        switch (cholesterol) {
+            case 1:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][1]; return;
+            case 2:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][2]; return;
+            case 3:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][3]; return;
+            case 4:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][4]; return;
+            default:    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][5]; return;
+        }
     }
 }
