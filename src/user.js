@@ -53,7 +53,45 @@ export class User {
     }
 
     calculateRaceOffset() {
-        // TODO
+        for(var i =0; i<this.data.race_offset_list.length; i++){
+            if(this.data.race_offset_list[i][0]===this.age){
+                if(this.gender=="Male"){
+                    if(this.race==="White American"){
+                        return this.data.race_offset_list[i][1];
+                    }
+                    else if(this.race==="Black or African American"){
+                        return this.data.race_offset_list[i][3];
+
+                    }
+                    else if(this.race==="Hispanic"){
+                        return this.data.race_offset_list[i][5];
+
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+                else if(this.gender=="Female"){
+                    if(this.race==="White American"){
+                        return this.data.race_offset_list[i][2];
+                    }
+                    else if(this.race==="Black or African American"){
+                        return this.data.race_offset_list[i][4];
+
+                    }
+                    else if(this.race==="Hispanic"){
+                        return this.data.race_offset_list[i][6];
+
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
     }
 
     calculateBMI(heightInput, weightInput) {
