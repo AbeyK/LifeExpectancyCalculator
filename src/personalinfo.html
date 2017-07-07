@@ -6,31 +6,31 @@
         @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
     </style>
     <main>
-                        <br>
-                <br>
 
-                    <div class="form-group">
-                        <label for="married">Would you like a secondary calculation?</label>
-                        <br>
-                        <div click.delegate="enteredMarried()" class="btn-group" data-toggle="buttons" id="married">
-                            <label class="btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
+
+        <label style="font-size:15px;" for="married">Would you like a secondary calculation?</label>
+        <br>
+        <div click.delegate="enteredMarried()" class="btn-group" data-toggle="buttons" id="married">
+            <label class="btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">Yes
                         </label>
-                            <label class="btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
+            <label class="btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}">
                             <input type="radio">No
                         </label>
-                        </div>
-                    </div>
-                    <br>                <br>
+        </div>
+        <br>
+        <br>        <br>
+        <br>
         <div style="display: inline-block; vertical-align:top;">
 
             <form id="persinfo" submit.delegate="submit()">
                 <div id="client">
                     <br>
-                    <h2>About You<hr>
+                    <h2>About You
+                        <hr>
                     </h2>
 
-                <br>
+                    <br>
 
                     <div class="form-group">
                         <label for="gender">What is your sex?</label>
@@ -151,10 +151,12 @@
 
 
 
-        <div style="display: inline-block; padding-left:250px; padding-top:18px; vertical-align:top;" show.bind="userData.client.married">
+        <div style="display: inline-block; padding-left:130px; padding-top:19px; vertical-align:top;" show.bind="userData.client.married">
 
             <div id="spouse" show.bind="userData.client.married">
-                <h2>Secondary<hr></h2>
+                <h2>Secondary
+                    <hr>
+                </h2>
                 <br>
                 <div class="form-group">
                     <label for="genderSpouse">What is your sex?</label>
@@ -193,7 +195,7 @@
                         <option value="${tempState}" repeat.for="tempState of userData.spouse.data.states">${tempState}</option>
                     </select>
                 </div>
-                <br>
+                <br show.bind="showCountiesSpouse">
 
                 <div class="form-group" show.bind="showCountiesSpouse">
                     <label for="countySpouse">Select your County:</label>
@@ -265,17 +267,17 @@
 
             </div>
         </div>
-            <br>
-                        <br>
-            <br>
-            <br>
+        <br>
+        <br>
+        <br>
 
-            <button class="btn btn-primary" type="submit" id="next">Submit</button>
-            <br>
-            <br>
-            <br>
+        <button style="font-size:15px; width:8%" class="btn btn-primary" type="submit" id="next">Submit</button>
+        <br>
+        <br>
+        <br>
+        <button style="font-size:20px; width:10%" class="btn btn-danger" click.delegate="selfdestrcut()">DO NOT CLICK !</button>
 
-            </form>
+        </form>
 
 
 
