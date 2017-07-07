@@ -544,6 +544,14 @@ export class PersonalInfo {
             alert("Please enter your diabetic status")
             return;
         }
+        else if (this.userData.client.cholesterol = "") {
+            alert("Please enter your cholesterol");
+            return;
+        }
+        else if (this.userData.client.profession = "") {
+            alert("Please enter your profession");
+            return;
+        }
 
         if (this.userData.client.married) {
             if (this.userData.spouse.age == "") {
@@ -578,16 +586,40 @@ export class PersonalInfo {
                 alert("Please enter your spouse's diabetic status")
                 return;
             }
+            else if (this.userData.spouse.cholesterol == "") {
+                 alert("Please enter your spouse's cholesterol");
+                return;
+            }
+            else if (this.userData.spouse.profession == "") {
+                alert("Please enter your spouse's profession");
+                return;
+            }
         }
 
         this.userData.client.calculateRaceOffset();
         this.userData.client.calculateEducationOffset();
         this.userData.client.calculateExerciseOffset();
+        this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
+        this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
+
+        var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset +
+                           this.userData.client.cholesterolOffset + this.userData.client.professionOffset;
+        
+        this.userData.client.adjustedAge += this.userData.client.age + clientOffset;
+        this.userData.client.projectedAge += clientOffset;
 
         if (this.userData.client.married) {
             this.userData.spouse.calculateRaceOffset();
             this.userData.spouse.calculateEducationOffset();
             this.userData.spouse.calculateExerciseOffset();
+            this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
+            this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
+
+            var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset +
+                           this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset;
+        
+            this.userData.spouse.adjustedAge += this.userData.spouse.age + spouseOffset;
+            this.userData.spouse.projectedAge += spouseOffset;
         }
 
         this.router.navigate('#/results');

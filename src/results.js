@@ -29,7 +29,7 @@ export class Results {
         function makeChart(person, containerId) {
             Highcharts.chart(containerId, {
                 title: {
-                    text: 'Life Expectency'
+                    text: 'Life Expectancy'
                 },
                 xAxis: {
                     title: {
