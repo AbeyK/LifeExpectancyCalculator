@@ -697,7 +697,7 @@ define('results',['exports', 'highcharts', 'userdata', 'aurelia-router', 'aureli
             this.router = router;
         }
 
-        Results.prototype.results = function results() {
+        Results.prototype.attached = function attached() {
             function generateTuples(person) {
                 var baseExpecArray = person.gender == "Male" ? person.data.maleLifeExpectancies : person.data.femaleLifeExpectancies;
 

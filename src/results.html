@@ -1,22 +1,46 @@
 <template>
 
 	<require from="highcharts/css/highcharts.css"></require>
+    <require from="jquery-ui-dist/jquery-ui.css"></require>
+    <require from="bootstrap/css/bootstrap.css"></require>
+    <require from="personalinfo.css"></require>
+	  <require from="styles.css"></require>
+<div class="hero">
+  <style>
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+</style>
+  <div class="parallax-layer layer-6"></div>
+  <div class="parallax-layer layer-5"></div>
+  <!--<div class="parallax-layer layer-4"></div>-->
+  <div class="parallax-layer bike-1"></div>
+  <div class="parallax-layer bike-2"></div>
+  <div class="parallax-layer layer-3"></div>
+  <div class="parallax-layer layer-2"></div>
+  <div class="parallax-layer layer-1"></div>
+  <div class="logo">
+    <!--<img src="http://www.iconsdb.com/icons/preview/icon-sets/ice/sandglass-xxl.png"  width="200px"alt=""  />-->
+    <h1 style="text-align:center; font-size:90px">Your Results</h1>
 
-	<header class="sub-header">
-        <h1>Results</h1>
-        <p>Here is our best estimate of your life expectancy.</p>
-    </header>
+  </div>
+</div>
 
-	<main>
 
-		<button class="btn btn-primary" click.delegate="results()">Get Results</button>
+	<main onload="results()">
 
-		<div id="container" style="width:100%; height:400px;"></div>
-
+		<div style="float:left; width:50%; padding-left:225px;">
+		<div id="container" style="height:450px"></div>
+		</div>
+		<div style="float:left; width:50%; text-align:left; padding-left:80px;">
+		<label style="font-size: 20px;">Estimated Life Remaining:</label>
+		<br>
+		<label style="font-size: 20px;">Body Mass Index:</label>
+		<br>
+		<label style="font-size: 20px;">Smoking Habit Offset:</label>
+		</div>
 		<div id="containerSpouse" style="width:100%; height:400px;"></div>
 
 
 	</main>
-
+	<br>
 
 </template>
