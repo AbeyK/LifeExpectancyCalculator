@@ -45,6 +45,12 @@ export class Results {
                         }
                     }
                 },
+                labels: {
+                    style: {
+                        color: '#FFF',
+                        font: '11px Trebuchet MS, Verdana, sans-serif'
+                    }
+                },
                 series: [{
                     name: 'Probablity of Living',
                     data:  generateTuples(person)
