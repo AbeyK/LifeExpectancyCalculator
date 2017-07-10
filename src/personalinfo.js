@@ -629,8 +629,8 @@ export class PersonalInfo {
         this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
         this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
         this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
-        var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset +
-            this.userData.client.cholesterolOffset + this.userData.client.professionOffset + this.userData.client.smokingOffset + this.userData.client.incomeOffset;
+        var clientOffset = parseInt(this.userData.client.raceOffset) + parseInt(this.userData.client.hale) + parseInt(this.userData.client.diabeticOffset) +
+            parseInt(this.userData.client.cholesterolOffset) + parseInt(this.userData.client.professionOffset) + parseInt(this.userData.client.smokingOffset) + parseInt(this.userData.client.incomeOffset);
 
         this.userData.client.adjustedAge = parseInt(this.userData.client.age) + parseInt(clientOffset);
         this.userData.client.projectedAge = parseInt(this.userData.client.projectedAge) + parseInt(clientOffset);
