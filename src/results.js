@@ -17,12 +17,9 @@ export class Results {
             var tuples = [];
 
             for (var i = 0; i < baseExpecArray.length - person.adjustedAge; i++) {
-                console.log(person.adjustedAge + i);
-                console.log(baseExpecArray[person.adjustedAge + i][0]);
-                tuples.push([ person.age + i, baseExpecArray[person.adjustedAge + i][0] ]);
+                tuples.push([ parseInt(person.age) + i, baseExpecArray[parseInt(person.adjustedAge) + i][2] ]);
             }
 
-                console.log(tuples);
             return tuples;
         }
 
@@ -48,9 +45,7 @@ export class Results {
             }); //end Highcharts.chart()
         } // end makeChart()
 
-        //this.userData.client.gender = "Female";
-        this.userData.client.adjustedAge = 65;
-        this.userData.client.age = 60;
+        console.log(this.userData.client);
 
         makeChart(this.userData.client, 'container');
 

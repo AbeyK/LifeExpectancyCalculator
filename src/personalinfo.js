@@ -27,6 +27,8 @@ export class PersonalInfo {
         this.educations = ["Some High School", "High School", "Some College", "College"];
 
         this.professions = ["Clerical", "Professional", "Executive", "Other & Manual Labor"];
+
+        this.smokingOptions = ["Never Smoked", "Quit Smoking", "1-10 cigarettes a day", "11-20 cigarettes a day", "21-30 cigarettes a day", "31+ cigarettes a day"];
     }
 
     printStuff() {
@@ -72,6 +74,9 @@ export class PersonalInfo {
     enteredAge() {
         if (this.userData.client.age < 0 || this.userData.client.age > 123)
             alert("Enter a valid age");
+        this.userData.client.age = parseInt(this.userData.client.age);
+        console.log("Age is below");
+        console.log(this.userData.client.age);
     }
 
     enteredGender() {
@@ -149,45 +154,45 @@ export class PersonalInfo {
         this.userData.client.diabetic = diabetic;
         if (diabetic === 1) {
             if (this.userData.client.gender === "Male") {
-                this.userData.client.diabeticOffset = Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
+                this.userData.client.diabeticOffset = 0-Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
             }
             else if (this.userData.client.gender === "Female") {
-                this.userData.client.diabeticOffset = Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
+                this.userData.client.diabeticOffset = 0-Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
             }
         }
         else if (diabetic == 2) {
             if (this.userData.client.gender === "Male") {
                 if (this.userData.client.race == "White American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
 
                 }
                 else if (this.userData.client.race == "Asian American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
 
                 }
                 else if (this.userData.client.race == "Black or African American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
 
                 }
                 else {
-                    this.userData.client.diabeticOffset = Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
 
                 }
             } else if (this.userData.client.gender === "Female") {
                 if (this.userData.client.race == "White American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
 
                 }
                 else if (this.userData.client.race == "Asian American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.195 * this.userData.client.age + 0.875, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.195 * this.userData.client.age + 0.875, 0);
 
                 }
                 else if (this.userData.client.race == "Black or African American") {
-                    this.userData.client.diabeticOffset = Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
 
                 }
                 else {
-                    this.userData.client.diabeticOffset = Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
+                    this.userData.client.diabeticOffset = 0-Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
 
                 }
             }
@@ -198,11 +203,19 @@ export class PersonalInfo {
         console.log(this.userData.client.diabeticOffset);
     }
 
-    enteredSmoking(num, smokingStatus) {
-        this.userData.client.smokingStatus = smokingStatus;
-
-        var smokingOffsetArray = [4.3, 2.1, 5.8, 8.8]
-        this.userData.client.smokingOffset = smokingOffsetArray[num];
+    enteredSmoking() {
+        if (this.userData.client.smokingStatus == "") {
+            alert("Please select a smoking habit");
+            return;
+        }
+        
+        switch (this.userData.client.smokingStatus) {
+            case "1-10 cigarettes a day": this.userData.client.smokingOffset = -4.3; return;
+            case "11-20 cigarettes a day": this.userData.client.smokingOffset = -2.1; return;
+            case "21-30 cigarettes a day": this.userData.client.smokingOffset = -5.8; return;
+            case "31+ cigarettes a day": this.userData.client.smokingOffset = -8.8; return;
+            default: this.userData.client.smokingOffset = 0;
+        }
     }
 
     enteredEducation() {
@@ -224,6 +237,7 @@ export class PersonalInfo {
     enteredAgeSpouse() {
         if (this.userData.spouse.age < 0 || this.userData.spouse.age > 123)
             alert("Enter a valid age");
+        this.userData.spouse.age = parseInt(this.userData.spouse.age);
     }
 
     enteredGenderSpouse() {
@@ -296,45 +310,45 @@ export class PersonalInfo {
         this.userData.spouse.diabetic = diabetic;
         if (diabetic === 1) {
             if (this.userData.spouse.gender === "Male") {
-                this.userData.spouse.diabeticOffset = Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
+                this.userData.spouse.diabeticOffset = 0-Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
             }
             else if (this.userData.spouse.gender === "Female") {
-                this.userData.spouse.diabeticOffset = Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
+                this.userData.spouse.diabeticOffset = 0-Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
             }
         }
         else if (diabetic == 2) {
             if (this.userData.spouse.gender === "Male") {
                 if (this.userData.spouse.race == "White American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
 
                 }
                 else if (this.userData.spouse.race == "Asian American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
 
                 }
                 else if (this.userData.spouse.race == "Black or African American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
 
                 }
                 else {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
 
                 }
             } else if (this.userData.spouse.gender === "Female") {
                 if (this.userData.spouse.race == "White American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
 
                 }
                 else if (this.userData.spouse.race == "Asian American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
 
                 }
                 else if (this.userData.spouse.race == "Black or African American") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
 
                 }
                 else {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
+                    this.userData.spouse.diabeticOffset = 0-Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
 
                 }
             }
@@ -345,11 +359,19 @@ export class PersonalInfo {
         console.log(this.userData.spouse.diabeticOffset);
     }
 
-    enteredSmokingSpouse(num, smokingStatus) {
-        this.userData.spouse.smokingStatus = smokingStatus;
-
-        var smokingOffsetArray = [4.3, 2.1, 5.8, 8.8]
-        this.userData.spouse.smokingOffset = smokingOffsetArray[num];
+    enteredSmokingSpouse() {
+        if (this.userData.spouse.smokingStatus == "") {
+            alert("Please select a smoking habit");
+            return;
+        }
+        
+        switch (this.userData.spouse.smokingStatus) {
+            case "1-10 cigarettes a day": this.userData.spouse.smokingOffset = -4.3; return;
+            case "11-20 cigarettes a day": this.userData.spouse.smokingOffset = -2.1; return;
+            case "21-30 cigarettes a day": this.userData.spouse.smokingOffset = -5.8; return;
+            case "31+ cigarettes a day": this.userData.spouse.smokingOffset = -8.8; return;
+            default: this.userData.spouse.smokingOffset = 0;
+        }
     }
 
 
@@ -362,7 +384,7 @@ export class PersonalInfo {
         this.userData.spouse.exerciseLevel = exerciseLevel;
     }
 
-    enteredSpouseCholesterol(cholesterol) {
+    enteredCholesterolSpouse(cholesterol) {
         this.userData.spouse.cholesterol = cholesterol;
     }
 
@@ -512,86 +534,94 @@ export class PersonalInfo {
     }
 
     submit() {
-        if (this.userData.client.age == "") {
+        if (this.userData.client.age === "") {
             alert("Please enter a valid age");
             return;
         }
-        else if (this.userData.client.gender == "") {
+        else if (this.userData.client.gender === "") {
             alert("Please enter your sex");
             return;
         }
-        else if (this.userData.client.race == "") {
+        else if (this.userData.client.race === "") {
             alert("Please enter your race");
             return;
         }
-        else if (this.userData.client.state == "") {
+        else if (this.userData.client.state === "") {
             alert("Please enter your State");
             return;
         }
-        else if (this.userData.client.county == "") {
+        else if (this.userData.client.county === "") {
             alert("Please enter your County");
             return;
         }
-        else if (this.userData.client.heightInput == "") {
+        else if (this.userData.client.heightInput === "") {
             alert("Please enter your height");
             return;
         }
-        else if (this.userData.client.weightInput == "") {
+        else if (this.userData.client.weightInput === "") {
             alert("Please enter your weight");
             return;
         }
-        else if (this.userData.client.diabetic == "") {
+        else if (this.userData.client.diabeticOffset === "") {
             alert("Please enter your diabetic status")
             return;
         }
-        else if (this.userData.client.cholesterol = "") {
+        else if (this.userData.client.cholesterol === "") {
             alert("Please enter your cholesterol");
             return;
         }
-        else if (this.userData.client.profession = "") {
+        else if (this.userData.client.profession === "") {
             alert("Please enter your profession");
+            return;
+        }
+        else if (this.userData.client.income === "") {
+            alert("Please enter your income");
             return;
         }
 
         if (this.userData.client.married) {
-            if (this.userData.spouse.age == "") {
+            if (this.userData.spouse.age === "") {
                 alert("Please enter your spouse's age");
                 return;
             }
-            else if (this.userData.spouse.gender == "") {
+            else if (this.userData.spouse.gender === "") {
                 alert("Please enter your spouse's sex");
                 return;
             }
-            else if (this.userData.spouse.race == "") {
+            else if (this.userData.spouse.race === "") {
                 alert("Please enter your spouse's race");
                 return;
             }
-            else if (this.userData.spouse.state == "") {
+            else if (this.userData.spouse.state === "") {
                 alert("Please enter your spouse's State");
                 return;
             }
-            else if (this.userData.spouse.county == "") {
+            else if (this.userData.spouse.county === "") {
                 alert("Please enter your spouse's County");
                 return;
             }
-            else if (this.userData.spouse.heightInput == "") {
+            else if (this.userData.spouse.heightInput === "") {
                 alert("Please enter your spouse's height");
                 return;
             }
-            else if (this.userData.spouse.weightInput == "") {
+            else if (this.userData.spouse.weightInput === "") {
                 alert("Please enter your spouse's weight");
                 return;
             }
-            else if (this.userData.spouse.diabetic == "") {
+            else if (this.userData.spouse.diabetic === "") {
                 alert("Please enter your spouse's diabetic status")
                 return;
             }
-            else if (this.userData.spouse.cholesterol == "") {
+            else if (this.userData.spouse.cholesterol === "") {
                  alert("Please enter your spouse's cholesterol");
                 return;
             }
-            else if (this.userData.spouse.profession == "") {
+            else if (this.userData.spouse.profession === "") {
                 alert("Please enter your spouse's profession");
+                return;
+            }
+            else if (this.userData.spouse.income === "") {
+                alert("Please enter your spouse's income");
                 return;
             }
         }
@@ -601,12 +631,13 @@ export class PersonalInfo {
         this.userData.client.calculateExerciseOffset();
         this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
         this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
+        this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
 
         var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset +
-                           this.userData.client.cholesterolOffset + this.userData.client.professionOffset;
+                           this.userData.client.cholesterolOffset + this.userData.client.professionOffset + this.userData.client.smokingOffset + this.userData.client.incomeOffset;
         
-        this.userData.client.adjustedAge += this.userData.client.age + clientOffset;
-        this.userData.client.projectedAge += clientOffset;
+        this.userData.client.adjustedAge = parseInt(this.userData.client.age) + parseInt(clientOffset);
+        this.userData.client.projectedAge = parseInt(this.userData.client.projectedAge) + parseInt(clientOffset);
 
         if (this.userData.client.married) {
             this.userData.spouse.calculateRaceOffset();
@@ -614,9 +645,10 @@ export class PersonalInfo {
             this.userData.spouse.calculateExerciseOffset();
             this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
             this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
+            this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);
 
             var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset +
-                           this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset;
+                           this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset + this.userData.spouse.smokingOffset + this.userData.spouse.incomeOffset;;
         
             this.userData.spouse.adjustedAge += this.userData.spouse.age + spouseOffset;
             this.userData.spouse.projectedAge += spouseOffset;
@@ -626,7 +658,4 @@ export class PersonalInfo {
 
     }
 
-    aaa(){
-        alert("AAAAAAAAAAAAAAAAAAAAHHHHHHHH")
-    }
 }

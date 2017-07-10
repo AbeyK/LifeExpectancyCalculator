@@ -81,9 +81,9 @@ define('data',['exports'], function (exports) {
             }
         }
 
-        this.maleLifeExpectancies = [[0, '100,000', 100.0], [1, '99,348', 99.348], [2, '99,302', 99.302], [3, '99,273', 99.273], [4, '99,252', 99.252], [5, '99,235', 99.235], [6, '99,219', 99.219], [7, '99,205', 99.205], [8, '99,192', 99.192], [9, '99,180', 99.18], [10, '99,170', 99.17], [11, '99,161', 99.161], [12, '99,151', 99.151], [13, '99,138', 99.138], [14, '99,119', 99.119], [15, '99,091', 99.091], [16, '99,052', 99.052], [17, '99,003', 99.003], [18, '98,943', 98.943], [19, '98,870', 98.87], [20, '98,785', 98.785], [21, '98,685', 98.685], [22, '98,572', 98.572], [23, '98,449', 98.449], [24, '98,321', 98.321], [25, '98,191', 98.191], [26, '98,060', 98.06], [27, '97,928', 97.928], [28, '97,795', 97.795], [29, '97,659', 97.659], [30, '97,519', 97.519], [31, '97,376', 97.376], [32, '97,230', 97.23], [33, '97,080', 97.08], [34, '96,927', 96.927], [35, '96,772', 96.772], [36, '96,612', 96.612], [37, '96,448', 96.448], [38, '96,277', 96.277], [39, '96,097', 96.097], [40, '95,908', 95.908], [41, '95,708', 95.708], [42, '95,493', 95.493], [43, '95,262', 95.262], [44, '95,012', 95.012], [45, '94,739', 94.739], [46, '94,441', 94.441], [47, '94,115', 94.115], [48, '93,759', 93.759], [49, '93,368', 93.368], [50, '92,940', 92.94], [51, '92,472', 92.472], [52, '91,961', 91.961], [53, '91,406', 91.406], [54, '90,804', 90.804], [55, '90,153', 90.153], [56, '89,450', 89.45], [57, '88,693', 88.693], [58, '87,883', 87.883], [59, '87,022', 87.022], [60, '86,112', 86.112], [61, '85,147', 85.147], [62, '84,125', 84.125], [63, '83,042', 83.042], [64, '81,899', 81.899], [65, '80,691', 80.691], [66, '79,412', 79.412], [67, '78,054', 78.054], [68, '76,613', 76.613], [69, '75,084', 75.084], [70, '73,461', 73.461], [71, '71,732', 71.732], [72, '69,889', 69.889], [73, '67,930', 67.93], [74, '65,853', 65.853], [75, '63,657', 63.657], [76, '61,329', 61.329], [77, '58,859', 58.859], [78, '56,249', 56.249], [79, '53,504', 53.504], [80, '50,629', 50.629], [81, '47,621', 47.621], [82, '44,484', 44.484], [83, '41,233', 41.233], [84, '37,890', 37.89], [85, '34,482', 34.482], [86, '31,040', 31.04], [87, '27,598', 27.598], [88, '24,201', 24.201], [89, '20,896', 20.896], [90, '17,735', 17.735], [91, '14,768', 14.768], [92, '12,043', 12.043], [93, '9,599', 9.599], [94, '7,463', 7.463], [95, '5,647', 5.647], [96, '4,157', 4.157], [97, '2,977', 2.977], [98, '2,075', 2.075], [99, '1,410', 1.41], [100, '935', 0.935], [101, '605', 0.605], [102, '380', 0.38], [103, '232', 0.232], [104, '137', 0.137], [105, '78', 0.078], [106, '43', 0.043], [107, '23', 0.023], [108, '11', 0.011], [109, '5', 0.005], [110, '2', 0.002], [111, '1', 0.001], [112, '0', 0.0], [113, '0', 0.0], [114, '0', 0.0], [115, '0', 0.0], [116, '0', 0.0], [117, '0', 0.0], [118, '0', 0.0], [119, '0', 0.0]];
+        this.maleLifeExpectancies = [[0, '100,000', 100.0], [1, '99,348', 99.348], [2, '99,302', 99.302], [3, '99,273', 99.273], [4, '99,252', 99.252], [5, '99,235', 99.235], [6, '99,219', 99.219], [7, '99,205', 99.205], [8, '99,192', 99.192], [9, '99,180', 99.18], [10, '99,170', 99.17], [11, '99,161', 99.161], [12, '99,151', 99.151], [13, '99,138', 99.138], [14, '99,119', 99.119], [15, '99,091', 99.091], [16, '99,052', 99.052], [17, '99,003', 99.003], [18, '98,943', 98.943], [19, '98,870', 98.87], [20, '98,785', 98.785], [21, '98,685', 98.685], [22, '98,572', 98.572], [23, '98,449', 98.449], [24, '98,321', 98.321], [25, '98,191', 98.191], [26, '98,060', 98.06], [27, '97,928', 97.928], [28, '97,795', 97.795], [29, '97,659', 97.659], [30, '97,519', 97.519], [31, '97,376', 97.376], [32, '97,230', 97.23], [33, '97,080', 97.08], [34, '96,927', 96.927], [35, '96,772', 96.772], [36, '96,612', 96.612], [37, '96,448', 96.448], [38, '96,277', 96.277], [39, '96,097', 96.097], [40, '95,908', 95.908], [41, '95,708', 95.708], [42, '95,493', 95.493], [43, '95,262', 95.262], [44, '95,012', 95.012], [45, '94,739', 94.739], [46, '94,441', 94.441], [47, '94,115', 94.115], [48, '93,759', 93.759], [49, '93,368', 93.368], [50, '92,940', 92.94], [51, '92,472', 92.472], [52, '91,961', 91.961], [53, '91,406', 91.406], [54, '90,804', 90.804], [55, '90,153', 90.153], [56, '89,450', 89.45], [57, '88,693', 88.693], [58, '87,883', 87.883], [59, '87,022', 87.022], [60, '86,112', 86.112], [61, '85,147', 85.147], [62, '84,125', 84.125], [63, '83,042', 83.042], [64, '81,899', 81.899], [65, '80,691', 80.691], [66, '79,412', 79.412], [67, '78,054', 78.054], [68, '76,613', 76.613], [69, '75,084', 75.084], [70, '73,461', 73.461], [71, '71,732', 71.732], [72, '69,889', 69.889], [73, '67,930', 67.93], [74, '65,853', 65.853], [75, '63,657', 63.657], [76, '61,329', 61.329], [77, '58,859', 58.859], [78, '56,249', 56.249], [79, '53,504', 53.504], [80, '50,629', 50.629], [81, '47,621', 47.621], [82, '44,484', 44.484], [83, '41,233', 41.233], [84, '37,890', 37.89], [85, '34,482', 34.482], [86, '31,040', 31.04], [87, '27,598', 27.598], [88, '24,201', 24.201], [89, '20,896', 20.896], [90, '17,735', 17.735], [91, '14,768', 14.768], [92, '12,043', 12.043], [93, '9,599', 9.599], [94, '7,463', 7.463], [95, '5,647', 5.647], [96, '4,157', 4.157], [97, '2,977', 2.977], [98, '2,075', 2.075], [99, '1,410', 1.41], [100, '935', 0.935], [101, '605', 0.605], [102, '380', 0.38], [103, '232', 0.232], [104, '137', 0.137], [105, '78', 0.078], [106, '43', 0.043]];
 
-        this.femaleLifeExpectancies = [[0, '100,000', 100.0], [1, '99,462', 99.46], [2, '99,425', 99.43], [3, '99,403', 99.4], [4, '99,387', 99.39], [5, '99,373', 99.37], [6, '99,361', 99.36], [7, '99,351', 99.35], [8, '99,341', 99.34], [9, '99,331', 99.33], [10, '99,322', 99.32], [11, '99,312', 99.31], [12, '99,303', 99.3], [13, '99,291', 99.29], [14, '99,278', 99.28], [15, '99,262', 99.26], [16, '99,243', 99.24], [17, '99,220', 99.22], [18, '99,194', 99.19], [19, '99,165', 99.17], [20, '99,132', 99.13], [21, '99,095', 99.1], [22, '99,054', 99.05], [23, '99,010', 99.01], [24, '98,963', 98.96], [25, '98,915', 98.92], [26, '98,864', 98.86], [27, '98,811', 98.81], [28, '98,755', 98.76], [29, '98,697', 98.7], [30, '98,635', 98.64], [31, '98,569', 98.57], [32, '98,500', 98.5], [33, '98,426', 98.43], [34, '98,348', 98.35], [35, '98,265', 98.27], [36, '98,176', 98.18], [37, '98,081', 98.08], [38, '97,979', 97.98], [39, '97,870', 97.87], [40, '97,753', 97.75], [41, '97,627', 97.63], [42, '97,491', 97.49], [43, '97,343', 97.34], [44, '97,182', 97.18], [45, '97,004', 97.0], [46, '96,810', 96.81], [47, '96,597', 96.6], [48, '96,364', 96.36], [49, '96,109', 96.11], [50, '95,829', 95.83], [51, '95,524', 95.52], [52, '95,193', 95.19], [53, '94,834', 94.83], [54, '94,449', 94.45], [55, '94,038', 94.04], [56, '93,598', 93.6], [57, '93,126', 93.13], [58, '92,623', 92.62], [59, '92,090', 92.09], [60, '91,526', 91.53], [61, '90,927', 90.93], [62, '90,287', 90.29], [63, '89,600', 89.6], [64, '88,858', 88.86], [65, '88,054', 88.05], [66, '87,177', 87.18], [67, '86,223', 86.22], [68, '85,187', 85.19], [69, '84,069', 84.07], [70, '82,864', 82.86], [71, '81,561', 81.56], [72, '80,147', 80.15], [73, '78,616', 78.62], [74, '76,961', 76.96], [75, '75,177', 75.18], [76, '73,244', 73.24], [77, '71,148', 71.15], [78, '68,888', 68.89], [79, '66,467', 66.47], [80, '63,880', 63.88], [81, '61,114', 61.11], [82, '58,159', 58.16], [83, '55,016', 55.02], [84, '51,694', 51.69], [85, '48,205', 48.21], [86, '44,565', 44.57], [87, '40,796', 40.8], [88, '36,933', 36.93], [89, '33,017', 33.02], [90, '29,104', 29.1], [91, '25,257', 25.26], [92, '21,542', 21.54], [93, '18,027', 18.03], [94, '14,775', 14.78], [95, '11,839', 11.84], [96, '9,267', 9.27], [97, '7,083', 7.08], [98, '5,285', 5.29], [99, '3,852', 3.85], [100, '2,745', 2.75], [101, '1,909', 1.91], [102, '1,292', 1.29], [103, '850', 0.85], [104, '541', 0.54], [105, '333', 0.33], [106, '197', 0.2], [107, '112', 0.11], [108, '61', 0.06], [109, '31', 0.03], [110, '15', 0.02], [111, '7', 0.01], [112, '3', 0.0], [113, '1', 0.0], [114, '0', 0.0], [115, '0', 0.0], [116, '0', 0.0], [117, '0', 0.0], [118, '0', 0.0], [119, '0', 0.0]];
+        this.femaleLifeExpectancies = [[0, '100,000', 100.0], [1, '99,462', 99.46], [2, '99,425', 99.43], [3, '99,403', 99.4], [4, '99,387', 99.39], [5, '99,373', 99.37], [6, '99,361', 99.36], [7, '99,351', 99.35], [8, '99,341', 99.34], [9, '99,331', 99.33], [10, '99,322', 99.32], [11, '99,312', 99.31], [12, '99,303', 99.3], [13, '99,291', 99.29], [14, '99,278', 99.28], [15, '99,262', 99.26], [16, '99,243', 99.24], [17, '99,220', 99.22], [18, '99,194', 99.19], [19, '99,165', 99.17], [20, '99,132', 99.13], [21, '99,095', 99.1], [22, '99,054', 99.05], [23, '99,010', 99.01], [24, '98,963', 98.96], [25, '98,915', 98.92], [26, '98,864', 98.86], [27, '98,811', 98.81], [28, '98,755', 98.76], [29, '98,697', 98.7], [30, '98,635', 98.64], [31, '98,569', 98.57], [32, '98,500', 98.5], [33, '98,426', 98.43], [34, '98,348', 98.35], [35, '98,265', 98.27], [36, '98,176', 98.18], [37, '98,081', 98.08], [38, '97,979', 97.98], [39, '97,870', 97.87], [40, '97,753', 97.75], [41, '97,627', 97.63], [42, '97,491', 97.49], [43, '97,343', 97.34], [44, '97,182', 97.18], [45, '97,004', 97.0], [46, '96,810', 96.81], [47, '96,597', 96.6], [48, '96,364', 96.36], [49, '96,109', 96.11], [50, '95,829', 95.83], [51, '95,524', 95.52], [52, '95,193', 95.19], [53, '94,834', 94.83], [54, '94,449', 94.45], [55, '94,038', 94.04], [56, '93,598', 93.6], [57, '93,126', 93.13], [58, '92,623', 92.62], [59, '92,090', 92.09], [60, '91,526', 91.53], [61, '90,927', 90.93], [62, '90,287', 90.29], [63, '89,600', 89.6], [64, '88,858', 88.86], [65, '88,054', 88.05], [66, '87,177', 87.18], [67, '86,223', 86.22], [68, '85,187', 85.19], [69, '84,069', 84.07], [70, '82,864', 82.86], [71, '81,561', 81.56], [72, '80,147', 80.15], [73, '78,616', 78.62], [74, '76,961', 76.96], [75, '75,177', 75.18], [76, '73,244', 73.24], [77, '71,148', 71.15], [78, '68,888', 68.89], [79, '66,467', 66.47], [80, '63,880', 63.88], [81, '61,114', 61.11], [82, '58,159', 58.16], [83, '55,016', 55.02], [84, '51,694', 51.69], [85, '48,205', 48.21], [86, '44,565', 44.57], [87, '40,796', 40.8], [88, '36,933', 36.93], [89, '33,017', 33.02], [90, '29,104', 29.1], [91, '25,257', 25.26], [92, '21,542', 21.54], [93, '18,027', 18.03], [94, '14,775', 14.78], [95, '11,839', 11.84], [96, '9,267', 9.27], [97, '7,083', 7.08], [98, '5,285', 5.29], [99, '3,852', 3.85], [100, '2,745', 2.75], [101, '1,909', 1.91], [102, '1,292', 1.29], [103, '850', 0.85], [104, '541', 0.54], [105, '333', 0.33], [106, '197', 0.2]];
 
         this.professionExpecs = [[1, 0.46, -2.94, -4.94, 0.46], [2, 0.463, -2.937, -4.937, 0.463], [3, 0.466, -2.934, -4.934, 0.466], [4, 0.47, -2.93, -4.93, 0.47], [5, 0.473, -2.927, -4.927, 0.473], [6, 0.476, -2.924, -4.924, 0.476], [7, 0.479, -2.921, -4.921, 0.479], [8, 0.483, -2.917, -4.917, 0.483], [9, 0.486, -2.914, -4.914, 0.486], [10, 0.489, -2.911, -4.911, 0.489], [11, 0.493, -2.907, -4.907, 0.493], [12, 0.496, -2.904, -4.904, 0.496], [13, 0.499, -2.901, -4.901, 0.499], [14, 0.502, -2.898, -4.898, 0.502], [15, 0.506, -2.894, -4.894, 0.506], [16, 0.509, -2.891, -4.891, 0.509], [17, 0.512, -2.888, -4.888, 0.512], [18, 0.515, -2.885, -4.885, 0.515], [19, 0.519, -2.881, -4.881, 0.519], [20, 0.522, -2.878, -4.878, 0.522], [21, 0.525, -2.875, -4.875, 0.525], [22, 0.528, -2.872, -4.872, 0.528], [23, 0.532, -2.868, -4.868, 0.532], [24, 0.535, -2.865, -4.865, 0.535], [25, 0.538, -2.862, -4.862, 0.538], [26, 0.542, -2.858, -4.858, 0.542], [27, 0.545, -2.855, -4.855, 0.545], [28, 0.548, -2.852, -4.852, 0.548], [29, 0.551, -2.849, -4.849, 0.551], [30, 0.555, -2.845, -4.845, 0.555], [31, 0.558, -2.842, -4.842, 0.558], [32, 0.561, -2.839, -4.839, 0.561], [33, 0.564, -2.836, -4.836, 0.564], [34, 0.568, -2.832, -4.832, 0.568], [35, 0.571, -2.829, -4.829, 0.571], [36, 0.574, -2.826, -4.826, 0.574], [37, 0.577, -2.823, -4.823, 0.577], [38, 0.581, -2.819, -4.819, 0.581], [39, 0.584, -2.816, -4.816, 0.584], [40, 0.587, -2.813, -4.813, 0.587], [41, 0.591, -2.809, -4.809, 0.591], [42, 0.594, -2.806, -4.806, 0.594], [43, 0.597, -2.803, -4.803, 0.597], [44, 0.6, -2.8, -4.8, 0.6], [45, 0.604, -2.796, -4.796, 0.604], [46, 0.607, -2.793, -4.793, 0.607], [47, 0.61, -2.79, -4.79, 0.61], [48, 0.613, -2.787, -4.787, 0.613], [49, 0.617, -2.783, -4.783, 0.617], [50, 0.62, -2.78, -4.78, 0.62], [51, 0.623, -2.777, -4.777, 0.623], [52, 0.627, -2.773, -4.773, 0.627], [53, 0.63, -2.77, -4.77, 0.63], [54, 0.633, -2.767, -4.767, 0.633], [55, 0.636, -2.764, -4.764, 0.636], [56, 0.64, -2.76, -4.76, 0.64], [57, 0.643, -2.757, -4.757, 0.643], [58, 0.646, -2.754, -4.754, 0.646], [59, 0.649, -2.751, -4.751, 0.649], [60, 0.653, -2.747, -4.747, 0.653], [61, 0.656, -2.744, -4.744, 0.656], [62, 0.659, -2.741, -4.741, 0.659], [63, 0.663, -2.737, -4.737, 0.663], [64, 0.666, -2.734, -4.734, 0.666], [65, 0.669, -2.731, -4.731, 0.669], [66, 0.672, -2.728, -4.728, 0.672], [67, 0.676, -2.724, -4.724, 0.676], [68, 0.679, -2.721, -4.721, 0.679], [69, 0.682, -2.718, -4.718, 0.682], [70, 0.685, -2.715, -4.715, 0.685], [71, 0.689, -2.711, -4.711, 0.689], [72, 0.692, -2.708, -4.708, 0.692], [73, 0.695, -2.705, -4.705, 0.695], [74, 0.699, -2.701, -4.701, 0.699], [75, 0.702, -2.698, -4.698, 0.702], [76, 0.705, -2.695, -4.695, 0.705], [77, 0.708, -2.692, -4.692, 0.708], [78, 0.712, -2.688, -4.688, 0.712], [79, 0.715, -2.685, -4.685, 0.715], [80, 0.718, -2.682, -4.682, 0.718], [81, 0.721, -2.679, -4.679, 0.721], [82, 0.725, -2.675, -4.675, 0.725], [83, 0.728, -2.672, -4.672, 0.728], [84, 0.731, -2.669, -4.669, 0.731], [85, 0.734, -2.666, -4.666, 0.734], [86, 0.738, -2.662, -4.662, 0.738], [87, 0.741, -2.659, -4.659, 0.741], [88, 0.744, -2.656, -4.656, 0.744], [89, 0.748, -2.652, -4.652, 0.748], [90, 0.751, -2.649, -4.649, 0.751], [91, 0.754, -2.646, -4.646, 0.754], [92, 0.757, -2.643, -4.643, 0.757], [93, 0.761, -2.639, -4.639, 0.761], [94, 0.764, -2.636, -4.636, 0.764], [95, 0.767, -2.633, -4.633, 0.767], [96, 0.771, -2.629, -4.629, 0.771], [97, 0.774, -2.626, -4.626, 0.774], [98, 0.777, -2.623, -4.623, 0.777], [99, 0.78, -2.62, -4.62, 0.78], [100, 0.784, -2.616, -4.616, 0.784]];
 
@@ -182,6 +182,8 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.educations = ["Some High School", "High School", "Some College", "College"];
 
             this.professions = ["Clerical", "Professional", "Executive", "Other & Manual Labor"];
+
+            this.smokingOptions = ["Never Smoked", "Quit Smoking", "1-10 cigarettes a day", "11-20 cigarettes a day", "21-30 cigarettes a day", "31+ cigarettes a day"];
         }
 
         PersonalInfo.prototype.printStuff = function printStuff() {
@@ -196,6 +198,9 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
         PersonalInfo.prototype.enteredAge = function enteredAge() {
             if (this.userData.client.age < 0 || this.userData.client.age > 123) alert("Enter a valid age");
+            this.userData.client.age = parseInt(this.userData.client.age);
+            console.log("Age is below");
+            console.log(this.userData.client.age);
         };
 
         PersonalInfo.prototype.enteredGender = function enteredGender() {
@@ -264,30 +269,30 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.userData.client.diabetic = diabetic;
             if (diabetic === 1) {
                 if (this.userData.client.gender === "Male") {
-                    this.userData.client.diabeticOffset = Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
                 } else if (this.userData.client.gender === "Female") {
-                    this.userData.client.diabeticOffset = Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
                 }
             } else if (diabetic == 2) {
                 if (this.userData.client.gender === "Male") {
                     if (this.userData.client.race == "White American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
                     } else if (this.userData.client.race == "Asian American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
                     } else if (this.userData.client.race == "Black or African American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
                     } else {
-                        this.userData.client.diabeticOffset = Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
                     }
                 } else if (this.userData.client.gender === "Female") {
                     if (this.userData.client.race == "White American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
                     } else if (this.userData.client.race == "Asian American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.195 * this.userData.client.age + 0.875, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.195 * this.userData.client.age + 0.875, 0);
                     } else if (this.userData.client.race == "Black or African American") {
-                        this.userData.client.diabeticOffset = Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
                     } else {
-                        this.userData.client.diabeticOffset = Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
                     }
                 }
             } else {
@@ -296,11 +301,24 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             console.log(this.userData.client.diabeticOffset);
         };
 
-        PersonalInfo.prototype.enteredSmoking = function enteredSmoking(num, smokingStatus) {
-            this.userData.client.smokingStatus = smokingStatus;
+        PersonalInfo.prototype.enteredSmoking = function enteredSmoking() {
+            if (this.userData.client.smokingStatus == "") {
+                alert("Please select a smoking habit");
+                return;
+            }
 
-            var smokingOffsetArray = [4.3, 2.1, 5.8, 8.8];
-            this.userData.client.smokingOffset = smokingOffsetArray[num];
+            switch (this.userData.client.smokingStatus) {
+                case "1-10 cigarettes a day":
+                    this.userData.client.smokingOffset = -4.3;return;
+                case "11-20 cigarettes a day":
+                    this.userData.client.smokingOffset = -2.1;return;
+                case "21-30 cigarettes a day":
+                    this.userData.client.smokingOffset = -5.8;return;
+                case "31+ cigarettes a day":
+                    this.userData.client.smokingOffset = -8.8;return;
+                default:
+                    this.userData.client.smokingOffset = 0;
+            }
         };
 
         PersonalInfo.prototype.enteredEducation = function enteredEducation() {
@@ -317,6 +335,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
         PersonalInfo.prototype.enteredAgeSpouse = function enteredAgeSpouse() {
             if (this.userData.spouse.age < 0 || this.userData.spouse.age > 123) alert("Enter a valid age");
+            this.userData.spouse.age = parseInt(this.userData.spouse.age);
         };
 
         PersonalInfo.prototype.enteredGenderSpouse = function enteredGenderSpouse() {
@@ -381,30 +400,30 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.userData.spouse.diabetic = diabetic;
             if (diabetic === 1) {
                 if (this.userData.spouse.gender === "Male") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
                 } else if (this.userData.spouse.gender === "Female") {
-                    this.userData.spouse.diabeticOffset = Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
                 }
             } else if (diabetic == 2) {
                 if (this.userData.spouse.gender === "Male") {
                     if (this.userData.spouse.race == "White American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
                     } else if (this.userData.spouse.race == "Asian American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
                     } else if (this.userData.spouse.race == "Black or African American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
                     } else {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
                     }
                 } else if (this.userData.spouse.gender === "Female") {
                     if (this.userData.spouse.race == "White American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
                     } else if (this.userData.spouse.race == "Asian American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
                     } else if (this.userData.spouse.race == "Black or African American") {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
                     } else {
-                        this.userData.spouse.diabeticOffset = Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
+                        this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
                     }
                 }
             } else {
@@ -413,11 +432,24 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             console.log(this.userData.spouse.diabeticOffset);
         };
 
-        PersonalInfo.prototype.enteredSmokingSpouse = function enteredSmokingSpouse(num, smokingStatus) {
-            this.userData.spouse.smokingStatus = smokingStatus;
+        PersonalInfo.prototype.enteredSmokingSpouse = function enteredSmokingSpouse() {
+            if (this.userData.spouse.smokingStatus == "") {
+                alert("Please select a smoking habit");
+                return;
+            }
 
-            var smokingOffsetArray = [4.3, 2.1, 5.8, 8.8];
-            this.userData.spouse.smokingOffset = smokingOffsetArray[num];
+            switch (this.userData.spouse.smokingStatus) {
+                case "1-10 cigarettes a day":
+                    this.userData.spouse.smokingOffset = -4.3;return;
+                case "11-20 cigarettes a day":
+                    this.userData.spouse.smokingOffset = -2.1;return;
+                case "21-30 cigarettes a day":
+                    this.userData.spouse.smokingOffset = -5.8;return;
+                case "31+ cigarettes a day":
+                    this.userData.spouse.smokingOffset = -8.8;return;
+                default:
+                    this.userData.spouse.smokingOffset = 0;
+            }
         };
 
         PersonalInfo.prototype.enteredEducationSpouse = function enteredEducationSpouse() {
@@ -428,7 +460,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.userData.spouse.exerciseLevel = exerciseLevel;
         };
 
-        PersonalInfo.prototype.enteredSpouseCholesterol = function enteredSpouseCholesterol(cholesterol) {
+        PersonalInfo.prototype.enteredCholesterolSpouse = function enteredCholesterolSpouse(cholesterol) {
             this.userData.spouse.cholesterol = cholesterol;
         };
 
@@ -580,68 +612,74 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         };
 
         PersonalInfo.prototype.submit = function submit() {
-            if (this.userData.client.age == "") {
+            if (this.userData.client.age === "") {
                 alert("Please enter a valid age");
                 return;
-            } else if (this.userData.client.gender == "") {
+            } else if (this.userData.client.gender === "") {
                 alert("Please enter your sex");
                 return;
-            } else if (this.userData.client.race == "") {
+            } else if (this.userData.client.race === "") {
                 alert("Please enter your race");
                 return;
-            } else if (this.userData.client.state == "") {
+            } else if (this.userData.client.state === "") {
                 alert("Please enter your State");
                 return;
-            } else if (this.userData.client.county == "") {
+            } else if (this.userData.client.county === "") {
                 alert("Please enter your County");
                 return;
-            } else if (this.userData.client.heightInput == "") {
+            } else if (this.userData.client.heightInput === "") {
                 alert("Please enter your height");
                 return;
-            } else if (this.userData.client.weightInput == "") {
+            } else if (this.userData.client.weightInput === "") {
                 alert("Please enter your weight");
                 return;
-            } else if (this.userData.client.diabetic == "") {
+            } else if (this.userData.client.diabeticOffset === "") {
                 alert("Please enter your diabetic status");
                 return;
-            } else if (this.userData.client.cholesterol = "") {
+            } else if (this.userData.client.cholesterol === "") {
                 alert("Please enter your cholesterol");
                 return;
-            } else if (this.userData.client.profession = "") {
+            } else if (this.userData.client.profession === "") {
                 alert("Please enter your profession");
+                return;
+            } else if (this.userData.client.income === "") {
+                alert("Please enter your income");
                 return;
             }
 
             if (this.userData.client.married) {
-                if (this.userData.spouse.age == "") {
+                if (this.userData.spouse.age === "") {
                     alert("Please enter your spouse's age");
                     return;
-                } else if (this.userData.spouse.gender == "") {
+                } else if (this.userData.spouse.gender === "") {
                     alert("Please enter your spouse's sex");
                     return;
-                } else if (this.userData.spouse.race == "") {
+                } else if (this.userData.spouse.race === "") {
                     alert("Please enter your spouse's race");
                     return;
-                } else if (this.userData.spouse.state == "") {
+                } else if (this.userData.spouse.state === "") {
                     alert("Please enter your spouse's State");
                     return;
-                } else if (this.userData.spouse.county == "") {
+                } else if (this.userData.spouse.county === "") {
                     alert("Please enter your spouse's County");
                     return;
-                } else if (this.userData.spouse.heightInput == "") {
+                } else if (this.userData.spouse.heightInput === "") {
                     alert("Please enter your spouse's height");
                     return;
-                } else if (this.userData.spouse.weightInput == "") {
+                } else if (this.userData.spouse.weightInput === "") {
                     alert("Please enter your spouse's weight");
                     return;
-                } else if (this.userData.spouse.diabetic == "") {
+                } else if (this.userData.spouse.diabetic === "") {
                     alert("Please enter your spouse's diabetic status");
                     return;
-                } else if (this.userData.spouse.cholesterol == "") {
+                } else if (this.userData.spouse.cholesterol === "") {
                     alert("Please enter your spouse's cholesterol");
                     return;
-                } else if (this.userData.spouse.profession == "") {
+                } else if (this.userData.spouse.profession === "") {
                     alert("Please enter your spouse's profession");
+                    return;
+                } else if (this.userData.spouse.income === "") {
+                    alert("Please enter your spouse's income");
                     return;
                 }
             }
@@ -651,11 +689,12 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             this.userData.client.calculateExerciseOffset();
             this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
             this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
+            this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
 
-            var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset + this.userData.client.cholesterolOffset + this.userData.client.professionOffset;
+            var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset + this.userData.client.cholesterolOffset + this.userData.client.professionOffset + this.userData.client.smokingOffset + this.userData.client.incomeOffset;
 
-            this.userData.client.adjustedAge += this.userData.client.age + clientOffset;
-            this.userData.client.projectedAge += clientOffset;
+            this.userData.client.adjustedAge = parseInt(this.userData.client.age) + parseInt(clientOffset);
+            this.userData.client.projectedAge = parseInt(this.userData.client.projectedAge) + parseInt(clientOffset);
 
             if (this.userData.client.married) {
                 this.userData.spouse.calculateRaceOffset();
@@ -663,18 +702,15 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
                 this.userData.spouse.calculateExerciseOffset();
                 this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
                 this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
+                this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);
 
-                var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset + this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset;
+                var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset + this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset + this.userData.spouse.smokingOffset + this.userData.spouse.incomeOffset;;
 
                 this.userData.spouse.adjustedAge += this.userData.spouse.age + spouseOffset;
                 this.userData.spouse.projectedAge += spouseOffset;
             }
 
             this.router.navigate('#/results');
-        };
-
-        PersonalInfo.prototype.aaa = function aaa() {
-            alert("AAAAAAAAAAAAAAAAAAAAHHHHHHHH");
         };
 
         return PersonalInfo;
@@ -730,12 +766,9 @@ define('results',['exports', 'highcharts', 'userdata', 'aurelia-router', 'aureli
                 var tuples = [];
 
                 for (var i = 0; i < baseExpecArray.length - person.adjustedAge; i++) {
-                    console.log(person.adjustedAge + i);
-                    console.log(baseExpecArray[person.adjustedAge + i][0]);
-                    tuples.push([person.age + i, baseExpecArray[person.adjustedAge + i][0]]);
+                    tuples.push([parseInt(person.age) + i, baseExpecArray[parseInt(person.adjustedAge) + i][2]]);
                 }
 
-                console.log(tuples);
                 return tuples;
             }
 
@@ -760,8 +793,8 @@ define('results',['exports', 'highcharts', 'userdata', 'aurelia-router', 'aureli
                     }]
                 });
             }
-            this.userData.client.adjustedAge = 65;
-            this.userData.client.age = 60;
+
+            console.log(this.userData.client);
 
             makeChart(this.userData.client, 'container');
 
@@ -833,6 +866,11 @@ define('user',["exports", "data"], function (exports, _data) {
 
             this.cholesterol = "";
             this.cholesterolOffset = "";
+
+            this.raceOffset = "";
+
+            this.income = "";
+            this.incomeOffset = "";
         }
 
         User.prototype.calculateBaseFromCounty = function calculateBaseFromCounty() {};
@@ -842,26 +880,35 @@ define('user',["exports", "data"], function (exports, _data) {
                 if (this.data.race_offset_list[i][0] === this.age) {
                     if (this.gender == "Male") {
                         if (this.race === "White American") {
-                            return this.data.race_offset_list[i][1];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][1]);
+                            return;
                         } else if (this.race === "Black or African American") {
-                            return this.data.race_offset_list[i][3];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][3]);
+                            return;
                         } else if (this.race === "Hispanic") {
-                            return this.data.race_offset_list[i][5];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][5]);
+                            return;
                         } else {
-                            return 0;
+                            this.raceOffset = 0;
+                            return;
                         }
                     } else if (this.gender == "Female") {
                         if (this.race === "White American") {
-                            return this.data.race_offset_list[i][2];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][2]);
+                            return;
                         } else if (this.race === "Black or African American") {
-                            return this.data.race_offset_list[i][4];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][4]);
+                            return;
                         } else if (this.race === "Hispanic") {
-                            return this.data.race_offset_list[i][6];
+                            this.raceOffset = parseInt(this.data.race_offset_list[i][6]);
+                            return;
                         } else {
-                            return 0;
+                            this.raceOffset = 0;
+                            return;
                         }
                     } else {
-                        return 0;
+                        this.raceOffset = 0;
+                        return;
                     }
                 }
             }
@@ -922,15 +969,25 @@ define('user',["exports", "data"], function (exports, _data) {
         User.prototype.calculateCholesterolOffset = function calculateCholesterolOffset(age, cholesterol) {
             switch (cholesterol) {
                 case 1:
-                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][1];return;
+                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][1];console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
                 case 2:
-                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][2];return;
+                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][2];console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
                 case 3:
-                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][3];return;
+                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][3];console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
                 case 4:
-                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][4];return;
+                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][4];console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
                 default:
-                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][5];return;
+                    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][5];console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
+            }
+        };
+
+        User.prototype.calculateIncomeOffset = function calculateIncomeOffset(gender, age, income) {
+            income = parseInt(income);
+
+            if (gender === "Male") {
+                if (income < 22800) this.incomeOffset = this.data.maleIncomeOffsets[age - 1][1];else if (22800 <= income && income < 43511) this.incomeOffset = this.data.maleIncomeOffsets[age - 1][2];else if (43511 <= income && income < 72001) this.incomeOffset = this.data.maleIncomeOffsets[age - 1][3];else if (72001 <= income && income < 112262) this.incomeOffset = this.data.maleIncomeOffsets[age - 1][4];else this.incomeOffset = this.data.maleIncomeOffsets[age - 1][5];
+            } else {
+                if (income < 22800) this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][1];else if (22800 <= income && income < 43511) this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][2];else if (43511 <= income && income < 72001) this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][3];else if (72001 <= income && income < 112262) this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][4];else this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][5];
             }
         };
 
@@ -973,6 +1030,6 @@ define('resources/index',["exports"], function (exports) {
 define('text!personalinfo.css', ['module'], function(module) { module.exports = "\r\nbody {\r\n  font-family: 'Lato', sans-serif;\r\n  color:white;\r\n  text-align: center;\r\n}\r\n.form-group{\r\n    width: 400px;\r\n    display: inline-block;\r\n    text-align: center;\r\n}\r\nhr{\r\n    /*width: 30%;*/\r\n    margin-top: 0;\r\n    padding: 0;\r\n    }\r\nh2{\r\n    font-weight: bold;\r\n    font-size: 55px;\r\n      font-family: 'Great Vibes', cursive;\r\n\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n* { margin:0; padding:0; }\r\nbody { background : #222; }\r\ncanvas { \r\n  position : absolute;\r\n  top      : 0;\r\n  right    : 0;\r\n  bottom   : 0;\r\n  left     : 0;\r\n  margin   : auto;\r\n}"; });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><router-view></router-view><footer><br><br><br><br>©2017, PIEtech, Inc. All rights reserved.</footer></template>"; });
 define('text!styles.css', ['module'], function(module) { module.exports = "* {\r\n  box-sizing: border-box;\r\n  margin:0;\r\n  /*text-align: center;*/\r\n  \r\n}\r\n\r\nbody {\r\n  font-family: 'Lato', sans-serif;\r\n  background-color:#012D52 !important;\r\n}\r\n\r\n.hero {\r\n  width: 100%;\r\n  min-height: 450px;\r\n  position: relative;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: #d9edfd;\r\n}\r\n\r\n.layer-1 {\r\n  -webkit-animation: parallax_fg linear 20s infinite both;\r\n          animation: parallax_fg linear 20s infinite both;\r\n  /*background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/24650/1.png) 0 100% repeat-x;*/\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 136px;\r\n}\r\n\r\n.layer-2 {\r\n  -webkit-animation: parallax_fg linear 30s infinite both;\r\n          animation: parallax_fg linear 30s infinite both;\r\n  background: url('./src/images/2.png') 0 100% repeat-x;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 145px;\r\n}\r\n\r\n.layer-3 {\r\n  -webkit-animation: parallax_fg linear 55s infinite both;\r\n          animation: parallax_fg linear 55s infinite both;\r\n  background: url('./src/images/3.png') 0 100% repeat-x;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 158px;\r\n}\r\n\r\n.layer-4 {\r\n  -webkit-animation: parallax_fg linear 75s infinite both;\r\n          animation: parallax_fg linear 75s infinite both;\r\n  background: url('./src/images/4.png') 0 100% repeat-x;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 468px;\r\n}\r\n\r\n.layer-5 {\r\n  -webkit-animation: parallax_fg linear 95s infinite both;\r\n          animation: parallax_fg linear 95s infinite both;\r\n  background: url('./src/images/5.png') 0 100% repeat-x;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 311px;\r\n}\r\n\r\n.layer-6 {\r\n  -webkit-animation: parallax_fg linear 120s infinite both;\r\n          animation: parallax_fg linear 120s infinite both;\r\n  background: url('./src/images/6.png') 0 100% repeat-x;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 222px;\r\n}\r\n\r\n.bike-1,\r\n.bike-2 {\r\n  background: url('./src/images/bike.png') 0 100% no-repeat;\r\n  z-index: 1;\r\n  position: absolute;\r\n  bottom: 100px;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-size: auto 75px;\r\n}\r\n\r\n.bike-1 {\r\n  -webkit-animation: parallax_bike linear 10s infinite both;\r\n          animation: parallax_bike linear 10s infinite both;\r\n}\r\n\r\n.bike-2 {\r\n  -webkit-animation: parallax_bike linear 15s infinite both;\r\n          animation: parallax_bike linear 15s infinite both;\r\n}\r\n\r\n@-webkit-keyframes parallax_fg {\r\n  0% {\r\n    background-position: 2765px 100%;\r\n  }\r\n  100% {\r\n    background-position: 550px 100%;\r\n  }\r\n}\r\n\r\n@keyframes parallax_fg {\r\n  0% {\r\n    background-position: 2765px 100%;\r\n  }\r\n  100% {\r\n    background-position: 550px 100%;\r\n  }\r\n}\r\n@-webkit-keyframes parallax_bike {\r\n  0% {\r\n    background-position: -300px 100%;\r\n  }\r\n  100% {\r\n    background-position: 2000px 100%;\r\n  }\r\n}\r\n@keyframes parallax_bike {\r\n  0% {\r\n    background-position: -300px 100%;\r\n  }\r\n  100% {\r\n    background-position: 2000px 100%;\r\n  }\r\n}\r\n.logo {\r\n  font-family: 'Great Vibes', cursive;\r\n  color:#012D52;\r\n  font-size: 1000px;\r\n  /*-webkit-text-stroke-width: .01em;*/\r\n  -webkit-text-stroke-color: #012D52;\r\n  margin: 90px auto;\r\n  position: absolute;\r\n  z-index: 0;\r\n  width: 100%;\r\n}\r\n.logo img {\r\n  display: block;\r\n  margin: 0 auto;\r\n  max-width: 100%;\r\n}\r\n@media (max-width: 700px) {\r\n  .logo img {\r\n    max-width: 90%;\r\n  }\r\n}\r\n\r\nnav {\r\n  background-color: #12212f;\r\n  overflow: hidden;\r\n}\r\nnav ul {\r\n  list-style: none;\r\n  max-width: 900px;\r\n  margin: 0 auto;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\nnav li {\r\n  padding: 10px 20px;\r\n}\r\n@media (max-width: 700px) {\r\n  nav li {\r\n    width: 50%;\r\n    text-align: center;\r\n  }\r\n}\r\nnav a {\r\n  /* Tilmelding: */\r\n  font-weight: 700;\r\n  font-size: 1.25em;\r\n  text-transform: uppercase;\r\n  color: #fff;\r\n  text-decoration: none;\r\n}\r\n\r\n.dark-bg {\r\n  background-color: #12212f;\r\n  padding: 50px 50px;\r\n}\r\n.dark-bg img {\r\n  display: block;\r\n  margin: 0 auto;\r\n  width: auto;\r\n  max-width: 100%;\r\n}\r\n\r\n.light-bg {\r\n  background-color: #fff;\r\n  padding: 50px 50px;\r\n}\r\n.light-bg img {\r\n  display: block;\r\n  margin: 0 auto;\r\n  width: auto;\r\n  max-width: 100%;\r\n}\r\n\r\n.extra {\r\n  max-width: 700px;\r\n  margin: 0 auto;\r\n  /*font-size: 18px;*/\r\n  color: #12202F;\r\n  letter-spacing: 0px;\r\n  line-height: 27px;\r\n}\r\n\r\n\r\n"; });
-define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><require from=\"bootstrap/css/bootstrap.css\"></require><require from=\"personalinfo.css\"></require><require from=\"styles.css\"></require><div class=\"hero\"><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><div class=\"parallax-layer layer-6\"></div><div class=\"parallax-layer layer-5\"></div><div class=\"parallax-layer bike-1\"></div><div class=\"parallax-layer bike-2\"></div><div class=\"parallax-layer layer-3\"></div><div class=\"parallax-layer layer-2\"></div><div class=\"parallax-layer layer-1\"></div><div class=\"logo\"><h1 style=\"text-align:center;font-size:90px\">Life Expectancy</h1></div></div><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><main><label style=\"font-size:15px\" for=\"married\">Would you like a secondary calculation?</label><br><div click.delegate=\"enteredMarried()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"married\"><label class=\"btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Yes</label><label class=\"btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">No</label></div><br><br><br><br><div style=\"display:inline-block;vertical-align:top\"><form id=\"persinfo\"><div id=\"client\"><br><h2>About You<hr></h2><br><div class=\"form-group\"><label for=\"gender\">What is your sex?</label><br><div click.delegate=\"enteredGender()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"gender\"><label class=\"btn ${userData.client.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Male</label><label class=\"btn ${userData.client.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Female</label></div></div><br><div class=\"form-group\"><label for=\"enterAge\">Age</label><input id=\"enterAge\" type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"race\">Select your race:</label><select id=\"race\" class=\"form-control\" value.bind=\"userData.client.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select></div><br><div class=\"form-group\"><label for=\"state\">Select your State:</label><select id=\"state\" class=\"form-control\" value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select></div><br show.bind=\"showCounties\"><div class=\"form-group\" show.bind=\"showCounties\"><label for=\"county\">Select your County:</label><select id=\"county\" class=\"form-control\" show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select></div><br><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><br><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><br><div class=\"form-group\"><label for=\"diabetic\">Diabetic?</label><div id=\"diabetic\"><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"0\" change.delegate=\"enteredDiabetic(0)\">Not Diabetic</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"1\" change.delegate=\"enteredDiabetic(1)\">Type 1</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"2\" change.delegate=\"enteredDiabetic(2)\">Type 2</label></div></div><br><div class=\"form-group\"><label for=\"education\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.client.education\" id=\"education\" change.delegate=\"enteredEducation()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><br><div class=\"form-group\"><label for=\"cigarettes\">Average Cigarettes Per Day?</label><div id=\"cigarettes\"><label class=\"radio-inline\"><input type=\"radio\" name=\"smoking\" value=\"0\" change.delegate=\"enteredSmoking(0, 'Never')\">Never</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smoking\" value=\"0\" change.delegate=\"enteredSmoking(0, 'Former')\">Quit</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smoking\" value=\"1\" change.delegate=\"enteredSmoking(1, 'Current')\">1-10 a day</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smoking\" value=\"2\" change.delegate=\"enteredSmoking(2, 'Current')\">21-30 a day</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smoking\" value=\"3\" change.delegate=\"enteredSmoking(3, 'Current')\">30+ a day</label></div></div><br><div class=\"form-group\"><label for=\"exercises\">How would you rate your weekly exercise level?</label><div id=\"exercises\"><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('None')\">None</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('Some')\">Some</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"1\" change.delegate=\"enteredExercise('Moderate')\">Moderate</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"2\" change.delegate=\"enteredExercise('Heavy')\">Heavy</label></div></div><br><div class=\"form-group\"><label for=\"profession\">Select your type of profession:</label><select class=\"form-control\" value.bind=\"userData.client.profession\" id=\"profession\"><option data-hidden=\"true\" value=\"\">-Select Profession-</option><option value=\"${tempProfession}\" repeat.for=\"tempProfession of professions\">${tempProfession}</option></select></div><br><div class=\"form-group\"><label for=\"cholesterols\">What is your cholesterol (mg/dl)?</label><div id=\"cholesterols\"><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"0\" change.delegate=\"enteredCholesterol(1)\">0-180</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"0\" change.delegate=\"enteredCholesterol(2)\">181-205</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"1\" change.delegate=\"enteredCholesterol(3)\">206-235</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"2\" change.delegate=\"enteredCholesterol(4)\">236-260</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"2\" change.delegate=\"enteredCholesterol(5)\">261-300</label></div></div><br></div></form></div><div style=\"display:inline-block;padding-left:130px;padding-top:19px;vertical-align:top\" show.bind=\"userData.client.married\"><div id=\"spouse\" show.bind=\"userData.client.married\"><h2>Secondary<hr></h2><br><div class=\"form-group\"><label for=\"genderSpouse\">What is your sex?</label><br><div click.delegate=\"enteredGenderSpouse()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"genderSpouse\"><label class=\"btn ${userData.spouse.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Male</label><label class=\"btn ${userData.spouse.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Female</label></div></div><br><div class=\"form-group\"><label for=\"enterAgeSpouse\">Age</label><input id=\"enterAgeSpouse\" type=\"number\" value.bind=\"userData.spouse.age\" change.delegate=\"enteredAgeSpouse()\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"raceSpouse\">Select your race:</label><select id=\"raceSpouse\" class=\"form-control\" value.bind=\"userData.spouse.race\" change.delegate=\"enteredRaceSpouse()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select></div><br><div class=\"form-group\"><label for=\"stateSpouse\">Select your State:</label><select id=\"stateSpouse\" class=\"form-control\" value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select></div><br show.bind=\"showCountiesSpouse\"><div class=\"form-group\" show.bind=\"showCountiesSpouse\"><label for=\"countySpouse\">Select your County:</label><select id=\"countySpouse\" class=\"form-control\" show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select></div><br><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><br><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><br><div show.bind=\"showBMISpouse\">Your BMI is: ${userData.spouse.bmi}</div><div class=\"form-group\"><label for=\"diabeticSpouse\">Diabetic?</label><div id=\"diabeticSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"0\" change.delegate=\"enteredDiabeticSpouse(0)\">Not Diabetic</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"1\" change.delegate=\"enteredDiabeticSpouse(1)\">Type 1</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"2\" change.delegate=\"enteredDiabeticSpouse(2)\">Type 2</label></div></div><br><div class=\"form-group\"><label for=\"educationSpouse\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.spouse.education\" id=\"educationSpouse\" change.delegate=\"enteredEducationSpouse()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><br><div class=\"form-group\"><label for=\"cigarettesSpouse\">Average Cigarettes Per Day?</label><div id=\"cigarettesSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"smokingSpouse\" value=\"0\" change.delegate=\"enteredSmokingSpouse(0, 'Never')\">Never</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smokingSpouse\" value=\"0\" change.delegate=\"enteredSmokingSpouse(0, 'Former')\">Quit</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smokingSpouse\" value=\"1\" change.delegate=\"enteredSmokingSpouse(1, 'Current')\">1-10 a day</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smokingSpouse\" value=\"2\" change.delegate=\"enteredSmokingSpouse(2, 'Current')\">21-30 a day</label><label class=\"radio-inline\"><input type=\"radio\" name=\"smokingSpouse\" value=\"3\" change.delegate=\"enteredSmokingSpouse(3, 'Current')\">30+ a day</label></div></div><br><div class=\"form-group\"><label for=\"exercisesSpouse\">How would you rate your weekly exercise level?</label><div id=\"exercisesSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"0\" change.delegate=\"enteredExerciseSpouse('None')\">None</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"0\" change.delegate=\"enteredExerciseSpouse('Some')\">Some</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"1\" change.delegate=\"enteredExerciseSpouse('Moderate')\">Moderate</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"2\" change.delegate=\"enteredExerciseSpouse('Heavy')\">Heavy</label></div></div><br><div class=\"form-group\"><label for=\"professionSpouse\">Select your type of profession:</label><select class=\"form-control\" value.bind=\"userData.spouse.profession\" id=\"professionSpouse\"><option data-hidden=\"true\" value=\"\">-Select Profession-</option><option value=\"${tempProfession}\" repeat.for=\"tempProfession of professions\">${tempProfession}</option></select></div><br><div class=\"form-group\"><label for=\"cholesterolsSpouse\">What is your cholesterol (mg/dl)?</label><div id=\"cholesterolsSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"0\" change.delegate=\"enteredCholesterolSpouse(1)\">0-180</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"0\" change.delegate=\"enteredCholesterolSpouse(2)\">181-205</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"1\" change.delegate=\"enteredCholesterolSpouse(3)\">206-235</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"2\" change.delegate=\"enteredCholesterolSpouse(4)\">236-260</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"2\" change.delegate=\"enteredCholesterolSpouse(5)\">261-300</label></div></div><br></div></div><br><br><br><button style=\"font-size:15px;width:8%\" class=\"btn btn-primary\" click.delegate=\"submit()\">Submit</button><br><br><br><button style=\"font-size:25px;width:8%\" class=\"btn btn-danger\" click.delegate=\"selfdestrcut()\">DO NOT CLICK !</button></main></template>"; });
-define('text!results.html', ['module'], function(module) { module.exports = "<template><require from=\"highcharts/css/highcharts.css\"></require><require from=\"jquery-ui-dist/jquery-ui.css\"></require><require from=\"bootstrap/css/bootstrap.css\"></require><require from=\"personalinfo.css\"></require><require from=\"styles.css\"></require><div class=\"hero\"><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><div class=\"parallax-layer layer-6\"></div><div class=\"parallax-layer layer-5\"></div><div class=\"parallax-layer bike-1\"></div><div class=\"parallax-layer bike-2\"></div><div class=\"parallax-layer layer-3\"></div><div class=\"parallax-layer layer-2\"></div><div class=\"parallax-layer layer-1\"></div><div class=\"logo\"><h1 style=\"text-align:center;font-size:90px\">Your Results</h1></div></div><main onload=\"results()\"><div style=\"float:left;width:50%;padding-left:225px\"><div id=\"container\" style=\"height:450px\"></div></div><div style=\"float:left;width:50%;text-align:left;padding-left:80px\"><label style=\"font-size:20px\">Estimated Life Remaining:</label><br><label style=\"font-size:20px\">Body Mass Index:</label><br><label style=\"font-size:20px\">Smoking Habit Offset:</label></div><div id=\"containerSpouse\" style=\"width:100%;height:400px\"></div></main><br></template>"; });
+define('text!personalinfo.html', ['module'], function(module) { module.exports = "<template><require from=\"jquery-ui-dist/jquery-ui.css\"></require><require from=\"bootstrap/css/bootstrap.css\"></require><require from=\"personalinfo.css\"></require><require from=\"styles.css\"></require><div class=\"hero\"><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><div class=\"parallax-layer layer-6\"></div><div class=\"parallax-layer layer-5\"></div><div class=\"parallax-layer bike-1\"></div><div class=\"parallax-layer bike-2\"></div><div class=\"parallax-layer layer-3\"></div><div class=\"parallax-layer layer-2\"></div><div class=\"parallax-layer layer-1\"></div><div class=\"logo\"><h1 style=\"text-align:center;font-size:90px\">Life Expectancy</h1></div></div><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><main><label style=\"font-size:15px\" for=\"married\">Would you like a secondary calculation?</label><br><div click.delegate=\"enteredMarried()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"married\"><label class=\"btn ${userData.client.married ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Yes</label><label class=\"btn ${!userData.client.married ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">No</label></div><br><br><br><br><div style=\"display:inline-block;vertical-align:top\"><form id=\"persinfo\"><div id=\"client\"><br><h2>About You<hr></h2><br><div class=\"form-group\"><label for=\"gender\">What is your sex?</label><br><div click.delegate=\"enteredGender()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"gender\"><label class=\"btn ${userData.client.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Male</label><label class=\"btn ${userData.client.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Female</label></div></div><br><div class=\"form-group\"><label for=\"enterAge\">Age</label><input id=\"enterAge\" type=\"number\" value.bind=\"userData.client.age\" change.delegate=\"enteredAge()\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"enterIncome\">Income</label><input id=\"enterIncome\" type=\"number\" value.bind=\"userData.client.income\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"race\">Select your race:</label><select id=\"race\" class=\"form-control\" value.bind=\"userData.client.race\" change.delegate=\"enteredRace()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select></div><br><div class=\"form-group\"><label for=\"state\">Select your State:</label><select id=\"state\" class=\"form-control\" value.bind=\"userData.client.state\" click.delegate=\"enteredState()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.client.data.states\">${tempState}</option></select></div><br show.bind=\"showCounties\"><div class=\"form-group\" show.bind=\"showCounties\"><label for=\"county\">Select your County:</label><select id=\"county\" class=\"form-control\" show.bind=\"showCounties\" value.bind=\"userData.client.county\" click.delegate=\"enteredCounty()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.client.data.counties\">${tempCounty[0]}</option></select></div><br><div class=\"form-group\"><label for=\"enterHeight\">Height</label><input id=\"enterHeight\" type=\"text\" value.bind=\"userData.client.heightInput\" change.delegate=\"enteredHeight()\" class=\"form-control\" placeholder=\"5'10\"></div><br><div class=\"form-group\"><label for=\"enterWeight\">Weight (lbs)</label><input id=\"enterWeight\" type=\"text\" value.bind=\"userData.client.weightInput\" change.delegate=\"enteredWeight()\" class=\"form-control\" placeholder=\"150\"></div><div show.bind=\"showBMI\">Your BMI is: ${userData.client.bmi}</div><br><div class=\"form-group\"><label for=\"diabetic\">Diabetic?</label><div id=\"diabetic\"><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"0\" change.delegate=\"enteredDiabetic(0)\">Not Diabetic</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"1\" change.delegate=\"enteredDiabetic(1)\">Type 1</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabetic\" value=\"2\" change.delegate=\"enteredDiabetic(2)\">Type 2</label></div></div><br><div class=\"form-group\"><label for=\"education\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.client.education\" id=\"education\" change.delegate=\"enteredEducation()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><br><div class=\"form-group\"><label for=\"smoking\">Do you smoke?</label><select class=\"form-control\" value.bind=\"userData.client.smokingStatus\" id=\"smoking\" change.delegate=\"enteredSmoking()\"><option data-hidden=\"true\" value=\"\">-Select Smoking Habit-</option><option value=\"${tempSmoking}\" repeat.for=\"tempSmoking of smokingOptions\">${tempSmoking}</option></select></div><br><div class=\"form-group\"><label for=\"exercises\">How would you rate your weekly exercise level?</label><div id=\"exercises\"><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('None')\">None</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"0\" change.delegate=\"enteredExercise('Some')\">Some</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"1\" change.delegate=\"enteredExercise('Moderate')\">Moderate</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exercise\" value=\"2\" change.delegate=\"enteredExercise('Heavy')\">Heavy</label></div></div><br><div class=\"form-group\"><label for=\"profession\">Select your type of profession:</label><select class=\"form-control\" value.bind=\"userData.client.profession\" id=\"profession\"><option data-hidden=\"true\" value=\"\">-Select Profession-</option><option value=\"${tempProfession}\" repeat.for=\"tempProfession of professions\">${tempProfession}</option></select></div><br><div class=\"form-group\"><label for=\"cholesterols\">What is your cholesterol (mg/dl)?</label><div id=\"cholesterols\"><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"0\" change.delegate=\"enteredCholesterol(1)\">0-180</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"0\" change.delegate=\"enteredCholesterol(2)\">181-205</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"1\" change.delegate=\"enteredCholesterol(3)\">206-235</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"2\" change.delegate=\"enteredCholesterol(4)\">236-260</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterol\" value=\"2\" change.delegate=\"enteredCholesterol(5)\">261-300</label></div></div><br></div></form></div><div style=\"display:inline-block;padding-left:130px;padding-top:19px;vertical-align:top\" show.bind=\"userData.client.married\"><div id=\"spouse\" show.bind=\"userData.client.married\"><h2>Secondary<hr></h2><br><div class=\"form-group\"><label for=\"genderSpouse\">What is your sex?</label><br><div click.delegate=\"enteredGenderSpouse()\" class=\"btn-group\" data-toggle=\"buttons\" id=\"genderSpouse\"><label class=\"btn ${userData.spouse.gender == 'Male' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Male</label><label class=\"btn ${userData.spouse.gender == 'Female' ? 'active btn-primary' : 'btn-secondary'}\"><input type=\"radio\">Female</label></div></div><br><div class=\"form-group\"><label for=\"enterAgeSpouse\">Age</label><input id=\"enterAgeSpouse\" type=\"number\" value.bind=\"userData.spouse.age\" change.delegate=\"enteredAgeSpouse()\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"enterIncomeSpouse\">Income</label><input id=\"enterIncomeSpouse\" type=\"number\" value.bind=\"userData.spouse.income\" class=\"form-control\"></div><br><div class=\"form-group\"><label for=\"raceSpouse\">Select your race:</label><select id=\"raceSpouse\" class=\"form-control\" value.bind=\"userData.spouse.race\" change.delegate=\"enteredRaceSpouse()\"><option value=\"\">-Select Race-</option><option value=\"${tempRace}\" repeat.for=\"tempRace of races\">${tempRace}</option></select></div><br><div class=\"form-group\"><label for=\"stateSpouse\">Select your State:</label><select id=\"stateSpouse\" class=\"form-control\" value.bind=\"userData.spouse.state\" click.delegate=\"enteredStateSpouse()\"><option value=\"\">-Choose State-</option><option value=\"${tempState}\" repeat.for=\"tempState of userData.spouse.data.states\">${tempState}</option></select></div><br show.bind=\"showCountiesSpouse\"><div class=\"form-group\" show.bind=\"showCountiesSpouse\"><label for=\"countySpouse\">Select your County:</label><select id=\"countySpouse\" class=\"form-control\" show.bind=\"showCountiesSpouse\" value.bind=\"userData.spouse.county\" click.delegate=\"enteredCountySpouse()\"><option value=\"\">-Choose County-</option><option value=\"${tempCounty}\" repeat.for=\"tempCounty of userData.spouse.data.counties\">${tempCounty[0]}</option></select></div><br><div class=\"form-group\"><label for=\"enterHeightSpouse\">Height</label><input id=\"enterHeightSpouse\" type=\"text\" value.bind=\"userData.spouse.heightInput\" change.delegate=\"enteredHeightSpouse()\" class=\"form-control\" placeholder=\"5'10\"></div><br><div class=\"form-group\"><label for=\"enterWeightSpouse\">Weight (lbs)</label><input id=\"enterWeightSpouse\" type=\"text\" value.bind=\"userData.spouse.weightInput\" change.delegate=\"enteredWeightSpouse()\" class=\"form-control\" placeholder=\"150\"></div><br><div show.bind=\"showBMISpouse\">Your BMI is: ${userData.spouse.bmi}</div><div class=\"form-group\"><label for=\"diabeticSpouse\">Diabetic?</label><div id=\"diabeticSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"0\" change.delegate=\"enteredDiabeticSpouse(0)\">Not Diabetic</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"1\" change.delegate=\"enteredDiabeticSpouse(1)\">Type 1</label><label class=\"radio-inline\"><input type=\"radio\" name=\"diabeticSpouse\" value=\"2\" change.delegate=\"enteredDiabeticSpouse(2)\">Type 2</label></div></div><br><div class=\"form-group\"><label for=\"educationSpouse\">Select your level of education</label><select class=\"form-control\" value.bind=\"userData.spouse.education\" id=\"educationSpouse\" change.delegate=\"enteredEducationSpouse()\"><option data-hidden=\"true\" value=\"\">-Select Education-</option><option value=\"${tempEducation}\" repeat.for=\"tempEducation of educations\">${tempEducation}</option></select></div><br><div class=\"form-group\"><label for=\"smokingSpouse\">Do you smoke?</label><select class=\"form-control\" value.bind=\"userData.spouse.smokingStatus\" id=\"smokingSpouse\" change.delegate=\"enteredSmokingSpouse()\"><option data-hidden=\"true\" value=\"\">-Select Smoking Habit-</option><option value=\"${tempSmoking}\" repeat.for=\"tempSmoking of smokingOptions\">${tempSmoking}</option></select></div><br><div class=\"form-group\"><label for=\"exercisesSpouse\">How would you rate your weekly exercise level?</label><div id=\"exercisesSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"0\" change.delegate=\"enteredExerciseSpouse('None')\">None</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"0\" change.delegate=\"enteredExerciseSpouse('Some')\">Some</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"1\" change.delegate=\"enteredExerciseSpouse('Moderate')\">Moderate</label><label class=\"radio-inline\"><input type=\"radio\" name=\"exerciseSpouse\" value=\"2\" change.delegate=\"enteredExerciseSpouse('Heavy')\">Heavy</label></div></div><br><div class=\"form-group\"><label for=\"professionSpouse\">Select your type of profession:</label><select class=\"form-control\" value.bind=\"userData.spouse.profession\" id=\"professionSpouse\"><option data-hidden=\"true\" value=\"\">-Select Profession-</option><option value=\"${tempProfession}\" repeat.for=\"tempProfession of professions\">${tempProfession}</option></select></div><br><div class=\"form-group\"><label for=\"cholesterolsSpouse\">What is your cholesterol (mg/dl)?</label><div id=\"cholesterolsSpouse\"><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"0\" change.delegate=\"enteredCholesterolSpouse(1)\">0-180</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"0\" change.delegate=\"enteredCholesterolSpouse(2)\">181-205</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"1\" change.delegate=\"enteredCholesterolSpouse(3)\">206-235</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"2\" change.delegate=\"enteredCholesterolSpouse(4)\">236-260</label><label class=\"radio-inline\"><input type=\"radio\" name=\"cholesterolSpouse\" value=\"2\" change.delegate=\"enteredCholesterolSpouse(5)\">261-300</label></div></div><br></div></div><br><br><br><button style=\"font-size:15px;width:8%\" class=\"btn btn-primary\" click.delegate=\"submit()\">Submit</button><br><br><br><button style=\"font-size:25px;width:8%\" class=\"btn btn-danger\" click.delegate=\"selfdestrcut()\">DO NOT CLICK !</button></main></template>"; });
+define('text!results.html', ['module'], function(module) { module.exports = "<template><require from=\"highcharts/css/highcharts.css\"></require><require from=\"jquery-ui-dist/jquery-ui.css\"></require><require from=\"bootstrap/css/bootstrap.css\"></require><require from=\"personalinfo.css\"></require><require from=\"styles.css\"></require><div class=\"hero\"><style>@import url(https://fonts.googleapis.com/css?family=Great+Vibes);</style><div class=\"parallax-layer layer-6\"></div><div class=\"parallax-layer layer-5\"></div><div class=\"parallax-layer bike-1\"></div><div class=\"parallax-layer bike-2\"></div><div class=\"parallax-layer layer-3\"></div><div class=\"parallax-layer layer-2\"></div><div class=\"parallax-layer layer-1\"></div><div class=\"logo\"><h1 style=\"text-align:center;font-size:90px\">Your Results</h1></div></div><main onload=\"results()\"><div style=\"float:left;width:50%;padding-left:225px\" style=\"box-shadow:10px 10px 5px #888\"><div id=\"container\" style=\"height:450px\"></div></div><div style=\"float:left;width:50%;text-align:left;padding-left:80px\"><label style=\"font-size:20px\">Your Life Expectancy: Age ${userData.client.projectedAge}</label><br><label style=\"font-size:20px\">Body Mass Index: ${userData.client.bmi}</label><br><label style=\"font-size:20px\">Smoking Habit Offset: ${userData.client.smokingOffset} years</label></div><div id=\"containerSpouse\" style=\"width:100%;height:400px\"></div></main><br></template>"; });
 //# sourceMappingURL=app-bundle.js.map

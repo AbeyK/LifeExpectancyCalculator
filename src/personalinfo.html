@@ -64,9 +64,16 @@
                         </div>
                     </div>
                     <br>
+
                     <div class="form-group">
                         <label for="enterAge">Age</label>
                         <input id="enterAge" type="number" value.bind="userData.client.age" change.delegate="enteredAge()" class="form-control">
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="enterIncome">Income</label>
+                        <input id="enterIncome" type="number" value.bind="userData.client.income" class="form-control">
                     </div>
                     <br>
 
@@ -135,14 +142,11 @@
                     <br>
 
                     <div class="form-group">
-                        <label for="cigarettes">Average Cigarettes Per Day?</label>
-                        <div id="cigarettes">
-                            <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Never')">Never</label>
-                            <label class="radio-inline"><input type="radio"  name="smoking" value="0" change.delegate="enteredSmoking(0, 'Former')">Quit</label>
-                            <label class="radio-inline"><input type="radio"  name="smoking" value="1" change.delegate="enteredSmoking(1, 'Current')">1-10 a day</label>
-                            <label class="radio-inline"><input type="radio"  name="smoking" value="2" change.delegate="enteredSmoking(2, 'Current')">21-30 a day</label>
-                            <label class="radio-inline"><input type="radio"  name="smoking" value="3" change.delegate="enteredSmoking(3, 'Current')">30+ a day</label>
-                        </div>
+                        <label for="smoking">Do you smoke?</label>
+                        <select class="form-control" value.bind="userData.client.smokingStatus" id="smoking" change.delegate="enteredSmoking()">
+                            <option data-hidden="true" value="" >-Select Smoking Habit-</option>
+                            <option value="${tempSmoking}" repeat.for="tempSmoking of smokingOptions">${tempSmoking}</option>
+                        </select>
                     </div>
                     <br>
 
@@ -219,6 +223,12 @@
                 </div>
                 <br>
 
+                <div class="form-group">
+                    <label for="enterIncomeSpouse">Income</label>
+                    <input id="enterIncomeSpouse" type="number" value.bind="userData.spouse.income" class="form-control">
+                </div>
+                <br>
+
 
                 <div class="form-group">
                     <label for="raceSpouse">Select your race:</label>
@@ -285,16 +295,13 @@
                 <br>
 
                 <div class="form-group">
-                    <label for="cigarettesSpouse">Average Cigarettes Per Day?</label>
-                    <div id="cigarettesSpouse">
-                        <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="0" change.delegate="enteredSmokingSpouse(0, 'Never')">Never</label>
-                        <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="0" change.delegate="enteredSmokingSpouse(0, 'Former')">Quit</label>
-                        <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="1" change.delegate="enteredSmokingSpouse(1, 'Current')">1-10 a day</label>
-                        <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="2" change.delegate="enteredSmokingSpouse(2, 'Current')">21-30 a day</label>
-                        <label class="radio-inline"><input type="radio"  name="smokingSpouse" value="3" change.delegate="enteredSmokingSpouse(3, 'Current')">30+ a day</label>
+                        <label for="smokingSpouse">Do you smoke?</label>
+                        <select class="form-control" value.bind="userData.spouse.smokingStatus" id="smokingSpouse" change.delegate="enteredSmokingSpouse()">
+                            <option data-hidden="true" value="" >-Select Smoking Habit-</option>
+                            <option value="${tempSmoking}" repeat.for="tempSmoking of smokingOptions">${tempSmoking}</option>
+                        </select>
                     </div>
-                </div>
-                <br>
+                    <br>
 
                 <div class="form-group">
                     <label for="exercisesSpouse">How would you rate your weekly exercise level?</label>
