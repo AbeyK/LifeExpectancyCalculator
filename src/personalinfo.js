@@ -106,7 +106,7 @@ export class PersonalInfo {
             this.showCounties = false;
     }
     enteredCounty() {
-        if (this.userData.client.sex != "" && this.userData.client.county != undefined && this.userData.client.county != "") {
+        if (this.userData.client.gender != "" && this.userData.client.county != undefined && this.userData.client.county != "") {
             if (this.userData.client.gender === "Male") {
                 this.userData.client.projectedAge = this.userData.client.county.split(",")[2].split("(")[1];
             }
@@ -115,7 +115,12 @@ export class PersonalInfo {
             }
         }
         this.userData.client.countryAvgStr = this.userData.client.projectedAge;
-
+console.log("GOD IS NOT REAL");
+		console.log(this.userData.client.gender);
+		console.log(this.userData.client.county);
+		console.log(this.userData.client.projectedAge);
+		console.log("HSJHS");
+        this.userData.client.countryAvgStr = this.userData.client.projectedAge;
     }
 
     enteredHeight() {
@@ -270,6 +275,7 @@ export class PersonalInfo {
                 this.userData.spouse.projectedAge = this.userData.spouse.county.split(",")[3].split(")")[0];
             }
         }
+        
         this.userData.spouse.countryAvgStr = this.userData.spouse.projectedAge;
     }
 

@@ -241,11 +241,13 @@ nav a {
 }
 
 .highcharts-background {
-  fill: #2369a5;
+  fill: rgba(35, 105, 165, 0.6);
 }
 .highcharts-title {
-  fill: #fff;
-  font-size: 30px;
+  fill: #012d52;
+  color:#012d52;
+  font-size: 40px;
+  font-weight: bold;
 }
 .highcharts-color-0{
   fill: #012d52;

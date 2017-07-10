@@ -1,81 +1,102 @@
 <template>
 
-	<require from="highcharts/css/highcharts.css"></require>
-    <require from="jquery-ui-dist/jquery-ui.css"></require>
-    <require from="bootstrap/css/bootstrap.css"></require>
-    <require from="personalinfo.css"></require>
-	  <require from="styles.css"></require>
-<div class="hero">
-  <style>
-@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
-</style>
-  <div class="parallax-layer layer-6"></div>
-  <div class="parallax-layer layer-5"></div>
-  <!--<div class="parallax-layer layer-4"></div>-->
-  <div class="parallax-layer bike-1"></div>
-  <div class="parallax-layer bike-2"></div>
-  <div class="parallax-layer layer-3"></div>
-  <div class="parallax-layer layer-2"></div>
-  <div class="parallax-layer layer-1"></div>
-  <div class="logo">
-    <!--<img src="http://www.iconsdb.com/icons/preview/icon-sets/ice/sandglass-xxl.png"  width="200px"alt=""  />-->
-    <h1 style="text-align:center; font-size:90px">Your Results</h1>
+  <require from="highcharts/css/highcharts.css"></require>
+  <require from="jquery-ui-dist/jquery-ui.css"></require>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="personalinfo.css"></require>
+  <require from="styles.css"></require>
+  <div class="hero">
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+    </style>
+    <div class="parallax-layer layer-6"></div>
+    <div class="parallax-layer layer-5"></div>
+    <!--<div class="parallax-layer layer-4"></div>-->
+    <div class="parallax-layer bike-1"></div>
+    <div class="parallax-layer bike-2"></div>
+    <div class="parallax-layer layer-3"></div>
+    <div class="parallax-layer layer-2"></div>
+    <div class="parallax-layer layer-1"></div>
+    <div class="logo">
+      <!--<img src="http://www.iconsdb.com/icons/preview/icon-sets/ice/sandglass-xxl.png"  width="200px"alt=""  />-->
+      <h1 style="text-align:center; font-size:90px">Your Results</h1>
 
+    </div>
   </div>
-</div>
 
 
-	<main onload="results()">
+  <main onload="results()">
 
     <div id="client" style="display: block; clear: both;">
 
       <div style="width: 75%; margin: 0 auto;">
-      <h1>Client</h1>
-      <hr>
-      <br>
+        <hr>
+        <br>
       </div>
       <div style="float:left; width:50%; padding-left:265px; padding-right:20px;" style="box-shadow: 50x 50px 51px #888888;">
-          <div id="container" style="height:450px;"></div>
+        <div id="container" style="height:450px;"></div>
       </div>
 
       <div style="float:left; width:50%; text-align:center; padding-left:20px; padding-right:265px;">
-        <div style="background:#2369a5; height:450px">
-          <p class="highcharts-title">Analysis</p>
-          <br>
-          <p style="font-size: 18px;">Your estimated life expectancy is ${userData.client.projectedAge}. ${userData.client.countryAvgStr}</p>
-          <br>
-          <p style="font-size: 20px;">Body Mass Index: ${userData.client.bmi}</p>
-          <br>
-          <p style="font-size: 20px;">Smoking Habit Offset: ${userData.client.smokingOffset} years</p>
+        <div style="background:rgba(35, 105, 165, 0.6);; height:450px">
+          <div style="padding:1px; padding-left:25px; padding-right:25px;">
+            <p class="highcharts-title">Analysis</p>
+            <br>
+            <p style="font-size: 18px;">Your estimated life expectancy is ${userData.client.projectedAge}. ${userData.client.countryAvgStr}.</p>
+            <br>
+            <div style="padding-left:60px">
+              <div>
+                <p style="float: left; padding-right:20px"><img src="src/images/scale.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left; padding-top:6px"><span style="font-weight:bold; font-size:16px">Body Mass Index</span> is ${userData.client.bmi}</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left; padding-right:20px"><img src="src/images/money.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"> <span style="font-weight:bold; font-size:16px">Income Bracket </span>is impacting your life span by  ${userData.client.incomeOffset} years</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left;padding-right:20px"><img src="src/images/cig.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"><span style="font-weight:bold; font-size:16px">Smoking Habits</span> are impacting your life span by ${userData.client.smokingOffset} years</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left;padding-right:20px"><img src="src/images/heart.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"><span style="font-weight:bold; font-size:16px">Cholesterol Level </span>is impacting your life span by ${userData.client.cholesterolOffset} years</p>
+              </div>
+
+
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-		
+
     <div id="spouse" show.bind="userData.client.married" style="display: block; clear: both;">
 
       <h2>Spouse</h2>
 
       <div style="float:left; width:50%; padding-left:225px;" style="box-shadow: 10px 10px 5px #888888;">
-          <div id="containerSpouse" style="height:450px"></div>
+        <div id="containerSpouse" style="height:450px"></div>
       </div>
 
       <div style="float:left; width:50%; text-align:left; padding-left:80px; padding-right:225px;">
-		    <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.spouse.projectedAge}</label>
-		    <br>
+        <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.spouse.projectedAge}</label>
+        <br>
         <label style="font-size: 20px;">${userData.spouse.countryAvgStr}</label>
         <br>
-		    <label style="font-size: 20px;">Body Mass Index: ${userData.spouse.bmi}</label>
+        <label style="font-size: 20px;">Body Mass Index: ${userData.spouse.bmi}</label>
         <br>
-		    <label style="font-size: 20px;">Smoking Habit Offset: ${userData.spouse.smokingOffset} years</label>
-		  </div>
+        <label style="font-size: 20px;">Smoking Habit Offset: ${userData.spouse.smokingOffset} years</label>
+      </div>
 
     </div>
-      <br>
-      <br>
-      <br>
+    <br>
+    <br>
+    <br>
 
-	</main>
-	<br>
+  </main>
+  <br>
 
 </template>
