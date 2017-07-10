@@ -38,6 +38,13 @@ export class Results {
                         text: 'Probability of Living'
                     }
                 },
+                plotOptions: {
+                    line: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
                 series: [{
                     name: 'Probablity of Living',
                     data:  generateTuples(person)
