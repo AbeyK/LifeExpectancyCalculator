@@ -635,8 +635,8 @@ console.log("GOD IS NOT REAL");
         this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
         this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
         this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
-        var clientOffset = this.userData.client.raceOffset + this.userData.client.hale + this.userData.client.diabeticOffset +
-            this.userData.client.cholesterolOffset + this.userData.client.professionOffset + this.userData.client.smokingOffset + this.userData.client.incomeOffset;
+        var clientOffset = parseInt(this.userData.client.raceOffset) + parseInt(this.userData.client.hale) + parseInt(this.userData.client.diabeticOffset) +
+            parseInt(this.userData.client.cholesterolOffset) + parseInt(this.userData.client.professionOffset) + parseInt(this.userData.client.smokingOffset) + parseInt(this.userData.client.incomeOffset);
 
         this.userData.client.adjustedAge = parseInt(this.userData.client.age) + parseInt(clientOffset);
         this.userData.client.projectedAge = parseInt(this.userData.client.projectedAge) + parseInt(clientOffset);
@@ -650,8 +650,8 @@ console.log("GOD IS NOT REAL");
             this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
             this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);
 
-            var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset +
-                           this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset + this.userData.spouse.smokingOffset + this.userData.spouse.incomeOffset;;
+            var spouseOffset = parseInt(this.userData.spouse.raceOffset) + parseInt(this.userData.spouse.hale) + parseInt(this.userData.spouse.diabeticOffset) +
+            parseInt(this.userData.spouse.cholesterolOffset) + parseInt(this.userData.spouse.professionOffset) + parseInt(this.userData.spouse.smokingOffset) + parseInt(this.userData.spouse.incomeOffset);
         
             this.userData.spouse.adjustedAge = parseInt(this.userData.spouse.age) + parseInt(spouseOffset);
             this.userData.spouse.projectedAge = parseInt(this.userData.spouse.projectedAge) + parseInt(spouseOffset);
