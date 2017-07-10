@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
   background-color:#012D52 !important;
 }
 
@@ -240,4 +240,18 @@ nav a {
   line-height: 27px;
 }
 
+.highcharts-background {
+  fill: #2369a5;
+}
+.highcharts-title {
+  fill: #fff;
+  font-size: 30px;
+}
+.highcharts-color-0{
+  fill: #012d52;
+  stroke: #012d52;
+}
+.highcharts-axis-title{
+  fill:#fff
 
+}

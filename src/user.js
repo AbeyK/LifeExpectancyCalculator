@@ -231,17 +231,17 @@ export class User {
     calculateCountryAvgStr(){
         if(this.projectedAge>78.94){
             if(this.projectedAge>this.countryAvgStr){
-                this.countryAvgStr="Your life expectancy is higher than the national average by "+ parseFloat(Math.round((this.projectedAge-78.94) * 100) / 100).toFixed(2) +" years and higher than the local county average by " + parseFloat(Math.round((this.projectedAge-this.countryAvgStr) * 100) / 100).toFixed(2)+" years."
+                this.countryAvgStr="This is higher than the national average by "+ parseFloat(Math.round((this.projectedAge-78.94) * 100) / 100).toFixed(2) +" years and higher than the local county average by " + parseFloat(Math.round((this.projectedAge-this.countryAvgStr) * 100) / 100).toFixed(2)+" years."
             }else{
-                this.countryAvgStr="Your life expectancy is higher than the national average by "+  parseFloat(Math.round((this.projectedAge-78.94) * 100) / 100).toFixed(2)+" years and lower than the local county average by " + parseFloat(Math.round((Math.abs(this.projectedAge-this.countryAvgStr)) * 100) / 100).toFixed(2) +" years."
+                this.countryAvgStr="This is higher than the national average by "+  parseFloat(Math.round((this.projectedAge-78.94) * 100) / 100).toFixed(2)+" years and lower than the local county average by " + parseFloat(Math.round((Math.abs(this.projectedAge-this.countryAvgStr)) * 100) / 100).toFixed(2) +" years."
             }
         }
         else{
             if(this.projectedAge>this.countryAvgStr){
-                this.countryAvgStr="Your life expectancy is lower than the national average by "+ parseFloat(Math.round((Math.abs(this.projectedAge-78.94)) * 100) / 100).toFixed(2)+" years and higher than the local county average by " +parseFloat(Math.round((this.projectedAge-this.countryAvgStr) * 100) / 100).toFixed(2)+" years."
+                this.countryAvgStr="This is lower than the national average by "+ parseFloat(Math.round((Math.abs(this.projectedAge-78.94)) * 100) / 100).toFixed(2)+" years and higher than the local county average by " +parseFloat(Math.round((this.projectedAge-this.countryAvgStr) * 100) / 100).toFixed(2)+" years."
 
             }else{
-                this.countryAvgStr="Your life expectancy is lower than the national average by "+ parseFloat(Math.round((Math.abs(this.projectedAge-78.94)) * 100) / 100).toFixed(2)+" years and lower than the local county average by " +parseFloat(Math.round((Math.abs(this.projectedAge-this.countryAvgStr)) * 100) / 100).toFixed(2)+" years."
+                this.countryAvgStr="This is lower than the national average by "+ parseFloat(Math.round((Math.abs(this.projectedAge-78.94)) * 100) / 100).toFixed(2)+" years and lower than the local county average by " +parseFloat(Math.round((Math.abs(this.projectedAge-this.countryAvgStr)) * 100) / 100).toFixed(2)+" years."
             }
         }
     }
