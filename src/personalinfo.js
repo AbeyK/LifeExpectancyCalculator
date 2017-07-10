@@ -645,8 +645,8 @@ export class PersonalInfo {
             var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset +
                            this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset + this.userData.spouse.smokingOffset + this.userData.spouse.incomeOffset;;
         
-            this.userData.spouse.adjustedAge += this.userData.spouse.age + spouseOffset;
-            this.userData.spouse.projectedAge += spouseOffset;
+            this.userData.spouse.adjustedAge = parseInt(this.userData.spouse.age) + parseInt(spouseOffset);
+            this.userData.spouse.projectedAge = parseInt(this.userData.spouse.projectedAge) + parseInt(spouseOffset);
         }
 
         this.router.navigate('#/results');

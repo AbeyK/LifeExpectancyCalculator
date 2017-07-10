@@ -46,6 +46,7 @@ export class Results {
         } // end makeChart()
 
         console.log(this.userData.client);
+        console.log(this.userData.spouse);
 
         makeChart(this.userData.client, 'container');
 
