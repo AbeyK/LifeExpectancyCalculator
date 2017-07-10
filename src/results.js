@@ -41,7 +41,7 @@ export class Results {
                 plotOptions: {
                     line: {
                         marker: {
-                            enabled: false
+                            enabled: true
                         }
                     }
                 },
