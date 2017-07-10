@@ -46,6 +46,11 @@ export class User {
 
         this.cholesterol = "";
         this.cholesterolOffset = "";
+
+        this.raceOffset = "";
+
+        this.income = "";
+        this.incomeOffset = "";
     }
 
     calculateBaseFromCounty() {
@@ -57,38 +62,47 @@ export class User {
             if(this.data.race_offset_list[i][0]===this.age){
                 if(this.gender=="Male"){
                     if(this.race==="White American"){
-                        return this.data.race_offset_list[i][1];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][1]);
+                        return;
                     }
                     else if(this.race==="Black or African American"){
-                        return this.data.race_offset_list[i][3];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][3]);
+                        return;
 
                     }
                     else if(this.race==="Hispanic"){
-                        return this.data.race_offset_list[i][5];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][5]);
+                        return;
 
                     }
                     else{
-                        return 0;
+                        this.raceOffset = 0;
+                        return;
                     }
                 }
                 else if(this.gender=="Female"){
                     if(this.race==="White American"){
-                        return this.data.race_offset_list[i][2];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][2]);
+                        return;
                     }
                     else if(this.race==="Black or African American"){
-                        return this.data.race_offset_list[i][4];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][4]);
+                        return;
 
                     }
                     else if(this.race==="Hispanic"){
-                        return this.data.race_offset_list[i][6];
+                        this.raceOffset = parseInt(this.data.race_offset_list[i][6]);
+                        return;
 
                     }
                     else{
-                        return 0;
+                        this.raceOffset = 0;
+                        return;
                     }
                 }
                 else{
-                    return 0;
+                    this.raceOffset = 0;
+                    return;
                 }
             }
         }
@@ -177,11 +191,41 @@ export class User {
 
     calculateCholesterolOffset (age, cholesterol) {
         switch (cholesterol) {
-            case 1:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][1]; return;
-            case 2:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][2]; return;
-            case 3:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][3]; return;
-            case 4:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][4]; return;
-            default:    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][5]; return;
+            case 1:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][1];console.log(this.cholesterolOffset); console.log(this.data.cholesterolExpecs[age - 1][1]); return;
+            case 2:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][2];console.log(this.cholesterolOffset); console.log(this.data.cholesterolExpecs[age - 1][1]);return;
+            case 3:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][3];console.log(this.cholesterolOffset); console.log(this.data.cholesterolExpecs[age - 1][1]);return;
+            case 4:     this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][4]; console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
+            default:    this.cholesterolOffset = this.data.cholesterolExpecs[age - 1][5]; console.log(this.cholesterolOffset);console.log(this.data.cholesterolExpecs[age - 1][1]);return;
         }
     }
+
+    calculateIncomeOffset(gender, age, income) {
+        income = parseInt(income);
+
+        if (gender === "Male") {
+            if (income < 22800)
+                this.incomeOffset = this.data.maleIncomeOffsets[age][1];
+            else if (22800 <= income && income < 43511)
+                this.incomeOffset = this.data.maleIncomeOffsets[age][2];
+            else if (43511 <= income && income < 72001)
+                this.incomeOffset = this.data.maleIncomeOffsets[age][3];
+            else if (72001 <= income && income < 112262)
+                this.incomeOffset = this.data.maleIncomeOffsets[age][4];
+            else
+                this.incomeOffset = this.data.maleIncomeOffsets[age][5];
+        }
+        else {
+            if (income < 22800)
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][1];
+            else if (22800 <= income && income < 43511)
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][2];
+            else if (43511 <= income && income < 72001)
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][3];
+            else if (72001 <= income && income < 112262)
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][4];
+            else
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][5];
+        }
+    }
+
 }

@@ -27,17 +27,21 @@
 
 	<main onload="results()">
 
-		<div style="float:left; width:50%; padding-left:225px;">
-		<div id="container" style="height:450px"></div>
+		<div style="float:left; width:50%; padding-left:225px;" style="box-shadow: 10px 10px 5px #888888;">
+		    <div id="container" style="height:450px"></div>
 		</div>
+
 		<div style="float:left; width:50%; text-align:left; padding-left:80px;">
-		<label style="font-size: 20px;">Estimated Life Remaining:</label>
-		<br>
-		<label style="font-size: 20px;">Body Mass Index:</label>
-		<br>
-		<label style="font-size: 20px;">Smoking Habit Offset:</label>
+		    <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.client.projectedAge}</label>
+		    <br>
+		    <label style="font-size: 20px;">Body Mass Index: ${userData.client.bmi}</label>
+	    	<br>
+		    <label style="font-size: 20px;">Smoking Habit Offset: ${userData.client.smokingOffset} years</label>
 		</div>
-		<div id="containerSpouse" style="width:100%; height:400px;"></div>
+		
+    <div id="containerSpouse" style="width:100%; height:400px;">
+
+    </div>
 
 
 	</main>
