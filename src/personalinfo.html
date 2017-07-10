@@ -116,10 +116,6 @@
                         <input id="enterWeight" type="text" value.bind="userData.client.weightInput" change.delegate="enteredWeight()" class="form-control"
                             placeholder="150">
                     </div>
-
-                    <div show.bind="showBMI">
-                        Your BMI is: ${userData.client.bmi}
-                    </div>
                     <br>
 
                     <div class="form-group">
@@ -270,10 +266,6 @@
                         class="form-control" placeholder="150">
                 </div>
                 <br>
-
-                <div show.bind="showBMISpouse">
-                    Your BMI is: ${userData.spouse.bmi}
-                </div>
 
                 <div class="form-group">
                     <label for="diabeticSpouse">Diabetic?</label>
