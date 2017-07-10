@@ -204,27 +204,27 @@ export class User {
 
         if (gender === "Male") {
             if (income < 22800)
-                this.incomeOffset = this.data.maleIncomeOffsets[age - 1][1];
+                this.incomeOffset = this.data.maleIncomeOffsets[age][1];
             else if (22800 <= income && income < 43511)
-                this.incomeOffset = this.data.maleIncomeOffsets[age - 1][2];
+                this.incomeOffset = this.data.maleIncomeOffsets[age][2];
             else if (43511 <= income && income < 72001)
-                this.incomeOffset = this.data.maleIncomeOffsets[age - 1][3];
+                this.incomeOffset = this.data.maleIncomeOffsets[age][3];
             else if (72001 <= income && income < 112262)
-                this.incomeOffset = this.data.maleIncomeOffsets[age - 1][4];
+                this.incomeOffset = this.data.maleIncomeOffsets[age][4];
             else
-                this.incomeOffset = this.data.maleIncomeOffsets[age - 1][5];
+                this.incomeOffset = this.data.maleIncomeOffsets[age][5];
         }
         else {
             if (income < 22800)
-                this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][1];
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][1];
             else if (22800 <= income && income < 43511)
-                this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][2];
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][2];
             else if (43511 <= income && income < 72001)
-                this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][3];
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][3];
             else if (72001 <= income && income < 112262)
-                this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][4];
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][4];
             else
-                this.incomeOffset = this.data.femaleIncomeOffsets[age - 1][5];
+                this.incomeOffset = this.data.femaleIncomeOffsets[age][5];
         }
     }
 

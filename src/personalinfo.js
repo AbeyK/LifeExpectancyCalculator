@@ -75,8 +75,6 @@ export class PersonalInfo {
         if (this.userData.client.age < 0 || this.userData.client.age > 123)
             alert("Enter a valid age");
         this.userData.client.age = parseInt(this.userData.client.age);
-        console.log("Age is below");
-        console.log(this.userData.client.age);
     }
 
     enteredGender() {
@@ -120,7 +118,6 @@ export class PersonalInfo {
     }
 
     enteredHeight() {
-        console.log("here it is: " + this.userData.client.heightInput)
         if (/^\d'(\d|1[0-2])$/.test(this.userData.client.heightInput)) {
             if (this.userData.client.heightInput != "" && this.userData.client.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
             {
@@ -200,7 +197,6 @@ export class PersonalInfo {
         else {
             this.userData.client.diabeticOffset = 0;
         }
-        console.log(this.userData.client.diabeticOffset);
     }
 
     enteredSmoking() {
@@ -276,7 +272,6 @@ export class PersonalInfo {
     }
 
     enteredHeightSpouse() {
-        console.log("here it is: " + this.userData.spouse.heightInput)
         if (/^\d'(\d|1[0-2])$/.test(this.userData.spouse.heightInput)) {
             if (this.userData.spouse.heightInput != "" && this.userData.spouse.weightInput != "")   // if user entered both weight and height, calculate BMI and show it
             {
