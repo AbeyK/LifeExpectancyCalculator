@@ -149,7 +149,7 @@ export class User {
     }
 
     calculateExerciseOffset(smokingStatus, exerciseLevel) {
-        if (smokingStatus == "Never") {
+        if (smokingStatus == "Never Smoked") {
             if (exerciseLevel == "None")
                 this.exerciseOffset = 0;
             else if (exerciseLevel == "Some")
@@ -159,7 +159,7 @@ export class User {
             else
                 this.exerciseOffset = 3.25;
         }
-        else if (smokingStatus == "Former") {
+        else if (smokingStatus == "Quit Smoking") {
             if (exerciseLevel == "None")
                 this.exerciseOffset = 0;
             else if (exerciseLevel == "Some")

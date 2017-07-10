@@ -625,7 +625,7 @@ export class PersonalInfo {
 
         this.userData.client.calculateRaceOffset();
         this.userData.client.calculateEducationOffset();
-        this.userData.client.calculateExerciseOffset();
+        this.userData.client.calculateExerciseOffset(this.userData.client.smokingStatus, this.userData.client.exerciseLevel);
         this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
         this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
         this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
@@ -639,7 +639,7 @@ export class PersonalInfo {
         if (this.userData.client.married) {
             this.userData.spouse.calculateRaceOffset();
             this.userData.spouse.calculateEducationOffset();
-            this.userData.spouse.calculateExerciseOffset();
+            this.userData.spouse.calculateExerciseOffset(this.userData.spouse.smokingStatus, this.userData.spouse.exerciseLevel);
             this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
             this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
             this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);

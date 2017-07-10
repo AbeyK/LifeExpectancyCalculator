@@ -684,7 +684,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
             this.userData.client.calculateRaceOffset();
             this.userData.client.calculateEducationOffset();
-            this.userData.client.calculateExerciseOffset();
+            this.userData.client.calculateExerciseOffset(this.userData.client.smokingStatus, this.userData.client.exerciseLevel);
             this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
             this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
             this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
@@ -697,7 +697,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             if (this.userData.client.married) {
                 this.userData.spouse.calculateRaceOffset();
                 this.userData.spouse.calculateEducationOffset();
-                this.userData.spouse.calculateExerciseOffset();
+                this.userData.spouse.calculateExerciseOffset(this.userData.spouse.smokingStatus, this.userData.spouse.exerciseLevel);
                 this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
                 this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
                 this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);
@@ -952,9 +952,9 @@ define('user',["exports", "data"], function (exports, _data) {
         User.prototype.calculateSmokingOffset = function calculateSmokingOffset() {};
 
         User.prototype.calculateExerciseOffset = function calculateExerciseOffset(smokingStatus, exerciseLevel) {
-            if (smokingStatus == "Never") {
+            if (smokingStatus == "Never Smoked") {
                 if (exerciseLevel == "None") this.exerciseOffset = 0;else if (exerciseLevel == "Some") this.exerciseOffset = 1.6;else if (exerciseLevel == "Moderate") this.exerciseOffset = 2.6;else this.exerciseOffset = 3.25;
-            } else if (smokingStatus == "Former") {
+            } else if (smokingStatus == "Quit Smoking") {
                 if (exerciseLevel == "None") this.exerciseOffset = 0;else if (exerciseLevel == "Some") this.exerciseOffset = 2.2;else if (exerciseLevel == "Moderate") this.exerciseOffset = 3.45;else this.exerciseOffset = 5.25;
             } else {
                 if (exerciseLevel == "None") this.exerciseOffset = 0;else if (exerciseLevel == "Some") this.exerciseOffset = 1.6;else if (exerciseLevel == "Moderate") this.exerciseOffset = 2.6;else this.exerciseOffset = 3.25;
