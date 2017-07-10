@@ -35,8 +35,10 @@
           <div id="container" style="height:450px"></div>
       </div>
 
-      <div style="float:left; width:50%; text-align:left; padding-left:80px;">
+      <div style="float:left; width:50%; text-align:left; padding-left:80px; padding-right:225px;">
           <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.client.projectedAge}</label>
+          <br>
+          <label style="font-size: 20px;">${userData.client.countryAvgStr}</label>
           <br>
           <label style="font-size: 20px;">Body Mass Index: ${userData.client.bmi}</label>
           <br>
@@ -53,11 +55,13 @@
           <div id="containerSpouse" style="height:450px"></div>
       </div>
 
-      <div style="float:left; width:50%; text-align:left; padding-left:80px;">
+      <div style="float:left; width:50%; text-align:left; padding-left:80px; padding-right:225px;">
 		    <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.spouse.projectedAge}</label>
 		    <br>
+        <label style="font-size: 20px;">${userData.spouse.countryAvgStr}</label>
+        <br>
 		    <label style="font-size: 20px;">Body Mass Index: ${userData.spouse.bmi}</label>
-	    	<br>
+        <br>
 		    <label style="font-size: 20px;">Smoking Habit Offset: ${userData.spouse.smokingOffset} years</label>
 		  </div>
 
