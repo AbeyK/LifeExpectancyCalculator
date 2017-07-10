@@ -248,6 +248,12 @@ nav a {
   color:#012d52;
   font-size: 40px;
   font-weight: bold;
+      font-weight: bold;
+    font-size: 45px;
+      font-family: 'Great Vibes', cursive;
+
+    margin: 0;
+    padding: 0;
 }
 .highcharts-color-0{
   fill: #012d52;
