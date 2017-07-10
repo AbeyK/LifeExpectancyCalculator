@@ -29,20 +29,25 @@
 
     <div id="client" style="display: block; clear: both;">
 
-      <h2>Client</h2>
-
-      <div style="float:left; width:50%; padding-left:225px;" style="box-shadow: 50x 50px 51px #888888;">
-          <div id="container" style="height:450px"></div>
+      <div style="width: 75%; margin: 0 auto;">
+      <h1>Client</h1>
+      <hr>
+      <br>
+      </div>
+      <div style="float:left; width:50%; padding-left:265px; padding-right:20px;" style="box-shadow: 50x 50px 51px #888888;">
+          <div id="container" style="height:450px;"></div>
       </div>
 
-      <div style="float:left; width:50%; text-align:left; padding-left:80px; padding-right:225px;">
-          <label style="font-size: 20px;">Your Life Expectancy: Age ${userData.client.projectedAge}</label>
+      <div style="float:left; width:50%; text-align:center; padding-left:20px; padding-right:265px;">
+        <div style="background:#2369a5; height:450px">
+          <p class="highcharts-title">Analysis</p>
           <br>
-          <label style="font-size: 20px;">${userData.client.countryAvgStr}</label>
+          <p style="font-size: 18px;">Your estimated life expectancy is ${userData.client.projectedAge}. ${userData.client.countryAvgStr}</p>
           <br>
-          <label style="font-size: 20px;">Body Mass Index: ${userData.client.bmi}</label>
+          <p style="font-size: 20px;">Body Mass Index: ${userData.client.bmi}</p>
           <br>
-          <label style="font-size: 20px;">Smoking Habit Offset: ${userData.client.smokingOffset} years</label>
+          <p style="font-size: 20px;">Smoking Habit Offset: ${userData.client.smokingOffset} years</p>
+        </div>
       </div>
 
     </div>
@@ -66,7 +71,9 @@
 		  </div>
 
     </div>
-
+      <br>
+      <br>
+      <br>
 
 	</main>
 	<br>
