@@ -644,8 +644,8 @@ export class PersonalInfo {
             this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
             this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);
 
-            var spouseOffset = this.userData.spouse.raceOffset + this.userData.spouse.hale + this.userData.spouse.diabeticOffset +
-                           this.userData.spouse.cholesterolOffset + this.userData.spouse.professionOffset + this.userData.spouse.smokingOffset + this.userData.spouse.incomeOffset;;
+            var spouseOffset = parseInt(this.userData.spouse.raceOffset) + parseInt(this.userData.spouse.hale) + parseInt(this.userData.spouse.diabeticOffset) +
+            parseInt(this.userData.spouse.cholesterolOffset) + parseInt(this.userData.spouse.professionOffset) + parseInt(this.userData.spouse.smokingOffset) + parseInt(this.userData.spouse.incomeOffset);
         
             this.userData.spouse.adjustedAge = parseInt(this.userData.spouse.age) + parseInt(spouseOffset);
             this.userData.spouse.projectedAge = parseInt(this.userData.spouse.projectedAge) + parseInt(spouseOffset);
