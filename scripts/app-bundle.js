@@ -690,7 +690,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
             }
 
             this.userData.client.calculateRaceOffset();
-            this.userData.client.calculateEducationOffset();
+            this.userData.client.calculateEducationOffset(this.userData.client.gender, this.userData.client.education);
             this.userData.client.calculateExerciseOffset(this.userData.client.smokingStatus, this.userData.client.exerciseLevel);
             this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
             this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
@@ -703,7 +703,7 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
 
             if (this.userData.client.married) {
                 this.userData.spouse.calculateRaceOffset();
-                this.userData.spouse.calculateEducationOffset();
+                this.userData.spouse.calculateEducationOffset(this.userData.spouse.gender, this.userData.spouse.education);
                 this.userData.spouse.calculateExerciseOffset(this.userData.spouse.smokingStatus, this.userData.spouse.exerciseLevel);
                 this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
                 this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
@@ -942,7 +942,17 @@ define('user',["exports", "data"], function (exports, _data) {
             this.bmi = weightLbs * 0.45 / (heightIn * 0.025 * (heightIn * 0.025));
             this.bmi = this.bmi.toFixed(1);
 
-            if (this.bmi < 18.5) this.gender === "Male" ? this.hale = -9 : this.hale = -5.9;else if (this.bmi <= 18.5 && this.bmi < 25) this.hale = 0;else if (this.bmi <= 25 && this.bmi < 30) this.gender === "Male" ? this.hale = 2.9 : this.hale = 1.5;else if (this.bmi <= 30 && this.bmi < 35) this.gender === "Male" ? this.hale = 0.4 : this.hale = -2.7;else this.gender === "Male" ? this.hale = -6.2 : this.hale = -10;
+            if (this.bmi < 18.5) {
+                this.gender === "Male" ? this.hale = -9 : this.hale = -5.9;this.bmiCatagory = "Underweight";
+            } else if (this.bmi <= 18.5 && this.bmi < 25) {
+                this.hale = 0;this.bmiCatagory = "Normal Weight";
+            } else if (this.bmi <= 25 && this.bmi < 30) {
+                this.gender === "Male" ? this.hale = 2.9 : this.hale = 1.5;this.bmiCatagory = "Overweight";
+            } else if (this.bmi <= 30 && this.bmi < 35) {
+                this.gender === "Male" ? this.hale = 0.4 : this.hale = -2.7;this.bmiCatagory = "Obese Class 1";
+            } else {
+                    this.gender === "Male" ? this.hale = -6.2 : this.hale = -10;this.bmiCatagory = "Obese Class 2";
+                }
         };
 
         User.prototype.calculateDiabeticOffset = function calculateDiabeticOffset() {};
@@ -953,9 +963,9 @@ define('user',["exports", "data"], function (exports, _data) {
             switch (education) {
                 case "Some High School":
                     this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 1];return;
-                case "Some High School":
+                case "High School":
                     this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 2];return;
-                case "Some High School":
+                case "Some College":
                     this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 3];return;
                 default:
                     this.educationOffset = this.data.educationExpecs[this.age - 1][arrOffset + 4];return;

@@ -263,3 +263,7 @@ nav a {
   fill:#fff
 
 }
+.highcharts-axis-labels {
+  color:#fff;
+  fill: #fff;
+}
