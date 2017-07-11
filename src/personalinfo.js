@@ -154,48 +154,47 @@ console.log("GOD IS NOT REAL");
     }
 
     enteredDiabetic(diabetic) {
-        this.userData.client.diabetic = diabetic;
         if (diabetic === 1) {
             if (this.userData.client.gender === "Male") {
-                this.userData.client.diabeticOffset = 0 - Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
+                this.userData.client.diabeticOffset = 0 - Math.max(-0.1693 * this.userData.client.age + 15.778, 0);
             }
             else if (this.userData.client.gender === "Female") {
-                this.userData.client.diabeticOffset = 0 - Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
+                this.userData.client.diabeticOffset = 0 - Math.max(-0.1548 * this.userData.client.age + 16.04, 0);
             }
         }
         else if (diabetic == 2) {
             if (this.userData.client.gender === "Male") {
                 if (this.userData.client.race == "White American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0629 * this.userData.client.age + 7.5116, 0);
 
                 }
                 else if (this.userData.client.race == "Asian American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(0.0005 * (this.userData.client.age * this.userData.client.age) + 4.2654, 0);
 
                 }
                 else if (this.userData.client.race == "Black or African American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0555 * this.userData.client.age + 4.4522, 0);
 
                 }
                 else {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.client.age * this.userData.client.age) - 0.2013 * this.userData.client.age + 11.829, 0);
 
                 }
             } else if (this.userData.client.gender === "Female") {
                 if (this.userData.client.race == "White American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0737 * this.userData.client.age + 9.6209, 0);
 
                 }
                 else if (this.userData.client.race == "Asian American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.195 * this.userData.client.age + 0.875, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0001 * (this.userData.client.age * this.userData.client.age) + 2.5796, 0);
 
                 }
                 else if (this.userData.client.race == "Black or African American") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.client.age * this.userData.client.age) - 0.2058 * this.userData.client.age + 9.3807, 0);
 
                 }
                 else {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.0012 * (this.userData.client.age * this.userData.client.age) - 0.2403 * this.userData.client.age + 14.41, 0);
 
                 }
             }
@@ -203,6 +202,7 @@ console.log("GOD IS NOT REAL");
         else {
             this.userData.client.diabeticOffset = 0;
         }
+        console.log(this.userData.client.diabeticOffset);
     }
 
     enteredSmoking() {
@@ -313,45 +313,45 @@ console.log("GOD IS NOT REAL");
         this.userData.spouse.diabetic = diabetic;
         if (diabetic === 1) {
             if (this.userData.spouse.gender === "Male") {
-                this.userData.spouse.diabeticOffset = 0 - Math.max(-0.8791 * this.userData.spouse.age + 13.087, 0);
+                this.userData.spouse.diabeticOffset = 0 - Math.max(-0.1693 * this.userData.spouse.age + 15.778, 0);
             }
             else if (this.userData.spouse.gender === "Female") {
-                this.userData.spouse.diabeticOffset = 0 - Math.max(-0.8121 * this.userData.spouse.age + 14.385, 0);
+                this.userData.spouse.diabeticOffset = 0 - Math.max(-0.1548 * this.userData.spouse.age + 16.04, 0);
             }
         }
         else if (diabetic == 2) {
             if (this.userData.spouse.gender === "Male") {
                 if (this.userData.spouse.race == "White American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4333 * this.userData.spouse.age + 5.6667, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0629 * this.userData.spouse.age + 7.5116, 0);
 
                 }
                 else if (this.userData.spouse.race == "Asian American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.2 * this.userData.spouse.age + 1.2111, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(0.0005 * (this.userData.spouse.age * this.userData.spouse.age) + 4.2654, 0);
 
                 }
                 else if (this.userData.spouse.race == "Black or African American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.385 * this.userData.spouse.age + 2.8361, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0555 * this.userData.spouse.age + 4.4522, 0);
 
                 }
                 else {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.3217 * this.userData.spouse.age + 5.4306, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.spouse.age * this.userData.spouse.age) - 0.2013 * this.userData.spouse.age + 11.829, 0);
 
                 }
             } else if (this.userData.spouse.gender === "Female") {
                 if (this.userData.spouse.race == "White American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4867 * this.userData.spouse.age + 7.3778, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0737 * this.userData.spouse.age + 9.6209, 0);
 
                 }
                 else if (this.userData.spouse.race == "Asian American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.195 * this.userData.spouse.age + 0.875, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0001 * (this.userData.spouse.age * this.userData.spouse.age) + 2.5796, 0);
 
                 }
                 else if (this.userData.spouse.race == "Black or African American") {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.1567 * this.userData.spouse.age + 1.85, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.spouse.age * this.userData.spouse.age) - 0.2058 * this.userData.spouse.age + 9.3807, 0);
 
                 }
                 else {
-                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.4517 * this.userData.spouse.age + 6.7472, 0);
+                    this.userData.spouse.diabeticOffset = 0 - Math.max(-0.0012 * (this.userData.spouse.age * this.userData.spouse.age) - 0.2403 * this.userData.spouse.age + 14.41, 0);
 
                 }
             }
@@ -631,7 +631,7 @@ console.log("GOD IS NOT REAL");
 
         this.userData.client.calculateRaceOffset();
         this.userData.client.calculateEducationOffset();
-        this.userData.client.calculateExerciseOffset();
+        this.userData.client.calculateExerciseOffset(this.userData.client.smokingStatus, this.userData.client.exerciseLevel);
         this.userData.client.calculateCholesterolOffset(this.userData.client.age, this.userData.client.cholesterol);
         this.userData.client.calculateProfessionOffset(this.userData.client.age, this.userData.client.profession);
         this.userData.client.calculateIncomeOffset(this.userData.client.gender, this.userData.client.age, this.userData.client.income);
@@ -645,7 +645,7 @@ console.log("GOD IS NOT REAL");
         if (this.userData.client.married) {
             this.userData.spouse.calculateRaceOffset();
             this.userData.spouse.calculateEducationOffset();
-            this.userData.spouse.calculateExerciseOffset();
+            this.userData.spouse.calculateExerciseOffset(this.userData.spouse.smokingStatus, this.userData.spouse.exerciseLevel);
             this.userData.spouse.calculateCholesterolOffset(this.userData.spouse.age, this.userData.spouse.cholesterol);
             this.userData.spouse.calculateProfessionOffset(this.userData.spouse.age, this.userData.spouse.profession);
             this.userData.spouse.calculateIncomeOffset(this.userData.spouse.gender, this.userData.spouse.age, this.userData.spouse.income);

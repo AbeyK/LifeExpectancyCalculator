@@ -33,12 +33,12 @@
         <hr>
         <br>
       </div>
-      <div style="float:left; width:50%; padding-left:265px; padding-right:20px;" style="box-shadow: 50x 50px 51px #888888;">
+      <div style="float:left; width:50%; padding-left:265px; padding-right:20px;">
         <div id="container" style="height:450px;"></div>
       </div>
 
       <div style="float:left; width:50%; text-align:center; padding-left:20px; padding-right:265px;">
-        <div style="background:rgba(35, 105, 165, 0.6);; height:450px">
+        <div style="background:#2369a5; height:450px">
           <div style="padding:1px; padding-left:25px; padding-right:25px;">
             <h2 class="highcharts-title" style="padding-top:20px;font-size:45px">Analysis</h2>
             <br>
@@ -73,9 +73,11 @@
 
     </div>
 
-    <div id="spouse" show.bind="userData.client.married" style="display: block; clear: both;">
-
-      <h2>Spouse</h2>
+    <div id="spouse" style="display: block; clear: both;">
+      <br>
+      <br>      <br>
+      <br>
+      <!--<h2>Spouse</h2>
 
       <div style="float:left; width:50%; padding-left:225px;" style="box-shadow: 10px 10px 5px #888888;">
         <div id="containerSpouse" style="height:450px"></div>
@@ -89,13 +91,74 @@
         <label style="font-size: 20px;">Body Mass Index: ${userData.spouse.bmi}</label>
         <br>
         <label style="font-size: 20px;">Smoking Habit Offset: ${userData.spouse.smokingOffset} years</label>
+      </div>-->
+
+      <div style="width: 75%; margin: 0 auto;">
+        <h2> Secondary</h2>
+        <hr>
+        <br>
+      </div>
+      <div style="float:left; width:50%; padding-left:265px; padding-right:20px;">
+        <div id="containerSpouse" style="height:450px;"></div>
+      </div>
+
+      <div style="float:left; width:50%; text-align:center; padding-left:20px; padding-right:265px;">
+        <div style="background:#2369a5; height:450px">
+          <div style="padding:1px; padding-left:25px; padding-right:25px;">
+            <h2 class="highcharts-title" style="padding-top:20px;font-size:45px">Analysis</h2>
+            <br>
+            <p style="font-size: 18px;">Your estimated life expectancy is ${userData.spouse.projectedAge}. ${userData.spouse.countryAvgStr}</p>
+            <br>
+            <div style="padding-left:60px">
+              <div>
+                <p style="float: left; padding-right:20px"><img src="src/images/scale.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left; padding-top:6px"><span style="font-weight:bold; font-size:16px">Body Mass Index</span> is ${userData.spouse.bmi}</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left; padding-right:20px"><img src="src/images/money.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"> <span style="font-weight:bold; font-size:16px">Income Bracket </span>is impacting your life span by  ${userData.spouse.incomeOffset} years</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left;padding-right:20px"><img src="src/images/cig.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"><span style="font-weight:bold; font-size:16px">Smoking Habits</span> are impacting your life span by ${userData.spouse.smokingOffset} years</p>
+              </div>
+              <br>
+              <div>
+                <p style="float: left;padding-right:20px"><img src="src/images/heart.png" width="35px"></p>
+                <p style="font-size:15px; text-align:left;padding-top:6px"><span style="font-weight:bold; font-size:16px">Cholesterol Level </span>is impacting your life span by ${userData.spouse.cholesterolOffset} years</p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
     <br>
     <br>
     <br>
-
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    <br><br>
+    <br>
+    
   </main>
   <br>
 

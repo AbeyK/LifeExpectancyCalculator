@@ -41,8 +41,14 @@ export class Results {
                 plotOptions: {
                     line: {
                         marker: {
-                            enabled: false
+                            enabled: true
                         }
+                    }
+                },
+                labels: {
+                    style: {
+                        color: '#FFF',
+                        font: '11px Trebuchet MS, Verdana, sans-serif'
                     }
                 },
                 series: [{
