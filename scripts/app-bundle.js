@@ -271,38 +271,38 @@ define('personalinfo',['exports', 'aurelia-fetch-client', 'aurelia-framework', '
         };
 
         PersonalInfo.prototype.enteredDiabetic = function enteredDiabetic(diabetic) {
-            this.userData.client.diabetic = diabetic;
             if (diabetic === 1) {
                 if (this.userData.client.gender === "Male") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.8791 * this.userData.client.age + 13.087, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.1693 * this.userData.client.age + 15.778, 0);
                 } else if (this.userData.client.gender === "Female") {
-                    this.userData.client.diabeticOffset = 0 - Math.max(-0.8121 * this.userData.client.age + 14.385, 0);
+                    this.userData.client.diabeticOffset = 0 - Math.max(-0.1548 * this.userData.client.age + 16.04, 0);
                 }
             } else if (diabetic == 2) {
                 if (this.userData.client.gender === "Male") {
                     if (this.userData.client.race == "White American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4333 * this.userData.client.age + 5.6667, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0629 * this.userData.client.age + 7.5116, 0);
                     } else if (this.userData.client.race == "Asian American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.2 * this.userData.client.age + 1.2111, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(0.0005 * (this.userData.client.age * this.userData.client.age) + 4.2654, 0);
                     } else if (this.userData.client.race == "Black or African American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.385 * this.userData.client.age + 2.8361, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0555 * this.userData.client.age + 4.4522, 0);
                     } else {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.3217 * this.userData.client.age + 5.4306, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.client.age * this.userData.client.age) - 0.2013 * this.userData.client.age + 11.829, 0);
                     }
                 } else if (this.userData.client.gender === "Female") {
                     if (this.userData.client.race == "White American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4867 * this.userData.client.age + 7.3778, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0737 * this.userData.client.age + 9.6209, 0);
                     } else if (this.userData.client.race == "Asian American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.195 * this.userData.client.age + 0.875, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0001 * (this.userData.client.age * this.userData.client.age) + 2.5796, 0);
                     } else if (this.userData.client.race == "Black or African American") {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.1567 * this.userData.client.age + 1.85, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0011 * (this.userData.client.age * this.userData.client.age) - 0.2058 * this.userData.client.age + 9.3807, 0);
                     } else {
-                        this.userData.client.diabeticOffset = 0 - Math.max(-0.4517 * this.userData.client.age + 6.7472, 0);
+                        this.userData.client.diabeticOffset = 0 - Math.max(-0.0012 * (this.userData.client.age * this.userData.client.age) - 0.2403 * this.userData.client.age + 14.41, 0);
                     }
                 }
             } else {
                 this.userData.client.diabeticOffset = 0;
             }
+            console.log(this.userData.client.diabeticOffset);
         };
 
         PersonalInfo.prototype.enteredSmoking = function enteredSmoking() {
